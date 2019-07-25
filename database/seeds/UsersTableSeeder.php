@@ -20,7 +20,30 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('password'),
             'remember_token' => Str::random(10),
             'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
+            'updated_at' => Carbon::now(),
+            'usertype_id' => 1
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'Agent',
+            'email' => 'agent@example.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('password'),
+            'remember_token' => Str::random(10),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+            'usertype_id' => 2
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'Client',
+            'email' => 'client@example.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('password'),
+            'remember_token' => Str::random(10),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+            'usertype_id' => 3
         ]);
     }
 }
