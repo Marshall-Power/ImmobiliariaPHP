@@ -14,14 +14,14 @@ class ClimateTableSeeder extends Seeder
     {
         Climate::create([
             'name' => 'Caldera Diesel'
-        ])
+        ]);
 
         Climate::create([
             'name' => 'Caldera Bio'
-        ])
+        ]);
 
         Climate::create([
             'name' => 'Chimenea'
-        ])
+        ]);
     }
 }
