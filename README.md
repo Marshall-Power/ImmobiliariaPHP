@@ -1,4 +1,4 @@
-# ImmoPHPSummer
+﻿# ImmoPHPSummer
 Projecte PHP per el curs de la Fundació Esplai
 
 # Instrucciones
@@ -27,7 +27,15 @@ php artisan migrate[:fresh] # Crear nuevas tablas | Borrar y crear
 php artisan db:seed # Agregar Fake Data
 ```
 
-**Admin:** admin@example.com **PASS:** password
+## Default Users
+
+| User   | Email              | Password |
+|--------|--------------------|----------|
+| Admin  | admin@example.com  | password |
+| Agent  | agent@example.com  | password |
+| Client | client@example.com | password |
+
+
 
 No olvidar hacer un `git pull origin master` para agregar los cambios del master.
 
