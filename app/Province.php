@@ -11,10 +11,10 @@ class Province extends Model
         'id',
         'name'
     ];
-    /*
-        public function zones()
-        {
-            return $this->hasMany(Zone::class);
-        }
-    */
+
+    public function zones()
+    {
+        return $this->hasMany(Zone::class);
+    }
+
 }
