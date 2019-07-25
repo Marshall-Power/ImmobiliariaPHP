@@ -13,7 +13,7 @@ class CreateHousetypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('housetypes', function (Blueprint $table) {
+        Schema::create('house_types', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateHousetypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('housetypes');
+        Schema::dropIfExists('house_types');
     }
 }
