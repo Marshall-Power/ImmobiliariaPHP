@@ -11,19 +11,19 @@ class HouseTypeTableSeeder extends Seeder
      */
     public function run()
     {
-      DB::table('housetypes')->insert([
+      DB::table('house_types')->insert([
         'name' => 'Pis',
       ]);
-      DB::table('housetypes')->insert([
+      DB::table('house_types')->insert([
           'name' => 'Casa',
       ]);
-      DB::table('housetypes')->insert([
+      DB::table('house_types')->insert([
         'name' => 'Mansió',
       ]);
-      DB::table('housetypes')->insert([
+      DB::table('house_types')->insert([
         'name' => 'Àtic',
       ]);
-      DB::table('housetypes')->insert([
+      DB::table('house_types')->insert([
         'name' => 'Dúplex',
       ]);
     }
