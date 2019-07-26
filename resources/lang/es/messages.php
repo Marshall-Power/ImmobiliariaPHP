@@ -22,5 +22,12 @@ return [
     'aboutUs' => 'Sobre Nosotros',
     'login' => 'Iniciar Session',
     'register'=> 'Registrar',
+    'name' => 'Nombre',
+    'email' => 'E-mail',
+    'phone' => 'Telefono',
+    'message' => 'Mensaje',
+    'text_contact' => '¿Tienes alguna duda?',
+    'send' => 'Enviar',
+    'back' => 'Atrás',
 
 ];

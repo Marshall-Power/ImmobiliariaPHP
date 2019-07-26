@@ -13,7 +13,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                          <li class="nav-item">
-                        <a class="nav-link" href="">{{trans('messages.contact')}}</a>
+                        <a class="nav-link" href="{{route('contact')}}">{{trans('messages.contact')}}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('about')}}">{{trans('messages.aboutUs')}}</a>
