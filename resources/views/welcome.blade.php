@@ -8,6 +8,13 @@
                     </div>
                     <div class="col-lg-8 col-md-8 col-sm-4">
 
+                    <div>
+                        @forelse ($houses as $house)
+                            {{ $house->name }}
+                        @empty
+
+                        @endforelse
+                    </div>
                 </div>
                 </div>
             </div>
