@@ -25,11 +25,11 @@ class CreateHousesTable extends Migration
             $table->integer('rooms');
             $table->integer('bathrooms');
             $table->boolean('air_conditioner');
-            $table->integer('climate_id');
+            $table->bigInteger('climate_id')->unsigned();
             $table->boolean('elevator');
-            $table->integer('employee_id');
-            $table->integer('housetype_id');
-            $table->integer('contract_id');
+            $table->bigInteger('employee_id')->unsigned();
+            $table->bigInteger('housetype_id')->unsigned();
+            $table->bigInteger('contract_id')->unsigned();
             $table->date('date_published');
             $table->boolean('avaiable');
             $table->timestamps();
