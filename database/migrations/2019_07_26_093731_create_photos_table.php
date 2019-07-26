@@ -16,7 +16,7 @@ class CreatePhotosTable extends Migration
         Schema::create('photos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('path');
-            $table->bigIncrements('house_id')->unsigned();
+            $table->bigInteger('house_id')->unsigned();
             $table->timestamps();
         });
     }
