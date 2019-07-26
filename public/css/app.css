@@ -10666,3 +10666,20 @@ a.text-dark:focus {
   padding: 0;
 }
 
+#welcome .houses_row div {
+  border: 2px solid lightgrey;
+  height: 300px;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-bot: 20px;
+}
+
+#welcome .houses_row img {
+  width: 80%;
+  height: 80%;
+}
+
+#welcome .house_card {
+  border: none !important;
+}
+
