@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        
+
     }
 
     /**
@@ -28,5 +28,13 @@ class HomeController extends Controller
     public function about()
     {
         return view('public.about');
+    }
+    public function contact()
+    {
+        return view('public.contact');
+    }
+    public function saveContact()
+    {
+
     }
 }

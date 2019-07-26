@@ -16,6 +16,8 @@
 
 Potenti fringilla eget mattis purus aliquam iaculis accumsan ultricies litora feugiat posuere magna ornare, nullam nostra dis sapien curae nisl quam ac ad nisi urna. Dui metus primis euismod habitant cubilia curabitur eu dapibus lectus, laoreet quam turpis duis proin ad convallis eleifend, lacinia tincidunt tempus et cras ut pellentesque lobortis. Nisi ante mus odio lacus congue sociosqu netus eu ornare, dictum convallis per nullam luctus ultricies diam tempus, erat litora quam fringilla vulputate consequat elementum pharetra.</p>
 </div>
+  <a class="btn btn-secondary" href="{{ url('/') }}">{{trans('messages.back')}}</a>
+
 </div>
 
 
