@@ -16,7 +16,7 @@
                         <a class="nav-link" href="">{{trans('messages.contact')}}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">{{trans('messages.aboutUs')}}</a>
+                        <a class="nav-link" href="{{route('about')}}">{{trans('messages.aboutUs')}}</a>
                     </li>
                 </ul>
 
