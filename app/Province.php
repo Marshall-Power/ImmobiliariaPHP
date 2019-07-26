@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-//use App\House
+//use App\Zone
 class Province extends Model
 {
     protected $fillable =
@@ -11,10 +11,10 @@ class Province extends Model
         'id',
         'name'
     ];
-    /*
-        public function houses()
-        {
-            return $this->hasMany(House::class);
-        }
-    */
+
+    public function zones()
+    {
+        return $this->hasMany(Zone::class);
+    }
+
 }
