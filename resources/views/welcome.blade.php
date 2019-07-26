@@ -17,6 +17,13 @@
                                         </div>
                                         <div class="col-lg-4 house_card">
                                              <h2>{{ $house->name }}</h2>
+                                             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, fuga.</p>
+                                            <ul>
+                                                <li>Direccion: {{ $house->address }}</li>
+                                                <li>Precio: {{ $house->price }}</li>
+                                                <li>N. Habitaciones: {{ $house->rooms }}</li>
+                                            </ul>
+
                                         </div>
                                     </div>
                             </div>
