@@ -39,3 +39,11 @@ Luego subir al repositorio solo la rama en los que has echo los cambios.
 git push origin {rama} # Nombre de la rama
 ```
 Despues avisar por slack para que alguien revise los cambios.
+
+# Si tienes algun problema prubea
+
+```bash
+composer-install
+composer-dumpautoload
+php artisan migrate:fresh
+```
