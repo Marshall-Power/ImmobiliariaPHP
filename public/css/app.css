@@ -10666,7 +10666,7 @@ a.text-dark:focus {
   padding: 0;
 }
 
-#welcome #houses_row div {
+#welcome .houses_row div {
   border: 2px solid lightgrey;
   height: 300px;
   border-radius: 10px;
@@ -10674,7 +10674,7 @@ a.text-dark:focus {
   margin-bot: 20px;
 }
 
-#welcome #houses_row img {
+#welcome .houses_row img {
   width: 80%;
   height: 80%;
 }

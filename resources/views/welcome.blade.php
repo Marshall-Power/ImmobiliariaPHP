@@ -8,7 +8,7 @@
                     </div>
                 <div class="col-lg-8 col-md-8 col-sm-4">
                 @forelse ($houses as $house)
-                    <div id="houses_row" class="row-fluid">
+                    <div class="row-fluid houses_row">
 
                             <div class="col-lg-10 offset-lg-1">
                                     <div class="row house_card">

@@ -1,6 +1,6 @@
 #welcome
 {
-    #houses_row div
+    .houses_row div
     {
         border: 2px solid lightgrey;
         height: 300px;
@@ -9,7 +9,7 @@
         margin-bot: 20px;
     }
 
-    #houses_row img
+    .houses_row img
     {
         width: 80%;
         height: 80%;
