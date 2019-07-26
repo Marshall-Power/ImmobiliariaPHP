@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
+             <img src="https://es.freelogodesign.org/Content/img/logo-ex-2.png" style="width:150px;height:150px;" class="css-class" alt="inmobiliaria">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -12,7 +12,12 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
-
+                         <li class="nav-item">
+                        <a class="nav-link" href="">{{trans('messages.contact')}}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('about')}}">{{trans('messages.aboutUs')}}</a>
+                    </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -20,11 +25,11 @@
                     <!-- Authentication Links -->
                     @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}">{{trans('messages.login')}}</a>
                     </li>
                     @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        <a class="nav-link" href="{{ route('register') }}">{{trans('messages.register')}}</a>
                     </li>
                     @endif
                     @else
