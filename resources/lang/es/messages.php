@@ -34,5 +34,7 @@ return [
     'confirm_password' => 'Confirmar el password',
     'remember' => 'Recuérdame',
     'forgot' => '¿Has olvidado la contraseña?',
+    'no_users' => 'No se han encontrado usuarios!',
+    'user_type' => 'Tipo de usuario',
 
 ];

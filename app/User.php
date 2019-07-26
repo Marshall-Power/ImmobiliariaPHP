@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use App\User;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -39,7 +40,7 @@ class User extends Authenticatable
 
     public function type()
     {
-        return $this->belongsTo(UserType::class);
+        return $this->hasOne(UserType::class);
     }
 
 }
