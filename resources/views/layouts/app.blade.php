@@ -22,7 +22,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    
+
     @yield('styles')
 </head>
 
@@ -31,7 +31,7 @@
     <div id="app">
         @include('includes.header')
         <main class="py-4">
-            @yield('content')
+                      @yield('content')
         </main>
         @include('includes.footer')
     </div>
