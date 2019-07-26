@@ -20,7 +20,7 @@ return [
     'user' => "We can't find a user with that e-mail address.",
     'contact' => 'Contacto',
     'aboutUs' => 'Sobre Nosotros',
-    'login' => 'Iniciar Session',
+    'login' => 'Iniciar Sesión',
     'register'=> 'Registrar',
     'name' => 'Nombre',
     'email' => 'E-mail',
@@ -30,5 +30,9 @@ return [
     'send' => 'Enviar',
     'back' => 'Atrás',
     'filter' => 'Filtro',
+    'password' => 'Contraseña',
+    'confirm_password' => 'Confirmar el password',
+    'remember' => 'Recuérdame',
+    'forgot' => '¿Has olvidado la contraseña?',
 
 ];
