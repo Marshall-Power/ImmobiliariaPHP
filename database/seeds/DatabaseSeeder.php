@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         $this->call(HouseTypeTableSeeder::class);
         $this->call(ClimateTableSeeder::class);
         $this->call(ContractTableSeeder::class);
+        $this->call(HousesTableSeeder::class);
     }
 }

@@ -17,8 +17,8 @@ class CreateHousesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('address');
-            $table->float('latitude');
-            $table->float('longitude');
+            $table->string('latitude');
+            $table->string('longitude');
             $table->bigInteger('zone_id')->unsigned();
             $table->decimal('price');
             $table->integer('size');
@@ -32,6 +32,7 @@ class CreateHousesTable extends Migration
             $table->bigInteger('contract_id')->unsigned();
             $table->date('date_published');
             $table->boolean('avaiable');
+            $table->boolean('parking');
             $table->timestamps();
         });
     }
