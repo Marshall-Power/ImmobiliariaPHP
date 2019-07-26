@@ -29,5 +29,6 @@ return [
     'text_contact' => '¿Tienes alguna duda?',
     'send' => 'Enviar',
     'back' => 'Atrás',
+    'filter' => 'Filtro',
 
 ];
