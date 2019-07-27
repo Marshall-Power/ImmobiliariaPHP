@@ -65,7 +65,7 @@
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{trans('messages.register')}}
-                                </button>
+                                </button> 
                                 <a class="btn btn-secondary" href="{{ url('/') }}">{{trans('messages.back')}}</a>
                             </div>
                         </div>
