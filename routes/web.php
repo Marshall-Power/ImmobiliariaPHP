@@ -29,4 +29,5 @@ Route::get('/admin', 'AdminController@index');
 //     Route::resource('province', 'ProvinceContoller');
 // });
 
-Route::resource('/users', 'UserController'); //A borrar cuando se descomente el grupo de arriba
+Route::resource('/admin/users', 'UserController'); //A enlazar cuando se descomente el grupo de arriba
+
