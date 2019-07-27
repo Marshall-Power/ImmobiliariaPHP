@@ -62,8 +62,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-      $user=User::find($id);
-      return view('admin.users',compact('user'));
+      $users=User::get();
+      $usertypes=UserType::get();
+      return view('users',compact('users','usertypes'));
     }
 
     /**
@@ -108,6 +109,6 @@ class UserController extends Controller
     {
       $user=User::find($id);
       $user->delete();
-      return redirect('users');
+      return redirect('/admin/users');
     }
 }
