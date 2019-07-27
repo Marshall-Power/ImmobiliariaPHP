@@ -34,5 +34,8 @@ return [
     'confirm_password' => 'Confirmar el password',
     'remember' => 'Recuérdame',
     'forgot' => '¿Has olvidado la contraseña?',
-
+    'zones' => 'Zonas',
+    'agents' => 'Agents',
+    'users' => 'Usuarios',
+    'houses' => 'Inmuebles',
 ];

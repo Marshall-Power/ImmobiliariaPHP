@@ -3,14 +3,14 @@
 @section('content')
   <div id="welcome" class="container">
                 <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-4">
+                    <div class="col-lg-4 col-md-4 col-sm-2">
             @include('includes.filter')
                     </div>
                 <div class="col-lg-8 col-md-8 col-sm-4">
                 @forelse ($houses as $house)
                     <div class="row-fluid houses_row">
 
-                            <div class="col-lg-10 offset-lg-1">
+                            <div class="col-md-10 offset-lg-1">
                                     <div class="row house_card">
                                         <div class="col-lg-6 house_card">
                                              <img src="{{ $house->photos->first()->path }}" alt="{{ $house->name }}">

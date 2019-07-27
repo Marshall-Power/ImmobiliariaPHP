@@ -10,4 +10,9 @@ class Contract extends Model
     'rent',
     'buy',
 ];
+
+public function house()
+{
+    return $this->hsaMany(House::Class);
+}
 }
