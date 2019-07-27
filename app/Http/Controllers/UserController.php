@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\UserType;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+use \Carbon\Carbon;
+
 
 class UserController extends Controller
 {
@@ -15,7 +20,8 @@ class UserController extends Controller
     public function index()
     {
       $users=User::get();
-      return view('users',compact('users'));
+      $usertypes=UserType::get();
+      return view('users',compact('users','usertypes'));
     }
 
     /**
@@ -25,7 +31,7 @@ class UserController extends Controller
      */
     public function create()
     {
-      return view('.create');
+      return view('/users.create');
     }
 
     /**
@@ -37,12 +43,15 @@ class UserController extends Controller
     public function store(Request $request)
     {
       $data=[
-        'nom'=>$request->nom,
+        'name'=>$request->name,
         'email'=>$request->email,
-        'usertype_id'=>$request->usertype_id,
+        'password'=> Hash::make($request->password),
+        'usertype_id'=>$request->usertype,
+        'email_verified_at' => Carbon::now(),
+        'remember_token' => Str::random(10),
       ];
       $user = User::create($data);
-      return redirect('/users');
+      return redirect('/admin/users');
     }
 
     /**
@@ -54,7 +63,7 @@ class UserController extends Controller
     public function show($id)
     {
       $user=User::find($id);
-      return view('/user.show',compact('user'));
+      return view('admin.users',compact('user'));
     }
 
     /**
@@ -66,7 +75,8 @@ class UserController extends Controller
     public function edit($id)
     {
       $user=User::find($id);
-      return view('/user.edit',compact('user'));
+      $usertypes=UserType::get();
+      return view('admin.users.edit',compact('user','usertypes'));
     }
 
     /**
@@ -79,13 +89,13 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
       $data=[
-        'nom'=>$request->nom,
+        'name'=>$request->name,
         'email'=>$request->email,
-        'usertype_id'=>$request->usertype_id,
+        'usertype_id'=>$request->usertype,
       ];
       $user=User::find($id);
       $user->update($data);
-      return redirect('/users');
+      return redirect('/admin/users');
     }
 
     /**
@@ -98,6 +108,6 @@ class UserController extends Controller
     {
       $user=User::find($id);
       $user->delete();
-      return redirect('/users');
+      return redirect('users');
     }
 }
