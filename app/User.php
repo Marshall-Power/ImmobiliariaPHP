@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use App\User;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -16,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'usertype_id'
+        'name', 'email', 'password', 'usertype_id','remember_token','email_verified_at',
     ];
 
     /**
@@ -37,9 +38,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function type()
+    public function usertype()
     {
         return $this->belongsTo(UserType::class);
     }
 
+    public function houses()
+    {
+        return $this->hasMany(House::class, 'employee_id');
+    }
 }

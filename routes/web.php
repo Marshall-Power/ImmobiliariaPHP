@@ -24,10 +24,11 @@ Route::get('/admin', 'AdminController@index');
 
 Route::resource('zones','ZoneController');
 
-
-// Route::group(['prefix' => 'admin'], function () {
-//     Route::resource('users', 'UserController');
+Route::group(['prefix' => 'admin'], function () {
+     Route::resource('users', 'UserController');
+     Route::resource('zones', 'ZoneController');
+     //     Route::resource('province', 'ProvinceContoller');
 //     Route::resource('houses', 'HouseContoller');
-//     Route::resource('zone', 'ZoneController');
-//     Route::resource('province', 'ProvinceContoller');
-// });
+});
+
+
