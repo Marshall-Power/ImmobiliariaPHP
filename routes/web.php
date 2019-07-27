@@ -22,12 +22,11 @@ Route::get('/about','HomeController@about')->name('about');
 
 Route::get('/admin', 'AdminController@index');
 
-// Route::group(['prefix' => 'admin'], function () {
-//     Route::resource('users', 'UserController');
+Route::group(['prefix' => 'admin'], function () {
+     Route::resource('users', 'UserController');
 //     Route::resource('houses', 'HouseContoller');
 //     Route::resource('zone', 'ZoneController');
 //     Route::resource('province', 'ProvinceContoller');
-// });
+});
 
-Route::resource('/admin/users', 'UserController'); //A enlazar cuando se descomente el grupo de arriba
 

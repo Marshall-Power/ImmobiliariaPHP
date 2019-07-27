@@ -44,5 +44,8 @@ return [
     'send'=> 'Enviar',
     'email_placeholder' => 'nombre@ejemplo.com',
     'update' => 'Actualizar',
-
+    'zones' => 'Zonas',
+    'agents' => 'Agents',
+    'users' => 'Usuarios',
+    'houses' => 'Inmuebles',
 ];

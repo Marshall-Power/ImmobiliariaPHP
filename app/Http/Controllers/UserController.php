@@ -19,9 +19,9 @@ class UserController extends Controller
      */
     public function index()
     {
-      $users=User::get();
-      $usertypes=UserType::get();
-      return view('users',compact('users','usertypes'));
+        $users = User::get();
+        $usertypes = UserType::get();
+        return view('users', compact('users', 'usertypes'));
     }
 
     /**
@@ -31,7 +31,7 @@ class UserController extends Controller
      */
     public function create()
     {
-      return view('/users.create');
+        return view('users.create');
     }
 
     /**
@@ -42,16 +42,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-      $data=[
-        'name'=>$request->name,
-        'email'=>$request->email,
-        'password'=> Hash::make($request->password),
-        'usertype_id'=>$request->usertype,
-        'email_verified_at' => Carbon::now(),
-        'remember_token' => Str::random(10),
-      ];
-      $user = User::create($data);
-      return redirect('/admin/users');
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'usertype_id' => $request->usertype,
+            'email_verified_at' => Carbon::now(),
+            'remember_token' => Str::random(10),
+        ];
+        $user = User::create($data);
+        return redirect('/admin/users');
     }
 
     /**
@@ -62,9 +62,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-      $users=User::get();
-      $usertypes=UserType::get();
-      return view('users',compact('users','usertypes'));
+        $users = User::get();
+        $usertypes = UserType::get();
+        return view('users', compact('users', 'usertypes'));
     }
 
     /**
@@ -75,9 +75,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-      $user=User::find($id);
-      $usertypes=UserType::get();
-      return view('admin.users.edit',compact('user','usertypes'));
+        $user = User::find($id);
+        $usertypes = UserType::get();
+        return view('admin.users.edit', compact('user', 'usertypes'));
     }
 
     /**
@@ -89,14 +89,14 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $data=[
-        'name'=>$request->name,
-        'email'=>$request->email,
-        'usertype_id'=>$request->usertype,
-      ];
-      $user=User::find($id);
-      $user->update($data);
-      return redirect('/admin/users');
+        $data = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'usertype_id' => $request->usertype,
+        ];
+        $user = User::find($id);
+        $user->update($data);
+        return redirect('/admin/users');
     }
 
     /**
@@ -107,8 +107,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-      $user=User::find($id);
-      $user->delete();
-      return redirect('/admin/users');
+        $user = User::find($id);
+        $user->delete();
+        return redirect('/admin/users');
     }
 }
