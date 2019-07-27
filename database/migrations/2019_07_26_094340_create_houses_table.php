@@ -23,16 +23,16 @@ class CreateHousesTable extends Migration
             $table->decimal('price');
             $table->integer('size');
             $table->integer('rooms');
-            $table->integer('bathrooms');
-            $table->boolean('air_conditioner');
+            $table->integer('bathrooms')
+            $table->boolean('elevator')->default(false);
+            $table->boolean('available')->default(false);
+            $table->boolean('parking')->default(false);
+            $table->boolean('air_conditioner')->default(false);
             $table->bigInteger('climate_id')->unsigned();
-            $table->boolean('elevator');
             $table->bigInteger('employee_id')->unsigned();
             $table->bigInteger('housetype_id')->unsigned();
             $table->bigInteger('contract_id')->unsigned();
-            $table->date('date_published');
-            $table->boolean('avaiable');
-            $table->boolean('parking');
+            $table->date('date_published')->default(now());
             $table->timestamps();
         });
     }
