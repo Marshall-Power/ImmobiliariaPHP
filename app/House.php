@@ -6,6 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class House extends Model
 {
+
+    public static $rules = [
+        'name' => 'required',
+        'address' => 'required',
+        'zone_id' => 'required|string',
+        'price' => 'required|numeric',
+        'size' => 'required|numeric',
+        'climate_id' => 'required',
+        'employee_id' => 'required',
+        'housetype_id' => 'required',
+        'contract_id' => 'required',
+    ];
+
     protected $fillable = [
         'name',
         'address',
