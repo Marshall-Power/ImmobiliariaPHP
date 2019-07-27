@@ -1,3 +1,11 @@
-@foreach ($houses as $house)
-    {{ $house->name }}
-@endforeach
+<div>
+    @foreach ($houses as $house)
+        <a href="{{ route('houses.show', $house->id) }}">
+            {{ $house->name }}
+        </a>
+    @endforeach
+</div>
+
+<a href="{{ route('houses.create') }}">
+    {{ trans('messages.create_house') }}
+</a>
