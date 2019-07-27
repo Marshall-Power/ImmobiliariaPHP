@@ -10,7 +10,6 @@ use App\Climate;
 use App\User;
 use App\HouseType;
 use App\Contract;
-use Illuminate\Support\Str;
 
 class HouseController extends Controller
 {
@@ -53,9 +52,14 @@ class HouseController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, House::$rules);
+        $validator = $this->validate($request, House::$rules);
+        $validator["elevator"] = $request->elevator ? true : false;
+        $validator["parking"] = $request->parking ? true : false;
+        $validator["air_conditioner"] = $request->air_conditioner ? true : false;
+        $validator["available"] = $request->available ? true : false;
+        House::create($validator);
 
-        House::create($request->all());
+        return redirect()->route('houses.index')->with('flash', trans('messages.new_house_added'));
     }
 
     /**
@@ -78,8 +82,17 @@ class HouseController extends Controller
      */
     public function edit($id)
     {
+        $user = Auth::user();
+
         $house = House::findOrFail($id);
-        return view('admin.houses.edit', compact('house'));
+        $zones = Zone::get();
+        $climates = Climate::get();
+        $employees = User::where('usertype_id', '2')->get();
+        $housetypes = HouseType::all();
+        $contracts = Contract::all();
+
+        return view('admin.houses.edit',
+            compact('user', 'house', 'zones', 'climates', 'employees', 'housetypes', 'contracts'));
     }
 
     /**
@@ -92,8 +105,15 @@ class HouseController extends Controller
     public function update(Request $request, $id)
     {
         $validator = $this->validate($request, House::$rules);
+        $validator["elevator"] = $request->elevator ? true : false;
+        $validator["parking"] = $request->parking ? true : false;
+        $validator["air_conditioner"] = $request->air_conditioner ? true : false;
+        $validator["available"] = $request->available ? true : false;
+        $house = House::findOrFail($id);
+        $house->update($validator);
 
-        House::create($request->all());
+        return redirect()->route('houses.show', $id)->with('flash', trans('messages.changes_saved'));
+
     }
 
     /**
@@ -107,6 +127,6 @@ class HouseController extends Controller
 
         $house = House::findOrFail($id);
         $house->delete();
-        return redirect()->route('admin.houses.index')-with('flash', 'House deleted.');
+        return redirect()->route('houses.index')-with('flash', 'House deleted.');
     }
 }

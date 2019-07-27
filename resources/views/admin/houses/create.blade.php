@@ -297,8 +297,8 @@
 
                             <div class="col-md-6 form-check">
                                 <input id="elevator" type="checkbox"
-                                    class="form-check-input @error('elevator') is-invalid @enderror"
-                                    name="elevator" value="{{ old('elevator') }}" >
+                                    class="form-check-input @error('elevator') is-invalid @enderror" name="elevator"
+                                    value="{{ old('elevator') }}">
 
                                 @error('elevator')
                                 <span class="invalid-feedback" role="alert">
@@ -310,21 +310,21 @@
 
                         {{-- Parking --}}
                         <div class="form-group row">
-                                <label for="parking"
-                                    class="col-md-4 form-check-label text-md-right">{{ trans('messages.parking') }}</label>
+                            <label for="parking"
+                                class="col-md-4 form-check-label text-md-right">{{ trans('messages.parking') }}</label>
 
-                                <div class="col-md-6 form-check">
-                                    <input id="parking" type="checkbox"
-                                        class="form-check-input @error('parking') is-invalid @enderror"
-                                        name="parking" value="{{ old('parking') }}" >
+                            <div class="col-md-6 form-check">
+                                <input id="parking" type="checkbox"
+                                    class="form-check-input @error('parking') is-invalid @enderror" name="parking"
+                                    value="{{ old('parking') }}">
 
-                                    @error('parking')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
+                                @error('parking')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
+                        </div>
 
                         {{-- Air_conditioning --}}
                         <div class="form-group row">
@@ -352,8 +352,8 @@
 
                             <div class="col-md-6 form-check">
                                 <input id="available" type="checkbox"
-                                    class="form-check-input @error('available') is-invalid @enderror"
-                                    name="available" value="{{ old('available') }}">
+                                    class="form-check-input @error('available') is-invalid @enderror" name="available"
+                                    value="{{ old('available') }}">
 
                                 @error('available')
                                 <span class="invalid-feedback" role="alert">
