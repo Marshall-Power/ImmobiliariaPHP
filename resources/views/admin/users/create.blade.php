@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -8,7 +9,7 @@
                 <div class="card-header">{{trans('messages.register')}}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('users.store') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -40,6 +41,23 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="usertype_id" class="col-md-4 col-form-label text-md-right">
+                                {{ trans('messages.user_type') }}
+                            </label>
+
+                            <div class="col-md-6">
+                                <select name="usertype" id="usertype" class="form-control">
+                                    @forelse ($usertypes as $usertype)
+                                    <option value="{{ $usertype->id }}">{{ $usertype->type }}</option>
+                                    @empty
+                                    <option value=""></option>
+                                    @endforelse
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{trans('messages.password')}}</label>
 
                             <div class="col-md-6">
@@ -65,7 +83,7 @@
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{trans('messages.register')}}
-                                </button> 
+                                </button>
                                 <a class="btn btn-secondary" href="{{ url('/') }}">{{trans('messages.back')}}</a>
                             </div>
                         </div>
@@ -76,3 +94,4 @@
     </div>
 </div>
 @endsection
+
