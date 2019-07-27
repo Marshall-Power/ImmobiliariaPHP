@@ -38,4 +38,6 @@ return [
     'agents' => 'Agents',
     'users' => 'Usuarios',
     'houses' => 'Inmuebles',
+    'cp' => 'Código Postal',
+    'province' => 'Provincia',
 ];
