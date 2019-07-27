@@ -21,7 +21,7 @@ class UserController extends Controller
     {
         $users = User::get();
         $usertypes = UserType::get();
-        return view('users', compact('users', 'usertypes'));
+        return view('admin.users.index', compact('users', 'usertypes'));
     }
 
     /**
@@ -31,7 +31,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('users.create');
+        $usertypes = UserType::get();
+        return view('admin.users.create', compact('usertypes'));
     }
 
     /**
@@ -51,7 +52,7 @@ class UserController extends Controller
             'remember_token' => Str::random(10),
         ];
         $user = User::create($data);
-        return redirect('/admin/users');
+        return redirect()->route('users.index');
     }
 
     /**
@@ -62,9 +63,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $users = User::get();
-        $usertypes = UserType::get();
-        return view('users', compact('users', 'usertypes'));
+        $user = User::findOrFail($id);
+        return view('admin.users.show', compact('user'));
     }
 
     /**
@@ -75,7 +75,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
+        $user = User::findOrFail($id);
         $usertypes = UserType::get();
         return view('admin.users.edit', compact('user', 'usertypes'));
     }
@@ -94,9 +94,9 @@ class UserController extends Controller
             'email' => $request->email,
             'usertype_id' => $request->usertype,
         ];
-        $user = User::find($id);
+        $user = User::findOrFail($id);
         $user->update($data);
-        return redirect('/admin/users');
+        return redirect()->route('users.index');
     }
 
     /**
@@ -107,8 +107,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::find($id);
+        $user = User::findOrFail($id);
         $user->delete();
-        return redirect('/admin/users');
+        return redirect()->route('users.index');
     }
 }
