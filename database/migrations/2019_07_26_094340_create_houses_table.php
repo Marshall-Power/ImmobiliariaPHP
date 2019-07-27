@@ -23,7 +23,7 @@ class CreateHousesTable extends Migration
             $table->decimal('price');
             $table->integer('size');
             $table->integer('rooms');
-            $table->integer('bathrooms')
+            $table->integer('bathrooms');
             $table->boolean('elevator')->default(false);
             $table->boolean('available')->default(false);
             $table->boolean('parking')->default(false);
