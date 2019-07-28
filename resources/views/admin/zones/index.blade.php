@@ -6,59 +6,60 @@
 <div class="container">
     <div class="row">
         <div class="col-md offset-5">
-    @include('includes.adminNav')
-      </div>
+            @include('includes.adminNav')
+        </div>
     </div>
     <h2>{{trans('messages.zones')}}
-    <button type="button" class="btn btn-success mb-4" data-toggle="modal" data-target="#createZone">
-        <i class="fas fa-user-plus"></i>
-    </button>
+        <button type="button" class="btn btn-success mb-4" data-toggle="modal" data-target="#createZone">
+            <i class="fas fa-user-plus"></i>
+        </button>
     </h2>
-    
-    <div class="row">
-    <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">{{trans('messages.name')}}</th>
-      <th scope="col">{{trans('messages.cp')}}</th>
-      <th scope="col">{{trans('messages.province')}}</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-@forelse ($zones as $zone)
-   
-    <tr>
-      <td>
-        {{$zone->name}}
-      </td>
-      <td>    
-        {{$zone->postal_code}}
-      </td>
-      <td>
-        {{$zone->province->name}}
-      </td>
-      <td>
-      <a class="btn btn-block btn-secondary" href="{{ route('zones.edit', $zone->id) }}">
-                {{ trans('messages.edit_zone') }}
-                <i class="fas fa-user-edit"></i>
-            </a>
-      </td>
-      <td>
-      <a class="btn btn-block btn-danger" href="{{ route('zones.index') }}" onclick="event.preventDefault();document.getElementById('delete-form').submit();">
-                {{ trans('messages.delete_zone') }}
-                <i class="fas fa-user-times"></i>
-            </a>
-      </td>
-    </tr>
-    <form action="{{ route('zones.destroy', $zone->id) }}" method="post" id="delete-form">
-                @csrf
-                @method('DELETE')
-            </form>
-    @empty
-    @endforelse
 
-    </table>
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">{{trans('messages.name')}}</th>
+                    <th scope="col">{{trans('messages.cp')}}</th>
+                    <th scope="col">{{trans('messages.province')}}</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            @forelse ($zones as $zone)
+
+            <tr>
+                <td>
+                    {{$zone->name}}
+                </td>
+                <td>
+                    {{$zone->postal_code}}
+                </td>
+                <td>
+                    {{$zone->province->name}}
+                </td>
+                <td>
+                    <a class="btn btn-block btn-secondary" href="{{ route('zones.edit', $zone->id) }}">
+                        {{ trans('messages.edit_zone') }}
+                        <i class="fas fa-user-edit"></i>
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-block btn-danger" href="{{ route('zones.index') }}"
+                        onclick="event.preventDefault();document.getElementById('delete-zone-{{ $zone->id }}').submit();">
+                        {{ trans('messages.delete_zone') }}
+                        <i class="fas fa-user-times"></i>
+                    </a>
+                    <form action="{{ route('zones.destroy', $zone->id) }}" method="POST" id="delete-zone-{{ $zone->id }}">
+                        @csrf
+                        @method('DELETE')
+                    </form>
+                </td>
+            </tr>
+            @empty
+            @endforelse
+
+        </table>
 
     </div>
 
@@ -104,8 +105,9 @@
                             class="col-md-4 col-form-label text-md-right">{{ trans('messages.cp') }}</label>
 
                         <div class="col-md-6">
-                            <input id="posta_code" type="text" class="form-control @error('postal_code') is-invalid @enderror"
-                                name="postal_code" value="{{ old('posta_code') }}" >
+                            <input id="posta_code" type="text"
+                                class="form-control @error('postal_code') is-invalid @enderror" name="postal_code"
+                                value="{{ old('posta_code') }}">
 
                             @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -115,7 +117,7 @@
                         </div>
                     </div>
 
-                   
+
 
                     <div class="form-group row">
                         <label for="provinceSelect"
@@ -126,7 +128,7 @@
                                 @forelse ($provinces as $province)
                                 <option value={{ $province->id }}>{{ $province->name }}</option>
                                 @empty
-                                
+
                                 @endforelse
                             </select>
                         </div>

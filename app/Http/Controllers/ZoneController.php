@@ -18,7 +18,7 @@ class ZoneController extends Controller
         $zones = Zone::get();
         $provinces = Province::get();
 
-        return view('admin.zone.index', compact('zones','provinces'));
+        return view('admin.zones.index', compact('zones','provinces'));
     }
 
     /**
@@ -59,8 +59,8 @@ class ZoneController extends Controller
     public function show($id)
     {
         // return view('admin.zones.show');
-        $zone = Zone::findOrFile($id);
-        return view('admin.zone.show',compact('zone'));
+        $zone = Zone::findOrFail($id);
+        return view('admin.zones.show',compact('zone'));
     }
 
     /**
@@ -74,7 +74,7 @@ class ZoneController extends Controller
         // return view('admin.zones.edit');
         $zone = Zone::findOrFail($id);
         $provinces = Province::get();
-        return view('admin.zone.edit', compact('zone','provinces'));
+        return view('admin.zones.edit', compact('zone','provinces'));
     }
 
     /**
