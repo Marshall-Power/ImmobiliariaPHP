@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    @include('includes.adminNav')
     <div class="mb-4">
         <h1>
             {{ trans('messages.provinces_title') }}

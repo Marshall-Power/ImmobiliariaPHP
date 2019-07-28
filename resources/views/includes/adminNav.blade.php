@@ -1,20 +1,51 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
     <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNavDropdown">
         <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link @if(url()->current() == route('admin')) active @endif" href="{{ route('admin') }}">Dashboard</a>
+
+            <li class="nav-item @if(url()->current() == route('admin')) active @endif">
+                <a class="nav-link" href="{{ route('admin') }}">
+                    Dashboard
+                    @if(url()->current() == route('admin'))
+                    <span class="sr-only">(current)</span>
+                    @endif
+                </a>
             </li>
+
+            <li class="nav-item @if(url()->current() == route('users.index')) active @endif">
+                <a class="nav-link" href="{{ route('users.index') }}">
+                    {{ trans('messages.users') }}
+                    @if(url()->current() == route('users.index'))
+                    <span class="sr-only">(current)</span>
+                    @endif
+                </a>
+            </li>
+
             <li class="nav-item @if(url()->current() == route('zones.index')) active @endif">
                 <a class="nav-link" href="{{ route('zones.index') }}">
                     {{ trans('messages.zones') }}
+                    @if(url()->current() == route('zones.index'))
                     <span class="sr-only">(current)</span>
+                    @endif
                 </a>
             </li>
-            <li class="nav-item @if(url()->current() == route('users.index')) active @endif">
-                <a class="nav-link" href="{{ route('users.index') }}">{{ trans('messages.users') }}</a>
+
+            <li class="nav-item @if(url()->current() == route('provinces.index')) active @endif">
+                <a class="nav-link" href="{{ route('provinces.index') }}">
+                    {{ trans('messages.province') }}
+                    @if(url()->current() == route('provinces.index'))
+                    <span class="sr-only">(current)</span>
+                    @endif
+                </a>
             </li>
+
+
             <li class="nav-item @if(url()->current() == route('houses.index')) active @endif">
-                <a class="nav-link" href="{{ route('houses.index') }}">{{ trans('messages.houses') }}</a>
+                <a class="nav-link" href="{{ route('houses.index') }}">
+                    {{ trans('messages.houses') }}
+                    @if(url()->current() == route('houses.index'))
+                    <span class="sr-only">(current)</span>
+                    @endif
+                </a>
             </li>
 
         </ul>
