@@ -72,7 +72,7 @@ return [
     'available' => 'Disponible',
     'add_province' => 'Agregar Provincia',
     'edit_province' => 'Editar Provincia',
-    'delete_province' => 'Borrar Provincia',
+    'delete_province' => 'Eliminar Provincia',
     'actions' => 'Acciones',
     'provinces_title' => 'Provincias',
     'empty' => [
@@ -83,4 +83,5 @@ return [
         'employees' => 'No hay empleados disponibles',
     ],
     'photos' => 'Imagenes',
+    'add_zone' => 'Agregar Zona',
 ];
