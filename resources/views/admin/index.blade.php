@@ -45,7 +45,7 @@
     <div class="row my-4">
         <div class="col-md-4">
             <a class="box" href="{{ route('provinces.index') }}">
-                {{ count($provinces) }} {{ trans('messages.province') }}
+                {{ count($provinces) }} {{ trans('messages.provinces') }}
             </a>
         </div>
         <div class="col-md-4">
