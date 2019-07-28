@@ -12,7 +12,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">New House</div>
+                <div class="card-header">{{ lang('messages.houses') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('houses.store') }}">
@@ -65,7 +65,7 @@
                                         {{ $zone->name }}
                                     </option>
                                     @empty
-                                    <option value="">No Zones avaliable</option>
+                                    <option value="">{{ trans('messages.empty.zones') }}</option>
                                     @endforelse
                                 </select>
                                 @error('zone_id')
@@ -195,7 +195,7 @@
                                         {{ $climate->name }}
                                     </option>
                                     @empty
-                                    <option value="">{{ trans('messages.climates_empty') }}</option>
+                                    <option value="">{{ trans('messages.empty.climates') }}</option>
                                     @endforelse
                                 </select>
 
@@ -221,12 +221,14 @@
                                         {{ $employee->name }}
                                     </option>
                                     @empty
-                                    <option value="">{{ trans('messages.employees_empty') }}</option>
+                                    <option value="">{{ trans('messages.empty.employees') }}</option>
                                     @endforelse
                                     @else
+                                    @auth
                                     <option value="{{ $user->id }}">
                                         {{ $user->name }}
                                     </option>
+                                    @endauth
                                     @endif
                                 </select>
 
@@ -251,7 +253,7 @@
                                         {{ $housetype->name }}
                                     </option>
                                     @empty
-                                    <option value="">{{ trans('messages.housetypes_empty') }}</option>
+                                    <option value="">{{ trans('messages.empty.housetypes') }}</option>
                                     @endforelse
                                 </select>
 
@@ -276,7 +278,7 @@
                                         {{ $contract->name }}
                                     </option>
                                     @empty
-                                    <option value="">{{ trans('messages.contracts_empty') }}</option>
+                                    <option value="">{{ trans('messages.empty.contracts') }}</option>
                                     @endforelse
                                 </select>
 

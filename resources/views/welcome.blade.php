@@ -22,7 +22,9 @@
                 <div class="col-lg-12 offset-lg-1 house_card_main">
                     <div class="row house_card">
                         <div class="col-lg-4 house_card_img">
+                            @if(!empty($house->photos))
                             <img src="{{ $house->photos()->first()->path }}" alt="{{ $house->name }}">
+                            @endif
                         </div>
                         <div class="col-lg-4 offset-lg-2 house_card_info">
                             <h2 class="house_title_info">{{ $house->name }}</h2>
@@ -63,4 +65,4 @@
 
     </div>
 
-@endsection('content')
+@endsection

@@ -74,6 +74,12 @@ return [
     'edit_province' => 'Editar Provincia',
     'delete_province' => 'Borrar Provincia',
     'actions' => 'Acciones',
-    'empty_zones' => 'No hay zonas disponibles',
-    'provinces_title' => 'Provincias'
+    'provinces_title' => 'Provincias',
+    'empty' => [
+        'zones' => 'No hay zonas disponibles',
+        'housetypes' => 'No hay ningun tipo de casa disponible',
+        'climates' => 'No hay calefaccion disponible',
+        'contracts' => 'No hay contratos disponibles',
+        'employees' => 'No hay empleados disponibles',
+    ]
 ];
