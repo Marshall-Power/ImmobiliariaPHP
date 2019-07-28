@@ -26,5 +26,5 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('users', 'UserController');
     Route::resource('zones', 'ZoneController');
     Route::resource('houses', 'HouseController');
-    Route::resource('province', 'ProvinceContoller');
+    Route::resource('provinces', 'ProvinceController');
 });
