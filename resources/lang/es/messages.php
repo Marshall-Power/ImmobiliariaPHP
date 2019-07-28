@@ -70,4 +70,10 @@ return [
     'elevator' => 'Acensor',
     'air_conditioner' => 'Aire acondicionado',
     'available' => 'Disponible',
+    'add_province' => 'Agregar Provincia',
+    'edit_province' => 'Editar Provincia',
+    'delete_province' => 'Borrar Provincia',
+    'actions' => 'Acciones',
+    'empty_zones' => 'No hay zonas disponibles',
+    'provinces_title' => 'Provincias'
 ];
