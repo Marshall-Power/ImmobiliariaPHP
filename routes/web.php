@@ -22,13 +22,9 @@ Route::get('/about','HomeController@about')->name('about');
 
 Route::get('/admin', 'AdminController@index');
 
-Route::resource('zones','ZoneController');
-
 Route::group(['prefix' => 'admin'], function () {
      Route::resource('users', 'UserController');
      Route::resource('zones', 'ZoneController');
+     Route::resource('houses', 'HouseController');
      //     Route::resource('province', 'ProvinceContoller');
-//     Route::resource('houses', 'HouseContoller');
 });
-
-

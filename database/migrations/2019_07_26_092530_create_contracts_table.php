@@ -15,6 +15,7 @@ class CreateContractsTable extends Migration
     {
         Schema::create('contracts', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
             $table->boolean('rent');
             $table->boolean('buy');
             $table->timestamps();
