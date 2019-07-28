@@ -50,7 +50,7 @@ return [
     'users' => 'Usuarios',
     'houses' => 'Inmuebles',
     'cp' => 'Código Postal',
-    'province' => 'Provincia',
+    'provinces' => 'Provincias',
     'edit_zone' => 'Editar Zona',
     'delete_zone' => 'Eliminar Zona',
     'create_zone' => 'Crear Zona',
