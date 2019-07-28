@@ -30,11 +30,11 @@
                 {{ trans('messages.edit_user') }}
                 <i class="fas fa-user-edit"></i>
             </a>
-            <a class="btn btn-block btn-danger" href="{{ route('users.index') }}" onclick="event.preventDefault();document.getElementById('delete-form').submit();">
+            <a class="btn btn-block btn-danger" href="{{ route('users.index') }}" onclick="event.preventDefault();document.getElementById('delete-user-{{ $user->id }}').submit();">
                 {{ trans('messages.delete_user') }}
                 <i class="fas fa-user-times"></i>
             </a>
-            <form action="{{ route('users.destroy', $user->id) }}" method="post" id="delete-form">
+            <form action="{{ route('users.destroy', $user->id) }}" method="POST" id="delete-user-{{ $user->id }}">
                 @csrf
                 @method('DELETE')
             </form>
