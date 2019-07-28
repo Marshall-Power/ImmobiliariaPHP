@@ -14,7 +14,8 @@ class ProvinceController extends Controller
      */
     public function index()
     {
-        return view('admin.provinces.index');
+        $provinces = Province::get();
+        return view('admin.provinces.index', compact('provinces'));
     }
 
     /**
@@ -35,7 +36,9 @@ class ProvinceController extends Controller
      */
     public function store(Request $request)
     {
-        redirect()->route('provinces.index')
+        $validated = $this->validate($request, Province::$rules);
+        Province::create($validated);
+        return redirect()->route('provinces.index');
     }
 
     /**
@@ -46,7 +49,7 @@ class ProvinceController extends Controller
      */
     public function show(Province $province)
     {
-        return view('admin.provinces.show');
+        return view('admin.provinces.show', compact('province'));
     }
 
     /**
@@ -57,7 +60,7 @@ class ProvinceController extends Controller
      */
     public function edit(Province $province)
     {
-        return view('admin.provinces.edit');
+        return view('admin.provinces.edit', compact('province'));
     }
 
     /**
@@ -69,7 +72,8 @@ class ProvinceController extends Controller
      */
     public function update(Request $request, Province $province)
     {
-        return redirect()->route('provinces.show', $province)
+        $province->update($this->validate($request, Province::$rules));
+        return redirect()->route('provinces.show', $province);
     }
 
     /**
@@ -80,6 +84,7 @@ class ProvinceController extends Controller
      */
     public function destroy(Province $province)
     {
+        $province->delete();
         return redirect()->route('provinces.index');
     }
 }
