@@ -13,10 +13,6 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
 
-    <!-- jQuery UI -->
-
-
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=DM+Serif+Display|Nunito&display=swap" rel="stylesheet">
@@ -24,16 +20,11 @@
     <!-- Icons -->
     <script src="https://kit.fontawesome.com/1ce251ed92.js"></script>
 
-
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+    @yield('css')
     @yield('styles')
-
     @stack('scripts')
-
-
 
 </head>
 
@@ -47,6 +38,7 @@
         @include('includes.footer')
     </div>
 
+    @yield('js')
 </body>
 
 </html>
