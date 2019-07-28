@@ -13,11 +13,11 @@
                 </a>
             </div>
             <div>
-                <h2>Zonas</h2>
-                <table class="table table-bordered table-hover">
-                    <thead class="thead-dark">
+                <h2>{{trans('messages.zone')}}</h2>
+                <table class="table">
+                    <thead>
                         <tr>
-                            <th>Name</th>
+                            <th class="col">{{trans('messages.name')}}</th>
                         </tr>
                     </thead>
                     <tbody>
