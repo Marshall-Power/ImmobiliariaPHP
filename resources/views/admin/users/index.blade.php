@@ -3,10 +3,8 @@
 @section('content')
 
 <div class="container">
-<div class="row">
-        <div class="col-md offset-5">
     @include('includes.adminNav')
-      </div>
+    <div class="row">
     </div>
     <h2 class="float-left mr-2">{{ trans('messages.users') }}</h2>
     <button type="button" class="btn btn-success mb-4" data-toggle="modal" data-target="#createUser">
@@ -30,7 +28,8 @@
                 {{ trans('messages.edit_user') }}
                 <i class="fas fa-user-edit"></i>
             </a>
-            <a class="btn btn-block btn-danger" href="{{ route('users.index') }}" onclick="event.preventDefault();document.getElementById('delete-user-{{ $user->id }}').submit();">
+            <a class="btn btn-block btn-danger" href="{{ route('users.index') }}"
+                onclick="event.preventDefault();document.getElementById('delete-user-{{ $user->id }}').submit();">
                 {{ trans('messages.delete_user') }}
                 <i class="fas fa-user-times"></i>
             </a>

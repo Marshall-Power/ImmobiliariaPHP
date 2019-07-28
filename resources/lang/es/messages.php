@@ -81,5 +81,6 @@ return [
         'climates' => 'No hay calefaccion disponible',
         'contracts' => 'No hay contratos disponibles',
         'employees' => 'No hay empleados disponibles',
-    ]
+    ],
+    'photos' => 'Imagenes',
 ];
