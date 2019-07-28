@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Zone;
+use App\Province;
 
 class ZoneController extends Controller
 {
@@ -14,9 +15,10 @@ class ZoneController extends Controller
      */
     public function index()
     {
-        $zones = Zone::all();
+        $zones = Zone::get();
+        $provinces = Province::get();
 
-        return view('admin.zone.index', compact('zones'));
+        return view('admin.zone.index', compact('zones','provinces'));
     }
 
     /**
@@ -27,6 +29,8 @@ class ZoneController extends Controller
     public function create()
     {
         // return view('admin.zones.create');
+        $provinces = Province::get();
+        return view('admin.zones.create',compact('provinces'));
     }
 
     /**
@@ -37,7 +41,13 @@ class ZoneController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = [
+            'name' => $request->name,
+            'postal_code' => $request->postal_code,
+            'province_id' => $request->province,
+                ];
+        $zone = Zone::create($data);
+        return redirect()->route('zones.index');
     }
 
     /**
@@ -49,6 +59,8 @@ class ZoneController extends Controller
     public function show($id)
     {
         // return view('admin.zones.show');
+        $zone = Zone::findOrFile($id);
+        return view('admin.zone.show',compact('zone'));
     }
 
     /**
@@ -60,6 +72,9 @@ class ZoneController extends Controller
     public function edit($id)
     {
         // return view('admin.zones.edit');
+        $zone = Zone::findOrFail($id);
+        $provinces = Province::get();
+        return view('admin.zone.edit', compact('zone','provinces'));
     }
 
     /**
@@ -71,7 +86,14 @@ class ZoneController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       $data =[
+            'name' => $request->name,
+            'postal_code' => $request->postal_code,
+            'province_id' => $request->province,
+       ];
+       $zone = Zone::findOrFail($id);
+       $zone->update($data);
+       return redirect()->route('zones.index');
     }
 
     /**
@@ -82,6 +104,8 @@ class ZoneController extends Controller
      */
     public function destroy($id)
     {
-        //
+       $zone = Zone::findOrFail($id);
+       $zone->delete();
+       return redirect()->route('zones.index');
     }
 }
