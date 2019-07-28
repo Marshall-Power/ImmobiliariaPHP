@@ -13,16 +13,19 @@ class ContractTableSeeder extends Seeder
     public function run()
     {
         Contract::create([
+            'name' => 'Alquiler',
             'rent' => true,
             'buy' => false,
         ]);
 
         Contract::create([
+            'name' => 'Compra',
             'rent' => false,
             'buy' => true,
         ]);
 
         Contract::create([
+            'name' => 'Compra & Alquiler',
             'rent' => true,
             'buy' => true,
         ]);

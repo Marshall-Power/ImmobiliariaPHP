@@ -24,9 +24,7 @@ Route::get('/admin', 'AdminController@index');
 
 Route::group(['prefix' => 'admin'], function () {
      Route::resource('users', 'UserController');
-//     Route::resource('houses', 'HouseContoller');
-//     Route::resource('zone', 'ZoneController');
-//     Route::resource('province', 'ProvinceContoller');
+     Route::resource('zones', 'ZoneController');
+     Route::resource('houses', 'HouseController');
+     //     Route::resource('province', 'ProvinceContoller');
 });
-
-

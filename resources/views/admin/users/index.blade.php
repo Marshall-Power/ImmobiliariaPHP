@@ -3,6 +3,11 @@
 @section('content')
 
 <div class="container">
+<div class="row">
+        <div class="col-md offset-5">
+    @include('includes.adminNav')
+      </div>
+    </div>
     <h2 class="float-left mr-2">{{ trans('messages.users') }}</h2>
     <button type="button" class="btn btn-success mb-4" data-toggle="modal" data-target="#createUser">
         <i class="fas fa-user-plus"></i>
