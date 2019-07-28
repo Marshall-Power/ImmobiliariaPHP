@@ -8,19 +8,11 @@
             @include('includes.filter')
         </div>
         <div class="col-lg-9 col-md-9 col-sm-4 houses_div">
-<<<<<<< Updated upstream
-            <div class="btn btn-success offset-lg-1">
-                <p>Comprar</p>
-            </div>
-            <div class="btn btn-success">
-                <p>Alquilar</p>
-=======
             <div class="btn btn-primary offset-lg-1">
                 Comprar
             </div>
             <div class="btn btn-primary">
                 Alquilar
->>>>>>> Stashed changes
             </div>
             <hr class="offset-lg-1">
 
