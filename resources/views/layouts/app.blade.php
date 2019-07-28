@@ -20,12 +20,12 @@
     <!-- Icons -->
     <script src="https://kit.fontawesome.com/1ce251ed92.js"></script>
 
-
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+    @yield('css')
     @yield('styles')
+    @stack('scripts')
+
 </head>
 
 <body>
@@ -38,6 +38,7 @@
         @include('includes.footer')
     </div>
 
+    @yield('js')
 </body>
 
 </html>

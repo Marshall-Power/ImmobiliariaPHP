@@ -1,55 +1,58 @@
 @extends('layouts.app')
 
+@section('css')
+<style>
+    .box {
+        display: flex;
+        height: 200px;
+        align-items: center;
+        justify-content: center;
+        background-color: #333;
+        color: whitesmoke;
+        text-decoration: none;
+        transition: background-color 1s;
+        font-weight: bolder;
+    }
+
+    .box:hover {
+        background-color: #666;
+        text-decoration: none;
+        color: whitesmoke;
+    }
+</style>
+@endsection
 
 @section('content')
-
 <div class="container">
-<div class="row">
-<div class="col-md offset-5">
-@include('includes.adminNav')
+    @include('includes.adminNav')
+    <div class="row">
+        <div class="col-md-4">
+            <a class="box" href="{{ route('users.index') }}">
+                {{ count($users) }} {{ trans('messages.users') }}
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a class="box" href="{{ route('houses.index') }}">
+                {{ count($houses) }} {{ trans('messages.houses') }}
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a class="box" href="{{ route('zones.index') }}">
+                {{ count($zones) }} {{ trans('messages.zones') }}
+            </a>
+        </div>
+    </div>
+    <div class="row my-4">
+        <div class="col-md-4">
+            <a class="box" href="{{ route('provinces.index') }}">
+                {{ count($provinces) }} {{ trans('messages.province') }}
+            </a>
+        </div>
+        <div class="col-md-4">
+            <a class="box" href="#">
+                {{ count($photos) }} {{ trans('messages.photos') }}
+            </a>
+        </div>
+    </div>
 </div>
-</div>
-<div class="row">
-
-<div class="col-lg-12 col-md-12 col-sm-12">
-                @forelse ($houses as $house)
-                    <div class="row-fluid houses_row" style="margin:2%; border:solid 1px;">
-
-                            <div class="col-md-10">
-                                  <a href="" value="{{$house->id}}">  <div class="row house_card">
-                                        <div class="col-lg-4 house_card">
-                                             <img src="{{ $house->photos->first()->path }}" alt="{{ $house->name }}" style="width:200px;height:200px;">
-                                        </div>
-                                        
-                                        <div class="col-lg-6 house_card">
-                                        <div class="row">
-                                        <div class="col-lg-6 col-md-6 col-sm-6">
-                                             <h2>{{ $house->name }}</h2>
-                                             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, fuga.</p>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-6">
-                                            <ul>
-                                                <li>Direccion: {{ $house->address }}</li>
-                                                <li>Precio: {{ $house->price }}</li>
-                                                <li>N. Habitaciones: {{ $house->rooms }}</li>
-                                            </ul>
-                                        </div>
-                                         </div>
-                                        </div>
-                                    </div>
-                                    </a>
-                            </div>
-                    </div>
-                        @empty
-
-                        @endforelse
-                </div>
-
-
-</div>
-</div>
-
-
-
-
-@endsection('content')
+@endsection

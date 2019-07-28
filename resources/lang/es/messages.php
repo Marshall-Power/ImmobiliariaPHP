@@ -70,4 +70,18 @@ return [
     'elevator' => 'Acensor',
     'air_conditioner' => 'Aire acondicionado',
     'available' => 'Disponible',
+    'add_province' => 'Agregar Provincia',
+    'edit_province' => 'Editar Provincia',
+    'delete_province' => 'Eliminar Provincia',
+    'actions' => 'Acciones',
+    'provinces_title' => 'Provincias',
+    'empty' => [
+        'zones' => 'No hay zonas disponibles',
+        'housetypes' => 'No hay ningun tipo de casa disponible',
+        'climates' => 'No hay calefaccion disponible',
+        'contracts' => 'No hay contratos disponibles',
+        'employees' => 'No hay empleados disponibles',
+    ],
+    'photos' => 'Imagenes',
+    'add_zone' => 'Agregar Zona',
 ];

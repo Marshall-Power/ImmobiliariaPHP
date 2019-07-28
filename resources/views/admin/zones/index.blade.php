@@ -4,16 +4,15 @@
 @section('content')
 
 <div class="container">
-    <div class="row">
-        <div class="col-md offset-5">
-            @include('includes.adminNav')
-        </div>
+    @include('includes.adminNav')
+
+    <div>
+        <h2>{{trans('messages.zones')}}
+            <button type="button" class="btn btn-success mb-4" data-toggle="modal" data-target="#createZone">
+                <i class="fas fa-user-plus"></i>
+            </button>
+        </h2>
     </div>
-    <h2>{{trans('messages.zones')}}
-        <button type="button" class="btn btn-success mb-4" data-toggle="modal" data-target="#createZone">
-            <i class="fas fa-user-plus"></i>
-        </button>
-    </h2>
 
     <div class="row">
         <table class="table">
@@ -50,7 +49,8 @@
                         {{ trans('messages.delete_zone') }}
                         <i class="fas fa-user-times"></i>
                     </a>
-                    <form action="{{ route('zones.destroy', $zone->id) }}" method="POST" id="delete-zone-{{ $zone->id }}">
+                    <form action="{{ route('zones.destroy', $zone->id) }}" method="POST"
+                        id="delete-zone-{{ $zone->id }}">
                         @csrf
                         @method('DELETE')
                     </form>
@@ -137,7 +137,7 @@
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4">
                             <button type="submit" class="btn btn-primary">
-                                {{ trans('messages.register') }}
+                                {{ trans('messages.add_zone') }}
                             </button>
                             <a class="btn btn-secondary" href="{{ route('zones.index') }}">
                                 {{ trans('messages.back') }}

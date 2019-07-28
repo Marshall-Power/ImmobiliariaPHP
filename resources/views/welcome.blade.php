@@ -4,15 +4,15 @@
 @section('content')
 <div id="welcome" class="container">
     <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-3">
+        <div class="col-lg-2 col-md-3 col-sm-3">
             @include('includes.filter')
         </div>
         <div class="col-lg-9 col-md-9 col-sm-4 houses_div">
             <div class="btn btn-primary offset-lg-1">
-                Comprar
+                <p>Comprar</p>
             </div>
             <div class="btn btn-primary">
-                Alquilar
+                <p>Alquilar</p>
             </div>
             <hr class="offset-lg-1">
 
@@ -23,7 +23,9 @@
                 <div class="col-lg-12 offset-lg-1 house_card_main">
                     <div class="row house_card">
                         <div class="col-lg-4 house_card_img">
+                            @if(!empty($house->photos))
                             <img src="{{ $house->photos()->first()->path }}" alt="{{ $house->name }}">
+                            @endif
                         </div>
                         <div class="col-lg-4 offset-lg-2 house_card_info">
                             <h2 class="house_title_info">{{ $house->name }}</h2>
@@ -64,4 +66,4 @@
 
     </div>
 
-@endsection('content')
+@endsection

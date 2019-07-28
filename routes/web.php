@@ -16,15 +16,15 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('welcome');
 
-Route::get('/contact','HomeController@contact')->name('contact');
-Route::post('/contact','HomeController@contact')->name('contact');
-Route::get('/about','HomeController@about')->name('about');
+Route::get('/contact', 'HomeController@contact')->name('contact');
+Route::post('/contact', 'HomeController@contact')->name('contact');
+Route::get('/about', 'HomeController@about')->name('about');
 
-Route::get('/admin', 'AdminController@index');
+Route::get('/admin', 'AdminController@index')->name('admin');
 
 Route::group(['prefix' => 'admin'], function () {
-     Route::resource('users', 'UserController');
-     Route::resource('zones', 'ZoneController');
-     Route::resource('houses', 'HouseController');
-     //     Route::resource('province', 'ProvinceContoller');
+    Route::resource('users', 'UserController');
+    Route::resource('zones', 'ZoneController');
+    Route::resource('houses', 'HouseController');
+    Route::resource('provinces', 'ProvinceController');
 });
