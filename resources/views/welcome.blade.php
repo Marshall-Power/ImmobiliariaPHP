@@ -7,10 +7,10 @@
             @include('includes.filter')
         </div>
         <div class="col-lg-9 col-md-9 col-sm-4 houses_div">
-            <div class="btn btn-success offset-lg-1">
+            <div class="btn btn-primary offset-lg-1">
                 <p>Comprar</p>
             </div>
-            <div class="btn btn-success">
+            <div class="btn btn-primary">
                 <p>Alquilar</p>
             </div>
             <hr class="offset-lg-1">
