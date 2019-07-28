@@ -51,4 +51,7 @@ return [
     'houses' => 'Inmuebles',
     'cp' => 'Código Postal',
     'province' => 'Provincia',
+    'edit_zone' => 'Editar Zona',
+    'delete_zone' => 'Eliminar Zona',
+    'create_zone' => 'Crear Zona',
 ];
