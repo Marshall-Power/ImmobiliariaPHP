@@ -2,6 +2,9 @@
   .cookiediv{
     background-color:darkslateblue;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 2;
   }
   .cookietxt{
     color: white;
