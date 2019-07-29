@@ -2,7 +2,8 @@
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-             <img src="https://es.freelogodesign.org/Content/img/logo-ex-2.png" style="width:150px;height:150px;" class="css-class" alt="inmobiliaria">
+                <img src="https://es.freelogodesign.org/Content/img/logo-ex-2.png" style="width:150px;height:150px;"
+                    class="css-class" alt="inmobiliaria">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -12,7 +13,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
-                         <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="{{route('contact')}}">{{trans('messages.contact')}}</a>
                     </li>
                     <li class="nav-item">
@@ -40,18 +41,20 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+
+                            @if(auth()->user()->usertype_id < 3) <a href="{{ route('admin') }}" class="dropdown-item">
+                                Admin</a>
+                                @endif
+
+                                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
+                                    {{ __('Logout') }}
+                                </a>
 
-                            @if(auth()->user()->usertype_id < 3)
-                            <a href="{{ route('admin') }}" class="dropdown-item">Admin</a>
-                            @endif
-
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
+                                    @csrf
+                                </form>
                         </div>
                     </li>
                     @endguest

@@ -77,7 +77,7 @@
                                 class="col-md-4 col-form-label text-md-right">{{ trans('messages.description.ca')}}</label>
 
                             <div class="col-md-6">
-                                <textarea name="description_es" id="description_ca"
+                                <textarea name="description_ca" id="description_ca"
                                     class="form-control @error('description_ca') is-invalid @enderror" cols="30"
                                     rows="10">{{ $house->description_ca }}</textarea>
                                 @error('description_ca')
@@ -401,15 +401,33 @@
 
                         {{-- available --}}
                         <div class="form-group row">
-                            <label for="available" class="col-md-4 form-check-label text-md-right">
+                        </div>
+
+                        {{-- furnished --}}
+                        <div class="form-group row">
+                            <label for="available" class="col-md-3 form-check-label text-md-right">
                                 {{ trans('messages.available') }}
                             </label>
 
-                            <div class="col-md-6 form-check">
+                            <div class="col-md-3 form-check">
                                 <input id="available" type="checkbox" class="form-check-input" name="available"
                                     value="1" @if($house->available) checked @endif>
 
                                 @error('available')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                            <label for="furnished" class="col-md-4 form-check-label text-md-right">
+                                {{ trans('messages.furnished') }}
+                            </label>
+
+                            <div class="col-md-2 form-check">
+                                <input id="available" type="checkbox" class="form-check-input" name="furnished"
+                                    value="1" @if($house->furnished) checked @endif>
+
+                                @error('furnished')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

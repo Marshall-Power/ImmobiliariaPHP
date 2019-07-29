@@ -125,6 +125,7 @@ class HouseController extends Controller
         $validator["parking"] = $request->parking ? true : false;
         $validator["air_conditioner"] = $request->air_conditioner ? true : false;
         $validator["available"] = $request->available ? true : false;
+        $validator["furnished"] = $request->furnished ? true : false;
         $house = House::findOrFail($id);
         $house->update($validator);
 

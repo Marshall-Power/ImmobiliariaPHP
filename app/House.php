@@ -25,6 +25,9 @@ class House extends Model
         'elevator' => 'nullable|bool',
         'date_published' => 'nullable|bool',
         'avaiable' => 'nullable|bool',
+        'furnished' => 'nullable|bool',
+        'description_es' => 'required|string',
+        'description_ca' => 'required|string'
     ];
 
     protected $fillable = [
@@ -45,6 +48,9 @@ class House extends Model
         'contract_id',
         'date_published',
         'avaiable',
+        'furnished',
+        'description_es',
+        'description_ca'
     ];
 
     public function zone()
