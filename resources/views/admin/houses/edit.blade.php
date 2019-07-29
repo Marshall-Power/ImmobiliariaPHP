@@ -405,7 +405,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{trans('messages.save')}}
                                 </button>
-                                <a class="btn btn-secondary" href="{{ url('/') }}">{{trans('messages.back')}}</a>
+                                <a class="btn btn-secondary" href="{{ route('houses.index') }}">{{trans('messages.back')}}</a>
                             </div>
                         </div>
                     </form>

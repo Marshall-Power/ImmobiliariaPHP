@@ -31,7 +31,7 @@
 
             <li class="nav-item @if(url()->current() == route('provinces.index')) active @endif">
                 <a class="nav-link" href="{{ route('provinces.index') }}">
-                    {{ trans('messages.province') }}
+                    {{ trans('messages.provinces_title') }}
                     @if(url()->current() == route('provinces.index'))
                     <span class="sr-only">(current)</span>
                     @endif
