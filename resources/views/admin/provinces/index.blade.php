@@ -41,7 +41,7 @@
                         </a>
                 </td>
                 <td>
-                        <a class="btn btn-block btn-danger" onclick="event.preventDefault();document.getElementById('delete-province-{{ $province->id }}').submit();">
+                        <a class="btn btn-block btn-danger" style="color:white;" onclick="event.preventDefault();document.getElementById('delete-province-{{ $province->id }}').submit();">
                             {{ trans('messages.delete_province') }}
                             <i class="fas fa-user-times"></i>
                         </a>
