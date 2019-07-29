@@ -30,15 +30,15 @@ class HomeController extends Controller
         }
 
         if ($request->has('price_min') && $request->has('price_max')) {
-            $houses = $houses->whereBetween('rooms', [$request->price_min, $request->price_max]);
+            $houses = $houses->whereBetween('price', [$request->price_min, $request->price_max]);
         }
 
         if ($request->has('size_min') && $request->has('size_max')) {
-            $houses = $houses->whereBetween('rooms', [$request->size_min, $request->size_max]);
+            $houses = $houses->whereBetween('size', [$request->size_min, $request->size_max]);
         }
 
         if ($request->has('bathrooms_min') && $request->has('bathrooms_max')) {
-            $houses = $houses->whereBetween('rooms', [$request->bathrooms_min, $request->bathrooms_max]);
+            $houses = $houses->whereBetween('bathrooms', [$request->bathrooms_min, $request->bathrooms_max]);
         }
 
         if($request->has('contract'))
