@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $houses = House::all();
+        $houses = House::select('*');
 
         if ($request->has('rooms_min') && $request->has('rooms_max')) {
             $houses = $houses->whereBetween('rooms', [$request->rooms_min, $request->rooms_max]);
@@ -76,8 +76,22 @@ class HomeController extends Controller
             $houses = $houses->where('air_conditioner', $request->air);
         }
 
-        return view('welcome', compact('houses'));
+        $houses = $houses->paginate(4)->appends(Array(
+            'rooms_min' => $request->rooms_min,
+            'rooms_max' => $request->rooms_max
+        ));
+
+        return view('welcome', compact('houses', 'request'));
     }
+
+    public function show(Request $request)
+    {
+
+        $house = House::where('id', $request->input('id'))->get();
+
+        return view('show', compact($house));
+    }
+
 
 
     public function about()
