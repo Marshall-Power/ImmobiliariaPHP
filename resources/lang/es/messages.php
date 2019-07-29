@@ -87,4 +87,8 @@ return [
     'edit_house' => 'Editar Inmueble',
     'delete_house' => 'Eliminar Inmueble',
     'search_house' => 'Indica el nombre o la zona donde desea buscar',
+    'description' => [
+        'es' => 'Descripción Es',
+        'ca' => 'Descripción Ca'
+    ]
 ];
