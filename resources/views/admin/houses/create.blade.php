@@ -35,9 +35,8 @@
 
                             <div class="col-md-6">
                                 <textarea name="description_es" id="description_es"
-                                    class="form-control @error('description_es') is-invalid @enderror">
-                                        {{ old('description_es') }}
-                                    </textarea>
+                                    class="form-control @error('description_es') is-invalid @enderror" cols="30"
+                                    rows="10">{{ old('description_es') }}</textarea>
                                 @error('description_es')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -45,6 +44,7 @@
                                 @enderror
                             </div>
                         </div>
+
                         {{-- Description CA --}}
                         <div class="form-group row">
                             <label for="description_ca"
@@ -52,7 +52,8 @@
 
                             <div class="col-md-6">
                                 <textarea name="description_es" id="description_ca"
-                                    class="form-control @error('description_ca') is-invalid @enderror">
+                                    class="form-control @error('description_ca') is-invalid @enderror" cols="30"
+                                    rows="10">
                                         {{ old('description_ca') }}
                                     </textarea>
                                 @error('description_ca')
@@ -396,9 +397,9 @@
                         <div class="form-group row mb-0">
                             <div class="col-4 offset-8">
                                 <button type="submit" class="btn btn-primary">
-                                    {{trans('messages.send')}}
+                                    {{trans('messages.save')}}
                                 </button>
-                                <a class="btn btn-secondary" href="{{ route('houses.index') }}">{{trans('messages.back')}}</a>
+                                <a class="btn btn-secondary" href="{{ url('/') }}">{{trans('messages.back')}}</a>
                             </div>
                         </div>
                     </form>

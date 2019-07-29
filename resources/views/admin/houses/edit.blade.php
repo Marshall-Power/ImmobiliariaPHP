@@ -61,9 +61,8 @@
 
                             <div class="col-md-6">
                                 <textarea name="description_es" id="description_es"
-                                    class="form-control @error('description_es') is-invalid @enderror">
-                                    {{ $house->description_es }}
-                                </textarea>
+                                    class="form-control @error('description_es') is-invalid @enderror" cols="30"
+                                    rows="10">{{ $house->description_es }}</textarea>
                                 @error('description_es')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -79,9 +78,8 @@
 
                             <div class="col-md-6">
                                 <textarea name="description_es" id="description_ca"
-                                    class="form-control @error('description_ca') is-invalid @enderror">
-                                    {{ $house->description_ca }}
-                                </textarea>
+                                    class="form-control @error('description_ca') is-invalid @enderror" cols="30"
+                                    rows="10">{{ $house->description_ca }}</textarea>
                                 @error('description_ca')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -383,10 +381,29 @@
                             </div>
                         </div>
 
+                        {{-- furnished --}}
+                        <div class="form-group row">
+                            <label for="furnished" class="col-md-4 form-check-label text-md-right">
+                                {{ trans('messages.furnished') }}
+                            </label>
+
+                            <div class="col-md-6 form-check">
+                                <input id="furnished" type="checkbox" class="form-check-input" name="furnished"
+                                    value="1" @if($house->furnished) checked @endif>
+
+                                @error('furnished')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         {{-- available --}}
                         <div class="form-group row">
-                            <label for="available"
-                                class="col-md-4 form-check-label text-md-right">{{ trans('messages.available') }}</label>
+                            <label for="available" class="col-md-4 form-check-label text-md-right">
+                                {{ trans('messages.available') }}
+                            </label>
 
                             <div class="col-md-6 form-check">
                                 <input id="available" type="checkbox" class="form-check-input" name="available"
@@ -405,7 +422,8 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{trans('messages.save')}}
                                 </button>
-                                <a class="btn btn-secondary" href="{{ route('houses.index') }}">{{trans('messages.back')}}</a>
+                                <a class="btn btn-secondary"
+                                    href="{{ route('houses.index') }}">{{trans('messages.back')}}</a>
                             </div>
                         </div>
                     </form>
