@@ -8,12 +8,13 @@
     </div>
     <h2 class="float-left mr-2">{{ trans('messages.users') }}</h2>
     <button type="button" class="btn btn-success mb-4" data-toggle="modal" data-target="#createUser">
-        <i class="fas fa-user-plus"></i>
+        <i class="fa fa-plus"></i>
     </button>
     <div class="row">
+            <input style="width:100%;margin:1%;" type="text" name="search_user" placeholder="{{trans('messages.search_user')}}">
         @forelse ($users as $user)
         <div class="col-md-3 my-4">
-            <a href="{{ route('users.show', $user->id) }}">
+            <a href="">
                 <h3>
                     <i class="fas fa-user"></i> {{ $user->name }}
                 </h3>
