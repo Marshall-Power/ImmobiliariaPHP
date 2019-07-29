@@ -2,13 +2,6 @@
 
 @section('content')
 <div class="container">
-    @if ($message = Session::get('flash'))
-    <div class="row">
-        <div class="alert alert-danger">
-            {{ $message }}
-        </div>
-    </div>
-    @endif
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -28,6 +21,41 @@
                                     name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        {{-- Description ES --}}
+                        <div class="form-group row">
+                            <label for="description_es"
+                                class="col-md-4 col-form-label text-md-right">{{ trans('messages.description.es')}}</label>
+
+                            <div class="col-md-6">
+                                <textarea name="description_es" id="description_es"
+                                    class="form-control @error('description_es') is-invalid @enderror">
+                                        {{ old('description_es') }}
+                                    </textarea>
+                                @error('description_es')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        {{-- Description CA --}}
+                        <div class="form-group row">
+                            <label for="description_ca"
+                                class="col-md-4 col-form-label text-md-right">{{ trans('messages.description.ca')}}</label>
+
+                            <div class="col-md-6">
+                                <textarea name="description_es" id="description_ca"
+                                    class="form-control @error('description_ca') is-invalid @enderror">
+                                        {{ old('description_ca') }}
+                                    </textarea>
+                                @error('description_ca')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>

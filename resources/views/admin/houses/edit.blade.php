@@ -18,6 +18,7 @@
                     <form method="POST" action="{{ route('houses.update', $house->id) }}">
                         @csrf
                         @method('PUT')
+
                         {{-- Name --}}
                         <div class="form-group row">
                             <label for="name"
@@ -53,6 +54,41 @@
                             </div>
                         </div>
 
+                        {{-- Description ES --}}
+                        <div class="form-group row">
+                            <label for="description_es"
+                                class="col-md-4 col-form-label text-md-right">{{ trans('messages.description.es')}}</label>
+
+                            <div class="col-md-6">
+                                <textarea name="description_es" id="description_es"
+                                    class="form-control @error('description_es') is-invalid @enderror">
+                                    {{ $house->description_es }}
+                                </textarea>
+                                @error('description_es')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        {{-- Description CA --}}
+                        <div class="form-group row">
+                            <label for="description_ca"
+                                class="col-md-4 col-form-label text-md-right">{{ trans('messages.description.ca')}}</label>
+
+                            <div class="col-md-6">
+                                <textarea name="description_es" id="description_ca"
+                                    class="form-control @error('description_ca') is-invalid @enderror">
+                                    {{ $house->description_ca }}
+                                </textarea>
+                                @error('description_ca')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
                         {{-- Zone id --}}
                         <div class="form-group row">
                             <label for="zone_id"
@@ -102,8 +138,7 @@
                             <div class="col-md-6">
                                 <input id="longitude" type="text"
                                     class="form-control @error('longitude') is-invalid @enderror"
-                                    value="{{ $house->longitude }}" name="longitude"
-                                    required autocomplete="longitude">
+                                    value="{{ $house->longitude }}" name="longitude" required autocomplete="longitude">
 
                                 @error('longitude')
                                 <span class="invalid-feedback" role="alert">
@@ -192,7 +227,8 @@
 
                                 <select name="climate_id" id="climate_id" class="form-control">
                                     @forelse ($climates as $climate)
-                                    <option value="{{ $climate->id }}" @if($house->climate_id == $climate->id) selected @endif>
+                                    <option value="{{ $climate->id }}" @if($house->climate_id == $climate->id) selected
+                                        @endif>
                                         {{ $climate->name }}
                                     </option>
                                     @empty
@@ -218,7 +254,8 @@
                                 <select name="employee_id" id="employee_id" class="form-control">
                                     @if ($user && $user->usertype_id === 1)
                                     @forelse ($employees as $employee)
-                                    <option value="{{ $employee->id }}" @if($house->employee_id == $employee->id) selected @endif>
+                                    <option value="{{ $employee->id }}" @if($house->employee_id == $employee->id)
+                                        selected @endif>
                                         {{ $employee->name }}
                                     </option>
                                     @empty
@@ -248,7 +285,8 @@
 
                                 <select name="housetype_id" id="housetype_id" class="form-control">
                                     @forelse ($housetypes as $housetype)
-                                    <option value="{{ $housetype->id }}" @if($house->housetype_id == $housetype->id) selected @endif>
+                                    <option value="{{ $housetype->id }}" @if($house->housetype_id == $housetype->id)
+                                        selected @endif>
                                         {{ $housetype->name }}
                                     </option>
                                     @empty
@@ -273,7 +311,8 @@
 
                                 <select name="contract_id" id="contract_id" class="form-control">
                                     @forelse ($contracts as $contract)
-                                    <option value="{{ $contract->id }}" @if($contract->id == $house->contract_id) selected @endif>
+                                    <option value="{{ $contract->id }}" @if($contract->id == $house->contract_id)
+                                        selected @endif>
                                         {{ $contract->name }}
                                     </option>
                                     @empty
@@ -297,9 +336,7 @@
                                 class="col-md-4 form-check-label text-md-right">{{ trans('messages.elevator') }}</label>
 
                             <div class="col-md-6 form-check">
-                                <input id="elevator" type="checkbox"
-                                    class="form-check-input" name="elevator"
-                                    value="1"
+                                <input id="elevator" type="checkbox" class="form-check-input" name="elevator" value="1"
                                     @if($house->elevator) checked @endif>
 
                                 @error('elevator')
@@ -316,9 +353,7 @@
                                 class="col-md-4 form-check-label text-md-right">{{ trans('messages.parking') }}</label>
 
                             <div class="col-md-6 form-check">
-                                <input id="parking" type="checkbox"
-                                    class="form-check-input" name="parking"
-                                    value="1"
+                                <input id="parking" type="checkbox" class="form-check-input" name="parking" value="1"
                                     @if($house->parking) checked @endif>
 
                                 @error('parking')
@@ -335,11 +370,10 @@
                                 class="col-md-4 form-check-label text-md-right">{{ trans('messages.air_conditioner') }}</label>
 
                             <div class="col-md-6 form-check">
-                                <input id="air_conditioner" type="checkbox"
-                                    class="form-check-input"
+                                <input id="air_conditioner" type="checkbox" class="form-check-input"
                                     @if($house->air_conditioner) checked @endif
-                                    value="1"
-                                    name="air_conditioner">
+                                value="1"
+                                name="air_conditioner">
 
                                 @error('air_conditioner')
                                 <span class="invalid-feedback" role="alert">
@@ -355,10 +389,8 @@
                                 class="col-md-4 form-check-label text-md-right">{{ trans('messages.available') }}</label>
 
                             <div class="col-md-6 form-check">
-                                <input id="available" type="checkbox"
-                                    class="form-check-input" name="available"
-                                    value="1"
-                                     @if($house->available) checked @endif>
+                                <input id="available" type="checkbox" class="form-check-input" name="available"
+                                    value="1" @if($house->available) checked @endif>
 
                                 @error('available')
                                 <span class="invalid-feedback" role="alert">
