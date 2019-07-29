@@ -36,10 +36,14 @@
                         </a>
             </td>
              <td>
-                 <a class="btn btn-block btn-danger" style="color:white;">
+                 <a class="btn btn-block btn-danger" style="color:white;" onclick="event.preventDefault();document.getElementById('delete-house-{{ $house->id }}');">
                             {{ trans('messages.delete_house') }}
                             <i class="fas fa-user-times"></i>
-                        </a>
+                 </a>
+                 <form action="{{ route('houses.destroy', $house) }}" id="delete-house-{{ $house->id }}">
+                    @csrf
+                    @method('DELETE')
+                 </form>
             </td>
         @endforeach
 

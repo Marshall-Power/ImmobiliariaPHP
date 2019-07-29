@@ -45,6 +45,10 @@
                                 {{ __('Logout') }}
                             </a>
 
+                            @if(auth()->user()->usertype_id < 3)
+                            <a href="{{ route('admin') }}" class="dropdown-item">Admin</a>
+                            @endif
+
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
