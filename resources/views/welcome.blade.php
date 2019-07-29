@@ -26,8 +26,8 @@
                         <div class="card-body">
                             <h5 class="card-title">{{ $house->name }}</h5>
                             <p class="card-text">{{ str_limit($house->description_es, $limit = 150, $end = '...') }}</p>
-                            <a href="tel:+34{{$house->employee->phone}}"> <i class="fas fa-phone-square-alt fa-2x"></i></a>
-                            <a href="#" class="btn btn-primary">Detalles</a>
+                            <a href="#" style="font-size: 1rem;" class="btn btn-primary btn-lg">Detalles</a>
+                            <a class="btn btn-primary" style="" href="tel:+34{{ $house->employee->phone }}"> <i class="fas fa-phone-square-alt fa-2x" style="vertical-align: bottom;"></i> </a>
 
                         </div>
                     </div>
@@ -90,9 +90,9 @@
 
 
 
-            var xhr = new XMLHttpRequest;
-            xhr.open('GET', '/', true);
-            xhr.send(form);
+            // var xhr = new XMLHttpRequest;
+            // xhr.open('GET', '/', true);
+            // xhr.send(form);
             window.location.href = "/"+$params_GET;
         });
 });
