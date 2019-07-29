@@ -90,5 +90,6 @@ return [
     'description' => [
         'es' => 'Descripción Es',
         'ca' => 'Descripción Ca'
-    ]
+    ],
+    'province' => 'Provincia'
 ];
