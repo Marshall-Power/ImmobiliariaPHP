@@ -20,9 +20,9 @@ Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::post('/contact', 'HomeController@contact')->name('contact');
 Route::get('/about', 'HomeController@about')->name('about');
 
-Route::get('/admin', 'AdminController@index')->name('admin');
+Route::get('/admin', 'AdminController@index')->name('admin')->middleware('auth');
 
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('users', 'UserController');
     Route::resource('zones', 'ZoneController');
     Route::resource('houses', 'HouseController');

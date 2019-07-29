@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Province;
+use App\Zone;
 use Illuminate\Http\Request;
 
 class ProvinceController extends Controller
@@ -84,6 +85,7 @@ class ProvinceController extends Controller
      */
     public function destroy(Province $province)
     {
+        Zone::where('province_id', $province->id)->delete();
         $province->delete();
         return redirect()->route('provinces.index');
     }

@@ -25,6 +25,13 @@
 @section('content')
 <div class="container">
     @include('includes.adminNav')
+    @if ($message = Session::get('flash'))
+    <div class="row">
+        <div class="alert alert-danger">
+            {{ $message }}
+        </div>
+    </div>
+    @endif
     <div class="row">
         <div class="col-md-4">
             <a class="box" href="{{ route('users.index') }}">

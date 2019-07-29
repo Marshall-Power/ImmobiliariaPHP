@@ -53,11 +53,27 @@ class HouseController extends Controller
     public function store(Request $request)
     {
         $validator = $this->validate($request, House::$rules);
+
         $validator["elevator"] = $request->elevator ? true : false;
         $validator["parking"] = $request->parking ? true : false;
         $validator["air_conditioner"] = $request->air_conditioner ? true : false;
         $validator["available"] = $request->available ? true : false;
-        House::create($validator);
+        $validator["furnished"] = $request->furnished ? true : false;
+
+        $house = House::create($validator);
+
+        if($request->hasFile('images')) {
+            foreach($request->file('images') as $key => $image) {
+                $path = $image->store('images', [
+                    'disk' => 'public'
+                ]);
+
+                Photo::create([
+                    'house_id' => $house->id,
+                    'path' => $path
+                ]);
+            }
+        }
 
         return redirect()->route('houses.index')->with('flash', trans('messages.new_house_added'));
     }
@@ -109,6 +125,7 @@ class HouseController extends Controller
         $validator["parking"] = $request->parking ? true : false;
         $validator["air_conditioner"] = $request->air_conditioner ? true : false;
         $validator["available"] = $request->available ? true : false;
+        $validator["furnished"] = $request->furnished ? true : false;
         $house = House::findOrFail($id);
         $house->update($validator);
 
@@ -124,9 +141,8 @@ class HouseController extends Controller
      */
     public function destroy($id)
     {
-
         $house = House::findOrFail($id);
         $house->delete();
-        return redirect()->route('houses.index')-with('flash', 'House deleted.');
+        return redirect()->route('houses.index')->with('flash', 'House deleted.');
     }
 }
