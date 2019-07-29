@@ -4,21 +4,23 @@
 <div class="container">
     @include('includes.adminNav')
     <div class="mb-4">
-        <h1>
+        <h2>
             {{ trans('messages.provinces_title') }}
-        </h1>
+            <a class="btn btn-success mb-4" href="{{ route('provinces.create') }}"><i class="fas fa-user-plus"></i></a>
+
+        </h2>
+        
     </div>
     <div>
-        <a class="btn btn-lg btn-primary my-4" href="{{ route('provinces.create') }}">{{ trans('messages.add_province') }}</a>
     </div>
-    <table class="table table-hover">
-        <colgroup>
-            <col style="width: 50%">
-        </colgroup>
-        <thead class="thead-dark">
+    <table class="table">
+       
+        <thead>
             <tr>
-                <th>{{ trans('messages.name') }}:</th>
-                <th>{{ trans('messages.actions') }}</th>
+                <th scope="col">{{ trans('messages.name') }}:</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -26,18 +28,22 @@
             <tr>
                 <td>
                     <a href="{{ route('provinces.show', $province) }}">
-                        <h4>
+                        
                             {{ $province->name }}
-                        </h4>
+                    
                     </a>
                 </td>
                 <td>
-                    <div class="float-right">
-                        <a class="btn btn-secondary mr-2" href="{{ route('provinces.edit', $province) }}">
+                    <div>
+                        <a class="btn btn-block btn-secondary" href="{{ route('provinces.edit', $province) }}">
                             {{ trans('messages.edit_province') }}
+                            <i class="fas fa-user-edit"></i>
                         </a>
-                        <a class="btn btn-danger text-white" onclick="event.preventDefault();document.getElementById('delete-province-{{ $province->id }}').submit();">
+                </td>
+                <td>
+                        <a class="btn btn-block btn-danger" onclick="event.preventDefault();document.getElementById('delete-province-{{ $province->id }}').submit();">
                             {{ trans('messages.delete_province') }}
+                            <i class="fas fa-user-times"></i>
                         </a>
                         <form method="POST" action="{{ route('provinces.destroy', $province) }}" id="delete-province-{{ $province->id }}">
                             @csrf

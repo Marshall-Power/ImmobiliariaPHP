@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@include('cookieConsent::index')
 
 @section('content')
 <div id="welcome" class="container">
@@ -8,10 +9,10 @@
         </div>
         <div class="col-lg-9 col-md-9 col-sm-4 houses_div">
             <div class="btn btn-primary offset-lg-1">
-                <p>Comprar</p>
+                Comprar
             </div>
             <div class="btn btn-primary">
-                <p>Alquilar</p>
+                Alquilar
             </div>
             <hr class="offset-lg-1">
 
