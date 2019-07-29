@@ -9,7 +9,7 @@
     <div>
         <h2>{{trans('messages.zones')}}
             <button type="button" class="btn btn-success mb-4" data-toggle="modal" data-target="#createZone">
-                <i class="fas fa-user-plus"></i>
+                <i class="fa fa-plus"></i>
             </button>
         </h2>
     </div>
