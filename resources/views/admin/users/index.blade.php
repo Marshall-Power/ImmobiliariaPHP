@@ -56,7 +56,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ route('register') }}">
+                <form method="POST" action="{{ route('users.store') }}">
                     @csrf
 
                     <div class="form-group row">
