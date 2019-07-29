@@ -67,3 +67,55 @@
     </div>
 
 @endsection
+
+@section('form_filter')
+<script>
+
+    $(document).ready(function(){
+        $('#send_filters').click(function(){
+            var form = new FormData();
+
+            var room_min = $('#slider-range-rooms').slider("option", "values")[0];
+            var room_max = $('#slider-range-rooms').slider("option", "values")[1];
+
+            var wc_min = $('#slider-range-bathroom').slider("option", "values")[0];
+            var wc_max = $('#slider-range-bathroom').slider("option", "values")[1];
+
+            var price_min = $('#slider-range-price').slider("option", "values")[0];
+            var price_max = $('#slider-range-price').slider("option", "values")[1];
+
+            var size_min = $('#slider-range-size').slider("option", "values")[0];
+            var size_max = $('#slider-range-size').slider("option", "values")[1];
+
+
+
+
+            form.append('room_min', room_min);
+            form.append('room_max', room_max);
+
+            form.append('wc_min', wc_min);
+            form.append('wc_max', wc_max);
+
+            form.append('price_min', price_min);
+            form.append('price_max', price_max);
+
+            form.append('size_min', size_min);
+            form.append('size_max', size_max);
+
+            alert(room_max);
+
+            $params_GET = '?rooms_min='+ room_min +'&rooms_max='+ room_max + '&bathrooms_min=' + wc_min +
+                        '&bathrooms_max=' + wc_max + '&price_min='+ price_min + '&price_max=' + price_max +
+                        '&size_min=' + size_min+'&size_max=' + size_max;
+
+
+
+
+            var xhr = new XMLHttpRequest;
+            xhr.open('GET', '/', true);
+            xhr.send(form);
+            window.location.href = "/"+$params_GET;
+        });
+});
+</script>
+@endsection

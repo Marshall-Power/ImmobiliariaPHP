@@ -58,9 +58,9 @@
         $( "#slider-range-price" ).slider({
           range: true,
           min: 100,
-          max: 5000,
+          max: 1000000,
           step: 100,
-          values: [ 0, 5000 ],
+          values: [ 0, 1000000 ],
           slide: function( event, ui ) {
             $( "#amount-price" ).val(ui.values[ 0 ] + " € - " + ui.values[ 1 ] + " € " );
           }
@@ -70,9 +70,7 @@
       } );
 </script>
 <script>
-$( function() {
-    $( "#Rooms" ).selectmenu();
-  } );
+
 
 </script>
 
@@ -124,15 +122,5 @@ $( function() {
         <div id="slider-range-size" style="width:100%;"></div>
 </div>
 
-<fieldset>
-<label for="Rooms">Select a speed</label>
-<select name="Rooms" id="Rooms">
-  <option selected="selected">1</option>
-  <option>2</option>
-  <option>3</option>
-  <option>4</option>
-  <option>5</option>
-</select>
-
-
+<input id="send_filters" type="button" value="Filtrar">
 
