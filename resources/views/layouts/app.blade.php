@@ -25,7 +25,7 @@
     @yield('css')
     @yield('styles')
     @stack('scripts')
-    @yield('form_filter')
+    @yield('js')
 </head>
 
 <body>
