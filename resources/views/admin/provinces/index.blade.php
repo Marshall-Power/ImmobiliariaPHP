@@ -9,12 +9,12 @@
             <a class="btn btn-success mb-4" href="{{ route('provinces.create') }}"><i class="fas fa-user-plus"></i></a>
 
         </h2>
-        
+
     </div>
     <div>
     </div>
     <table class="table">
-       
+
         <thead>
             <tr>
                 <th scope="col">{{ trans('messages.name') }}:</th>
@@ -28,13 +28,13 @@
             <tr>
                 <td>
                     <a href="{{ route('provinces.show', $province) }}">
-                        
+
                             {{ $province->name }}
-                    
+
                     </a>
                 </td>
                 <td>
-                    <div>
+
                         <a class="btn btn-block btn-secondary" href="{{ route('provinces.edit', $province) }}">
                             {{ trans('messages.edit_province') }}
                             <i class="fas fa-user-edit"></i>

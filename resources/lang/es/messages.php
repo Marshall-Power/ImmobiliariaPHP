@@ -61,7 +61,7 @@ return [
     'longitude' => 'Longitud',
     'price' => 'Precio',
     'size' => 'Tamaño',
-    'rooms' => 'Habitaciónes',
+    'rooms' => 'Habitaciones',
     'bathrooms' => 'Baños',
     'climate' => 'Calefacción',
     'employee' => 'Agente',
@@ -84,4 +84,6 @@ return [
     ],
     'photos' => 'Imagenes',
     'add_zone' => 'Agregar Zona',
+    'edit_house' => 'Editar Inmueble',
+    'delete_house' => 'Eliminar Inmueble',
 ];
