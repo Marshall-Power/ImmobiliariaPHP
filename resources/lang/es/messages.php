@@ -84,6 +84,10 @@ return [
     ],
     'photos' => 'Imagenes',
     'add_zone' => 'Agregar Zona',
+    'details' => 'Detalles',
+    'month' => 'mes',
+    'list' => 'Lista',
+    'map' => 'Mapa',
     'edit_house' => 'Editar Inmueble',
     'delete_house' => 'Eliminar Inmueble',
     'search_house' => 'Indica el nombre o la zona donde desea buscar',
@@ -95,5 +99,5 @@ return [
     ],
     'province' => 'Provincia',
     'parking' => 'Parking',
-    'furnished' => 'Amueblado'
+    'furnished' => 'Amueblado',
 ];
