@@ -9,6 +9,10 @@
         width: 100%;
         /* The width is the width of the web page */
     }
+
+    .hide {
+        display: none;
+    }
 </style>
 @endsection
 @section('content')
@@ -26,7 +30,7 @@
             </button>
             <hr>
 
-            <div class="map-wrapper">
+            <div class="map-wrapper hide">
                 <h3>Habitatges a Girona</h3> <!-- Esto con el sistema de traducción -->
                 <div id="map"></div>
             </div>
