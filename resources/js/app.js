@@ -34,6 +34,8 @@ const app = new Vue({
 import $ from 'jquery';
 window.$ = window.jQuery = $;
 
-import 'jquery-ui/ui/widgets/slider.js';
+import 'jquery-ui/ui/widgets/slider';
+
+import 'jquery-ui/ui/widgets/selectmenu';
 
 

@@ -25,7 +25,7 @@
     @yield('css')
     @yield('styles')
     @stack('scripts')
-
+    @yield('js')
 </head>
 
 <body>
@@ -38,7 +38,7 @@
         @include('includes.footer')
     </div>
 
-    @yield('js')
+
 </body>
 
 </html>
