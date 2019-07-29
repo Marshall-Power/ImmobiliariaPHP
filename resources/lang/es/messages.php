@@ -86,4 +86,5 @@ return [
     'add_zone' => 'Agregar Zona',
     'edit_house' => 'Editar Inmueble',
     'delete_house' => 'Eliminar Inmueble',
+    'search_house' => 'Indica el nombre o la zona donde desea buscar',
 ];
