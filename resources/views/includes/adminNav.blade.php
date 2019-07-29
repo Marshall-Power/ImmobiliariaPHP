@@ -1,4 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4 navbar-expand-sm">
     <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNavDropdown">
         <ul class="navbar-nav">
 
@@ -51,3 +54,6 @@
         </ul>
     </div>
 </nav>
+        </div>
+    </div>
+</div>
