@@ -19,7 +19,7 @@
             <div class="row">
                 @forelse ($houses as $house)
 
-                <div class="col-md-6" style="max-height: 500px;">
+                <div class="col-md-6 my-2" style="max-height: 500px;">
                     <div class="card mx-auto" style="">
                         <img class="card-img-top" style="max-height:300px;object-fit:cover;"
                             src="{{ $house->photos()->first()->path }}" alt="{{ $house->name }}">
