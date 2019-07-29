@@ -6,7 +6,7 @@
     <div class="mb-4">
         <h2>
             {{ trans('messages.provinces_title') }}
-            <a class="btn btn-success mb-4" href="{{ route('provinces.create') }}"><i class="fas fa-user-plus"></i></a>
+            <a class="btn btn-success mb-4" href="{{ route('provinces.create') }}"><i class="	fa fa-plus"></i></a>
 
         </h2>
 

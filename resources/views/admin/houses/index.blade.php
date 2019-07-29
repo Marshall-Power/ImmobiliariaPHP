@@ -5,7 +5,7 @@
     @include('includes.adminNav')
     <div class="row">
 <h2>{{trans('messages.houses')}}
-            <a class="btn btn-success mb-4" href="{{ route('houses.create')}}"><i class="fas fa-user-plus"></i></a>
+            <a class="btn btn-success mb-4" href="{{ route('houses.create')}}"><i class="f	fa fa-plus"></i></a>
 
 </h2>
 

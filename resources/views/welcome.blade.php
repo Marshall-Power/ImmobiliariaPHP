@@ -38,7 +38,7 @@
 
                             <div class="row">
                                 <div class="col-lg-1">
-                                    <i class="fas fa-phone-square-alt fa-2x"></i>
+                                <a href="tel:+34{{$house->employee->phone}}"> <i class="fas fa-phone-square-alt fa-2x"></i></a>
                                 </div>
                                 <div class="col-lg-3 offset-lg-2">
                                     <div class="btn btn-primary details_btn">Detalles</div>
