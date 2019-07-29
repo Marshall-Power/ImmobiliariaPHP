@@ -28,7 +28,7 @@
                         </div>
                         <div class="col-lg-4 offset-lg-2 house_card_info">
                             <h2 class="house_title_info">{{ $house->name }}</h2>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, fuga.</p>
+                            <p>{{ $house->description_es }}.</p>
                             <ul class="house_list_info">
                                 <li>Direccion: {{ $house->address }}</li>
                                 <li>Precio: <strong>{{ $house->price }}</strong></li>
