@@ -1,4 +1,6 @@
-<div id="footer" class="container-fluid">
+
+<div id="footer" class="">
+    <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
             <h3>Mas acerca de immo pro</h3>
@@ -36,4 +38,5 @@
         <div>
             <p>Copyrighted</p>
         </div>
+</div>
 </div>
