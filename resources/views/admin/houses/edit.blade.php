@@ -12,7 +12,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">New House</div>
+            <div class="card-header">{{trans('messages.edit_house')}}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('houses.update', $house->id) }}">
@@ -371,9 +371,9 @@
                         <div class="form-group row mb-0">
                             <div class="col-4 offset-8">
                                 <button type="submit" class="btn btn-primary">
-                                    {{trans('messages.save')}}
+                                    {{trans('messages.send')}}
                                 </button>
-                                <a class="btn btn-secondary" href="{{ url('/') }}">{{trans('messages.back')}}</a>
+                                <a class="btn btn-secondary" href="{{ route('houses.index') }}">{{trans('messages.back')}}</a>
                             </div>
                         </div>
                     </form>

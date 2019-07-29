@@ -1,4 +1,6 @@
-<div id="footer" class="container-fluid">
+
+<div id="footer" class="">
+    <div class="container">
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-3">
             <h3>Mas acerca de immo pro</h3>
@@ -29,11 +31,12 @@
                 <p>Cambra de comerç de Girona</p>
                 <p>Av. Jaume I, 46</p>
                 <p>17001, Girona</p>
-                <p>972600729</p>
+               <a href="tel:+34972600729" style="text-decoration:none;color:white; "><i class="fa fa-phone"></i> 972600729</a>
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4">
         <div>
             <p>Copyrighted</p>
         </div>
+</div>
 </div>

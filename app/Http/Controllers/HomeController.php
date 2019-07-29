@@ -23,22 +23,22 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $houses = House::all();
+        $houses = House::select('*');
 
         if ($request->has('rooms_min') && $request->has('rooms_max')) {
             $houses = $houses->whereBetween('rooms', [$request->rooms_min, $request->rooms_max]);
         }
 
         if ($request->has('price_min') && $request->has('price_max')) {
-            $houses = $houses->whereBetween('rooms', [$request->price_min, $request->price_max]);
+            $houses = $houses->whereBetween('price', [$request->price_min, $request->price_max]);
         }
 
         if ($request->has('size_min') && $request->has('size_max')) {
-            $houses = $houses->whereBetween('rooms', [$request->size_min, $request->size_max]);
+            $houses = $houses->whereBetween('size', [$request->size_min, $request->size_max]);
         }
 
         if ($request->has('bathrooms_min') && $request->has('bathrooms_max')) {
-            $houses = $houses->whereBetween('rooms', [$request->bathrooms_min, $request->bathrooms_max]);
+            $houses = $houses->whereBetween('bathrooms', [$request->bathrooms_min, $request->bathrooms_max]);
         }
 
         if($request->has('contract'))
@@ -76,8 +76,22 @@ class HomeController extends Controller
             $houses = $houses->where('air_conditioner', $request->air);
         }
 
-        return view('welcome', compact('houses'));
+        $houses = $houses->paginate(4)->appends(Array(
+            'rooms_min' => $request->rooms_min,
+            'rooms_max' => $request->rooms_max
+        ));
+
+        return view('welcome', compact('houses', 'request'));
     }
+
+    public function show(Request $request)
+    {
+
+        $house = House::where('id', $request->input('id'))->get();
+
+        return view('show', compact($house));
+    }
+
 
 
     public function about()

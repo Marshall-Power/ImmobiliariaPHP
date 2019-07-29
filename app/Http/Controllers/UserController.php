@@ -50,6 +50,7 @@ class UserController extends Controller
             'usertype_id' => $request->usertype,
             'email_verified_at' => Carbon::now(),
             'remember_token' => Str::random(10),
+            'phone' => $request->phone,
         ];
         $user = User::create($data);
         return redirect()->route('users.index');
@@ -93,6 +94,7 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'usertype_id' => $request->usertype,
+            'phone' => $request->phone,
         ];
         $user = User::findOrFail($id);
         $user->update($data);

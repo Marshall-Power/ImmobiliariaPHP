@@ -10745,3 +10745,10 @@ a.text-dark:focus {
   padding-left: 50px;
 }
 
+#welcome #pagination {
+  margin: 100px auto 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

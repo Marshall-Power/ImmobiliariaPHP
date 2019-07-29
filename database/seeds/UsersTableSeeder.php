@@ -21,7 +21,8 @@ class UsersTableSeeder extends Seeder
             'remember_token' => Str::random(10),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-            'usertype_id' => 1
+            'usertype_id' => 1,
+            'phone' => Str::random(6),
         ]);
 
         DB::table('users')->insert([
@@ -32,7 +33,8 @@ class UsersTableSeeder extends Seeder
             'remember_token' => Str::random(10),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-            'usertype_id' => 2
+            'usertype_id' => 2,
+            'phone' => Str::random(6),
         ]);
 
         DB::table('users')->insert([
@@ -43,7 +45,8 @@ class UsersTableSeeder extends Seeder
             'remember_token' => Str::random(10),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-            'usertype_id' => 3
+            'usertype_id' => 3,
+            'phone' => Str::random(6),
         ]);
     }
 }

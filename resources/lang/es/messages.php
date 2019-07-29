@@ -87,6 +87,10 @@ return [
     'details' => 'Detalles',
     'month' => 'mes',
     'list' => 'Lista',
-    'map' => 'Mapa', 
-    
+    'map' => 'Mapa',
+    'edit_house' => 'Editar Inmueble',
+    'delete_house' => 'Eliminar Inmueble',
+    'search_house' => 'Indica el nombre o la zona donde desea buscar',
+    'search_user' => 'Indica el nombre que desea buscar',
+    'reset_password'=> 'Restablecer la contraseña',
 ];

@@ -25,7 +25,7 @@
     @yield('css')
     @yield('styles')
     @stack('scripts')
-
+    @yield('js')
 </head>
 
 <body>
@@ -35,10 +35,13 @@
         <main class="py-4">
             @yield('content')
         </main>
-        @include('includes.footer')
+
+        <div class="">
+            @include('includes.footer')
+        </div>
     </div>
 
-    @yield('js')
+
 </body>
 
 </html>
