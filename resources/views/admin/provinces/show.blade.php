@@ -24,15 +24,13 @@
                         @forelse ($province->zones as $zone)
                         <tr>
                             <td>
-                                <a href="{{ route('zones.show', $zone) }}">
                                         {{ $zone->name }}
-                                </a>
                             </td>
                         </tr>
                         @empty
                         <tr>
                             <td>
-                                {{ trans('messages.empty_zones') }}
+                                {{ trans('messages.empty.zones') }}
                             </td>
                         </tr>
                         @endforelse
