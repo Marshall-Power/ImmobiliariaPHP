@@ -17,40 +17,17 @@
         </div>
         <div class="col-lg-9 col-md-9 col-sm-4 houses_div">
             <div class="btn btn-primary offset-lg-1">
-                Comprar
+              <i class="fas fa-list"></i> {{trans('messages.list')}}
             </div>
             <div class="btn btn-primary">
-                Alquilar
+              <i class="fas fa-map-marker-alt"></i> {{trans('messages.map')}}
             </div>
             <hr class="offset-lg-1">
-            <h3>Habitatges a Girona</h3>
+            <h3>Habitatges a Girona</h3> <!-- Esto con el sistema de traducción -->
    
     <!--The div element for the map -->
     <div id="map"></div>
     <script>
-      // Initialize and add the map
-      /*function initMap() {
-        // The location of Girona
-        var girona = {lat: 41.983333, lng: 2.816667};
-        // The map, centered at Girona
-        var map = new google.maps.Map(document.getElementById('map'), {zoom: 12, center: girona});
-        
-
-        // Example marker, positioned at Girona
-        var mansio1 = {lat: 41.9963105, lng: 2.8268954};
-        var contentString = '';
-        
-        var infowindow = new google.maps.InfoWindow({
-          content: contentString
-        });
-        var marker1 = new google.maps.Marker({position: mansio1, 
-                                              map: map, 
-                                              title: "Mansió 1, Girona"});
-        marker1.addListener('click', function() {
-          infowindow.open(map, marker1);
-        });
-      };*/
- 
       function initMap(){      
       $.ajax({
         url:'{{url('/api/houses')}}',
@@ -64,15 +41,22 @@
           
           result.forEach(function(item, index){
             var casa = {lat: parseFloat(item.latitude), lng: parseFloat(item.longitude)};
-            
-            var contentString = "<div class='card' style='width: 18rem;'>
-              <img class='card-img-top' src='...' alt='Card image cap'>
-              <div class='card-body'>
-                <h5 class='card-title'>Card title</h5>
-                <p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href='#' class='btn btn-primary'>Go somewhere</a>
-              </div>
-            </div>";
+            if(item.contract_id==1){
+              var contr = "€/"+'{{trans('messages.month')}}';
+            }else{
+              var contr = "€";
+            }
+            var contentString = "<div class='card' style='width: 15rem; margin-top:0'>"+
+              "<img class='card-img-top' src='https://img3.idealista.com/blur/WEB_DETAIL_TOP-XL-L/0/id.pro.es.image.master/2c/33/75/693467457.jpg' alt='Card image cap'>"+
+              "<div class='card-body'>"+
+                "<h5 class='card-title'>"+item.name+"</h5>"+
+                "<h6 class='card-subtitle mb-2 text-muted'>"+item.address+"</h6>"+
+                "<p class='card-text'>"+parseInt(item.price)+" "+contr+"</p>"+
+                "<p class='card-text'>"+item.rooms+" "+'{{trans('messages.rooms')}}'+" </p>"+
+                "<p class='card-text'>"+item.size+" m²</p>"+ 
+                "<a href='#' class='btn btn-primary'>"+'{{trans('messages.details')}}'+"</a>"+ 
+              "</div>"+
+            "</div>";
             
             var infowindow = new google.maps.InfoWindow({
               content: contentString
@@ -108,9 +92,9 @@
                             <h2 class="house_title_info">{{ $house->name }}</h2>
                             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, fuga.</p>
                             <ul class="house_list_info">
-                                <li>Direccion: {{ $house->address }}</li>
-                                <li>Precio: <strong>{{ $house->price }}</strong></li>
-                                <li>N. Habitaciones: {{ $house->rooms }}</li>
+                            <li>{{trans('messages.address')}}: {{ $house->address }}</li>
+                                <li>{{trans('messages.price')}}: <strong>{{ $house->price }}</strong></li>
+                                <li>N. {{trans('messages.rooms')}}: {{ $house->rooms }}</li>
                             </ul>
 
                             <div class="row">
@@ -118,7 +102,7 @@
                                     <i class="fas fa-phone-square-alt fa-2x"></i>
                                 </div>
                                 <div class="col-lg-3 offset-lg-2">
-                                    <div class="btn btn-primary details_btn">Detalles</div>
+                                    <div class="btn btn-primary details_btn">Detalles</div> 
                                 </div>
 
                             </div>
@@ -129,7 +113,7 @@
                                     src="https://inmobiliarialowcostalbacete.com/wp-content/uploads/2017/07/inmobiliaria-low-cost-tu-gran-acierto-1.png"
                                     alt="Card image cap">
                                 <div class="card-body">
-                                    <a href="#" class="btn btn-primary">Reserva Visita</a>
+                                    <a href="#" class="btn btn-primary">Reserva Visita</a> 
                                 </div>
                             </div>
                         </div>
