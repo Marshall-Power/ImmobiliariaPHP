@@ -141,9 +141,8 @@ class HouseController extends Controller
      */
     public function destroy($id)
     {
-
         $house = House::findOrFail($id);
         $house->delete();
-        return redirect()->route('houses.index')-with('flash', 'House deleted.');
+        return redirect()->route('houses.index')->with('flash', 'House deleted.');
     }
 }
