@@ -1,6 +1,16 @@
 @extends('layouts.app')
 @include('cookieConsent::index')
-
+@section('css')
+<style>
+    /* Set the size of the div element that contains the map */
+    #map {
+        height: 400px;
+        /* The height is 400 pixels */
+        width: 100%;
+        /* The width is the width of the web page */
+    }
+</style>
+@endsection
 @section('content')
 <div id="welcome" class="container">
     <div class="row">
@@ -9,12 +19,16 @@
         </div>
         <div class="col-lg-10 col-md-10 col-sm-4">
             <div class="btn btn-primary offset-lg-1">
-                Comprar
+                <i class="fas fa-list"></i> {{trans('messages.list')}}
             </div>
             <div class="btn btn-primary">
-                Alquilar
+                <i class="fas fa-map-marker-alt"></i> {{trans('messages.map')}}
             </div>
             <hr class="offset-lg-1">
+            <h3>Habitatges a Girona</h3> <!-- Esto con el sistema de traducción -->
+
+            <!--The div element for the map -->
+            <div id="map"></div>
 
             <div class="row">
                 @forelse ($houses as $house)
@@ -27,8 +41,8 @@
                             <h5 class="card-title">{{ $house->name }}</h5>
                             <p class="card-text">{{ str_limit($house->description_es, $limit = 150, $end = '...') }}</p>
                             <a href="#" style="font-size: 1rem;" class="btn btn-primary btn-lg">Detalles</a>
-                            <a class="btn btn-primary" style="" href="tel:+34{{ $house->employee->phone }}"> <i class="fas fa-phone-square-alt fa-2x" style="vertical-align: bottom;"></i> </a>
-
+                            <a class="btn btn-primary" style="" href="tel:+34{{ $house->employee->phone }}"> <i
+                                    class="fas fa-phone-square-alt fa-2x" style="vertical-align: bottom;"></i> </a>
                         </div>
                     </div>
                 </div>
@@ -46,6 +60,58 @@
 @endsection
 
 @section('js')
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_usw0PXe09QidUHvTnTYhQJWCIaj64CU&callback=initMap">
+</script>
+<script>
+    function initMap(){
+        $.ajax({
+          url:'{{url('/api/houses')}}',
+          method:"POST",
+          dataType:"JSON",
+          success:function(result){
+            // The location of Girona
+            var girona = {lat: 41.983333, lng: 2.816667};
+            // The map, centered at Girona
+            var map = new google.maps.Map(document.getElementById('map'), {zoom: 12, center: girona});
+
+            result.forEach(function(item, index){
+              var casa = {lat: parseFloat(item.latitude), lng: parseFloat(item.longitude)};
+              if(item.contract_id==1){
+                var contr = "€/"+'{{trans('messages.month')}}';
+              }else{
+                var contr = "€";
+              }
+              var contentString = "<div class='card' style='width: 15rem; margin-top:0'>"+
+                "<img class='card-img-top' src='https://img3.idealista.com/blur/WEB_DETAIL_TOP-XL-L/0/id.pro.es.image.master/2c/33/75/693467457.jpg' alt='Card image cap'>"+
+                "<div class='card-body'>"+
+                  "<h5 class='card-title'>"+item.name+"</h5>"+
+                  "<h6 class='card-subtitle mb-2 text-muted'>"+item.address+"</h6>"+
+                  "<p class='card-text'>"+parseInt(item.price)+" "+contr+"</p>"+
+                  "<p class='card-text'>"+item.rooms+" "+'{{trans('messages.rooms')}}'+" </p>"+
+                  "<p class='card-text'>"+item.size+" m²</p>"+
+                  "<a href='#' class='btn btn-primary'>"+'{{trans('messages.details')}}'+"</a>"+
+                "</div>"+
+              "</div>";
+
+              var infowindow = new google.maps.InfoWindow({
+                content: contentString
+              });
+              var marker = new google.maps.Marker({position: casa,
+                                                    map: map,
+                                                    title: item.name});
+              marker.addListener('click', function() {
+                infowindow.open(map, marker);
+              });
+              marker.setMap(map);
+            });
+          console.log();
+          }
+        });
+        }
+</script>
+
+
 <script>
     $(document).ready(function(){
         $('#send_filters').click(function(){
