@@ -68,7 +68,7 @@
 
 @endsection
 
-@section('form_filter')
+@section('js')
 <script>
 
     $(document).ready(function(){
