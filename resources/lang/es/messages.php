@@ -91,5 +91,7 @@ return [
         'es' => 'Descripción Es',
         'ca' => 'Descripción Ca'
     ],
-    'province' => 'Provincia'
+    'province' => 'Provincia',
+    'parking' => 'Parking',
+    'furnished' => 'Amueblado'
 ];
