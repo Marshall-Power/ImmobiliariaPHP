@@ -1,26 +1,17 @@
 #footer
 {
     padding: 30px;
-    padding-left: 90px;
-    padding-right: 90px;
+    // padding-left: 90px;
+    // padding-right: 90px;
     background-color: black;
     color: white;
     border: 1px solid black;
-
-    #text_social p
-    {
-        margin: 0;
-        padding-top: 18px;
-    }
-
-    #icons_social
-    {
-        margin-right: 0px;
-    }
-
-    #text_social
-    {
-        padding: 0;
-    }
 }
 
+.icons {
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+}

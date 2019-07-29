@@ -14,43 +14,47 @@
 @section('content')
 <div id="welcome" class="container">
     <div class="row">
-        <div class="col-lg-2 col-md-3 col-sm-3">
+        <div class="col-lg-3">
             @include('includes.filter')
         </div>
-        <div class="col-lg-10 col-md-10 col-sm-4">
-            <div class="btn btn-primary offset-lg-1">
+        <div class="col-lg-9">
+            <button class="btn btn-primary mr-2" onclick="toggleList()">
                 <i class="fas fa-list"></i> {{trans('messages.list')}}
-            </div>
-            <div class="btn btn-primary">
+            </button>
+            <button class="btn btn-primary" onclick="toggleMap();">
                 <i class="fas fa-map-marker-alt"></i> {{trans('messages.map')}}
+            </button>
+            <hr>
+
+            <div class="map-wrapper">
+                <h3>Habitatges a Girona</h3> <!-- Esto con el sistema de traducción -->
+                <div id="map"></div>
             </div>
-            <hr class="offset-lg-1">
-            <h3>Habitatges a Girona</h3> <!-- Esto con el sistema de traducción -->
-
             <!--The div element for the map -->
-            <div id="map"></div>
 
-            <div class="row">
-                @forelse ($houses as $house)
+            <div class="list-wrapper">
+                <div class="row">
+                    @forelse ($houses as $house)
 
-                <div class="col-md-6 my-2" style="max-height: 500px;">
-                    <div class="card mx-auto" style="">
-                        <img class="card-img-top" style="max-height:300px;object-fit:cover;"
-                            src="{{ $house->photos()->first()->path }}" alt="{{ $house->name }}">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ $house->name }}</h5>
-                            <p class="card-text">{{ str_limit($house->description_es, $limit = 150, $end = '...') }}</p>
-                            <a href="#" style="font-size: 1rem;" class="btn btn-primary btn-lg">Detalles</a>
-                            <a class="btn btn-primary" style="" href="tel:+34{{ $house->employee->phone }}"> <i
-                                    class="fas fa-phone-square-alt fa-2x" style="vertical-align: bottom;"></i> </a>
+                    <div class="col-md-6 py-2">
+                        <div class="card mx-auto" style="max-height: 500px;">
+                            <img class="card-img-top" style="max-height:300px;object-fit:cover;"
+                                src="{{ $house->photos()->first()->path }}" alt="{{ $house->name }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $house->name }}</h5>
+                                <p class="card-text">{{ str_limit($house->description_es, $limit = 150, $end = '...') }}</p>
+                                <a href="#" style="font-size: 1rem;" class="btn btn-primary btn-lg">Detalles</a>
+                                <a class="btn btn-primary" style="" href="tel:+34{{ $house->employee->phone }}"> <i
+                                        class="fas fa-phone-square-alt fa-2x" style="vertical-align: bottom;"></i> </a>
+                            </div>
                         </div>
                     </div>
+                    @empty
+                    @endforelse
                 </div>
-                @empty
-                @endforelse
-            </div>
-            <div id="pagination">
-                {{ $houses->links() }}
+                <div id="pagination">
+                    {{ $houses->links() }}
+                </div>
             </div>
         </div>
     </div>
@@ -162,5 +166,20 @@
             window.location.href = "/"+$params_GET;
         });
 });
+</script>
+
+<script>
+    function toggleList() {
+        $('.list-wrapper').fadeIn()
+        $('.map-wrapper').fadeOut()
+    }
+
+    function toggleMap() {
+        $('.map-wrapper').fadeIn()
+        $('.list-wrapper').fadeOut()
+    }
+    $(function() {
+        toggleList();
+    })
 </script>
 @endsection
