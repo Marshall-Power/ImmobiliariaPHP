@@ -3,12 +3,16 @@
 @section('content')
 <div class="container">
     @include('includes.adminNav')
-    <div class="mb-4">
+    <div class="row">
 <h2>{{trans('messages.houses')}}
             <a class="btn btn-success mb-4" href="{{ route('houses.create')}}"><i class="fas fa-user-plus"></i></a>
 
 </h2>
+
 </div>
+
+<div class="row">
+    <input style="width:100%;margin:1%;" type="text" name="search_house" placeholder="{{trans('messages.search_house')}}">
   <table class="table">
       <thead>
       <th scope="col">{{trans('messages.name')}}</th>
@@ -32,7 +36,7 @@
                         </a>
             </td>
              <td>
-                 <a class="btn btn-block btn-danger">
+                 <a class="btn btn-block btn-danger" style="color:white;">
                             {{ trans('messages.delete_house') }}
                             <i class="fas fa-user-times"></i>
                         </a>
@@ -41,5 +45,6 @@
 
         </tbody>
         </table>
+    </div>
 </div>
 @endsection
