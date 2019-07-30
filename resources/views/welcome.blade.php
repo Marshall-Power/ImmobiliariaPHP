@@ -41,7 +41,7 @@
                     @forelse ($houses as $house)
 
                     <div class="col-md-6 py-2">
-                        <div class="card mx-auto" style="max-height: 1000px;">
+                        <div class="card mx-auto" style="max-height: 500px;">
                             <img class="card-img-top" style="max-height:300px;object-fit:cover;"
                                 src="{{ $house->photos()->first()->path }}" alt="{{ $house->name }}">
                             <div class="card-body">
