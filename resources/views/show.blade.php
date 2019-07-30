@@ -7,9 +7,9 @@
       width: 100%;  /* The width is the width of the web page */
       background-color: grey;
      }
-     
+
   </style>
-@endsection 
+@endsection
 
 @section('content')
 
@@ -57,17 +57,22 @@
 
                 <div class="card-body details_show">
                     <h5 class="card-title font-weight-bold">{{ $house->price }} €</h5>
-                    <h3>{{ $house->name }} <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalmap"><i class="fas fa-map-marker-alt"></i></button> </h3>
+                    <div>
+                        <h3 class="d-inline">{{ $house->name }}</h3>
+                        <button type="button" class="btn btn-success d-inline-flex p-2 ml-2 mb-1" data-toggle="modal" data-target="#modalmap">
+                            <i style="vertical-align: middle;" class="fas fa-map-marker-alt"></i>
+                        </button>
+                    </div>
                     <h4 class="card-text">{{ $house->zone->name }} </h4>
                     <div class="row">
                         <div class="col-lg-2">
-                          <p><i class="fas fa-home fa-2x"></i> {{ $house->size }} m²</p>
+                            <p><i class="fas fa-home fa-2x"></i> {{ $house->size }} m²</p>
                         </div>
                         <div class="col-lg-3">
-                          <p><i class="fas fa-bed fa-2x"></i>     {{ $house->rooms }}   {{trans('messages.rooms')}}</p>
+                            <p><i class="fas fa-bed fa-2x"></i>     {{ $house->rooms }}   {{trans('messages.rooms')}}</p>
                         </div>
                         <div class="col-lg-2 text-center">
-                          <p><i class="fas fa-toilet fa-2x"></i>     {{ $house->bathrooms }}    {{trans('messages.bathrooms')}}</p>
+                            <p><i class="fas fa-toilet fa-2x"></i>     {{ $house->bathrooms }}    {{trans('messages.bathrooms')}}</p>
                         </div>
                     </div>
                     <hr style="border-color: black; border-width: 2px;">
@@ -150,27 +155,22 @@
           </div>
         </div>
       </div>
-      
-@endsection('content')
+
+@endsection
+
 @section('js')
-<script defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_usw0PXe09QidUHvTnTYhQJWCIaj64CU&callback=initMap">
-</script>
 <script>
   // Initialize and add the map
   function initMap() {
     // The location of the house
-    var pislat = parseFloat('{{$house->latitude}}'); console.log(pislat);
-    var pislng = parseFloat('{{$house->longitude}}');console.log(pislng);
-    var pis = {lat: pislat, lng: pislng}; console.log(pis);
+    var pislat = parseFloat('{{$house->latitude}}');
+    var pislng = parseFloat('{{$house->longitude}}');
+    var pis = {lat: pislat, lng: pislng};
     // The map, centered at the house
     var map = new google.maps.Map(
-        document.getElementById('map'), {zoom: 14, center: pis}); console.log(map);
+        document.getElementById('map'), {zoom: 14, center: pis});
     // The marker, positioned at the house
-      var marker = new google.maps.Marker({position: pis, map: map}); console.log(marker);
+      var marker = new google.maps.Marker({position: pis, map: map});
   }
 </script>
- 
-      
-    
 @endsection

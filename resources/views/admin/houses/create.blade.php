@@ -2,12 +2,14 @@
 @section('css')
 <style>
     /* Set the size of the div element that contains the map */
-   #map {
-     height: 400px;  /* The height is 400 pixels */
-     width: 100%;  /* The width is the width of the web page */
-     background-color: grey;
+    #map {
+        height: 400px;
+        /* The height is 400 pixels */
+        width: 100%;
+        /* The width is the width of the web page */
+        background-color: grey;
     }
- </style>
+</style>
 @endsection
 
 @section('content')
@@ -25,7 +27,7 @@
                 <div class="card-header">{{trans('messages.edit_house')}}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('houses.store') }}">
+                    <form method="POST" action="{{ route('houses.store') }}" enctype="multipart/form-data">
                         @csrf
 
                         {{-- employee_id --}}
@@ -97,7 +99,7 @@
                             <div class="col-lg-10">
                                 <select name="zone_id" id="zone_id" class="form-control">
                                     @forelse ($zones as $zone)
-                                    <option value="{{ $zone->id }}" @if(old('zone_id') == $zone->id) selected @endif>
+                                    <option value="{{ $zone->id }}" @if(old('zone_id')==$zone->id) selected @endif>
                                         {{ $zone->name }}
                                     </option>
                                     @empty
@@ -113,7 +115,7 @@
                         </div>
 
                         <div class="form-group row">
-                            
+
                             {{-- Latitude --}}
                             <label for="latitude"
                                 class="col-lg-2 col-form-label">{{ trans('messages.latitude') }}</label>
@@ -136,37 +138,42 @@
                             <div class="col-lg-4">
                                 <input id="longitude" type="text"
                                     class="form-control @error('longitude') is-invalid @enderror"
-                                    value="{{ old('longitude') }}" name="longitude" required autocomplete="longitude"> 
+                                    value="{{ old('longitude') }}" name="longitude" required autocomplete="longitude">
 
                                 @error('longitude')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
-                            </div> 
+                            </div>
                         </div>
 
-                        <button class="btn btn-success" type="button" data-toggle="modal" data-target="#mapmodal"><i class="fas fa-map-pin"> </i> {{ trans('messages.use_map') }}</button>
+                        <button class="btn btn-success" type="button" data-toggle="modal" data-target="#mapmodal"><i
+                                class="fas fa-map-pin"> </i> {{ trans('messages.use_map') }}</button>
                         <!-- Modal -->
-                        <div class="modal fade" id="mapmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                          <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">{{trans('messages.choose_location')}}</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                  <span aria-hidden="true">&times;</span>
-                                </button>
-                              </div>
-                              <div class="modal-body">
-                                  <!--The div element for the map -->
-                                  <div id="map"></div>
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('messages.close')}}</button>
-                                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="getposition()">{{trans('messages.send')}}</button>
-                              </div>
+                        <div class="modal fade" id="mapmodal" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">
+                                            {{trans('messages.choose_location')}}</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <!--The div element for the map -->
+                                        <div id="map"></div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">{{trans('messages.close')}}</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                            onclick="getposition()">{{trans('messages.send')}}</button>
+                                    </div>
+                                </div>
                             </div>
-                          </div>
                         </div>
 
                         {{-- Description ES --}}
@@ -275,7 +282,7 @@
 
                                 <select name="climate_id" id="climate_id" class="form-control">
                                     @forelse ($climates as $climate)
-                                    <option value="{{ $climate->id }}" @if(old('climate_id') == $climate->id) selected
+                                    <option value="{{ $climate->id }}" @if(old('climate_id')==$climate->id) selected
                                         @endif>
                                         {{ $climate->name }}
                                     </option>
@@ -351,7 +358,7 @@
                             {{-- Available --}}
                             <div class="form-check mr-4">
                                 <input type="checkbox" class="form-check-input" name="available" value="1"
-                                    @if(old('available') == 1) checked @endif>
+                                    @if(old('available')==1) checked @endif>
                                 <label for="available" class="form-check-label">
                                     {{ trans('messages.available') }}
                                 </label>
@@ -360,7 +367,7 @@
                             {{-- Furnished --}}
                             <div class="form-check mr-4">
                                 <input type="checkbox" class="form-check-input" name="furnished" value="1"
-                                    @if(old('furnished') == 1) checked @endif>
+                                    @if(old('furnished')==1) checked @endif>
                                 <label for="furnished" class="form-check-label">
                                     {{ trans('messages.furnished') }}
                                 </label>
@@ -369,7 +376,7 @@
                             {{-- Elevator --}}
                             <div class="form-check mr-4">
                                 <input type="checkbox" class="form-check-input" name="elevator" value="1"
-                                    @if(old('elevator') == 1) checked @endif>
+                                    @if(old('elevator')==1) checked @endif>
                                 <label for="elevator" class="form-check-label">
                                     {{ trans('messages.elevator') }}
                                 </label>
@@ -379,7 +386,7 @@
                             {{-- Air --}}
                             <div class="form-check mr-4">
                                 <input type="checkbox" class="form-check-input" name="air_conditioner" value="1"
-                                    @if(old('air_conditioner') == 1) checked @endif>
+                                    @if(old('air_conditioner')==1) checked @endif>
                                 <label for="air_conditioner" class="form-check-label">
                                     {{ trans('messages.air_conditioner') }}
                                 </label>
@@ -389,12 +396,17 @@
 
                             <div class="form-check mr-4">
                                 <input type="checkbox" class="form-check-input" name="parking" value="1"
-                                    @if(old('parking') == 1) checked @endif>
+                                    @if(old('parking')==1) checked @endif>
                                 <label for="parking" class="form-check-label">
                                     {{ trans('messages.parking') }}
                                 </label>
                             </div>
 
+                        </div>
+
+                        <div class="form-group">
+                            <label for="images" class="mr-2">@lang('messages.images')</label>
+                            <input type="file" name="images[]" multiple>
                         </div>
 
                         <div class="form-group mb-0">
@@ -415,36 +427,27 @@
 @endsection
 @section('js')
 <script>
-  var marker = "";
-  // Initialize and add the map
-  function initMap() {
-    // The location of Girona
-    var girona = {lat: 41.983333, lng: 2.816667};
-    // The map, centered at Girona
-    var map = new google.maps.Map(
-        document.getElementById('map'), {zoom: 12, center: girona});
-    marker = new google.maps.Marker({
-      position: girona,
-      map: map,
-      draggable:true,
-      title: '{{trans('messages.move_me')}}'
-    });
-  }
+    var marker = "";
+    // Initialize and add the map
+    function initMap() {
+        // The location of Girona
+        var girona = {lat: 41.983333, lng: 2.816667};
+        // The map, centered at Girona
+        var map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 12, center: girona});
+        marker = new google.maps.Marker({
+        position: girona,
+        map: map,
+        draggable:true,
+        title: '{{trans('messages.move_me')}}'
+        });
+    }
 
-  function getposition(){
-    var lat = marker.getPosition().lat();
-    var long = marker.getPosition().lng();
-    $('#latitude').val(lat);
-    $('#longitude').val(long);
-  }
-  
-      </script>
-      <!--Load the API from the specified URL
-      * The async attribute allows the browser to render the page while the API loads
-      * The key parameter will contain your own API key (which is not needed for this tutorial)
-      * The callback parameter executes the initMap() function
-      -->
-      <script defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_usw0PXe09QidUHvTnTYhQJWCIaj64CU&callback=initMap">
-      </script>
+    function getposition(){
+        var lat = marker.getPosition().lat();
+        var long = marker.getPosition().lng();
+        $('#latitude').val(lat);
+        $('#longitude').val(long);
+    }
+</script>
 @endsection

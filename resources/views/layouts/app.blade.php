@@ -20,12 +20,12 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('css')
-    @stack('scripts')
 </head>
 
 <body>
     @section('header')
     @include('includes.header')
+    @include('cookieConsent::index')
     @show
     <div id="app" class="my-4">
         <main>
@@ -35,8 +35,10 @@
     @section('footer')
     @include('includes.footer')
     @show
-
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_usw0PXe09QidUHvTnTYhQJWCIaj64CU&callback=initMap">
+    </script>
     @yield('js')
 </body>
 

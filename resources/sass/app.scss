@@ -7,6 +7,21 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+//JQuery UI
+@import 'jquery-ui';
+@import 'jquery-ui.structure';
+
 @import 'footer';
 
 @import 'home';
+
+.ui-slider-range {
+    background: #ffcc00;
+}
+
+.cookie-consent {
+    padding: 1rem;
+    button {
+        margin-left: 20px;
+    }
+}

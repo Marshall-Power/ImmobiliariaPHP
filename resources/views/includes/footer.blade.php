@@ -38,12 +38,12 @@
                 <p>Av. Jaume I, 46</p>
                 <p>17001, Girona</p>
                 <a href="tel:+34972600729" style="text-decoration:none;color:white; "><i class="fa fa-phone"></i>
-                    972600729</a>
+                    972600729
+                </a>
             </div>
         </div>
         <div class="col">
-            <div>
-                <p>Copyrighted</p>
-            </div>
+            <p>Copyrighted</p>
         </div>
     </div>
+</div>
