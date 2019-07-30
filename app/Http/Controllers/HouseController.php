@@ -10,6 +10,7 @@ use App\Climate;
 use App\User;
 use App\HouseType;
 use App\Contract;
+use Illuminate\Support\Facades\Validator;
 
 class HouseController extends Controller
 {
@@ -50,17 +51,23 @@ class HouseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    protected function validator(array $data) {
+        return Validator::make($data, House::$rules);
+    }
+
     public function store(Request $request)
     {
-        $validator = $this->validate($request, House::$rules);
+        $this->validator($request->all())->validate();
 
-        $validator["elevator"] = $request->elevator ? true : false;
-        $validator["parking"] = $request->parking ? true : false;
-        $validator["air_conditioner"] = $request->air_conditioner ? true : false;
-        $validator["available"] = $request->available ? true : false;
-        $validator["furnished"] = $request->furnished ? true : false;
+        $data = $request->all();
+        $data["elevator"] = $request->filled('elevator');
+        $data["parking"] = $request->filled('parking');
+        $data["air_conditioner"] = $request->filled('air_conditioner');
+        $data["available"] = $request->filled('available');
+        $data["furnished"] = $request->filled('furnished');
 
-        $house = House::create($validator);
+        $house = House::create($data);
 
         if($request->hasFile('images')) {
             foreach($request->file('images') as $key => $image) {

@@ -1,48 +1,60 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 
 <div class="container">
-    @include('includes.adminNav')
-    <div class="row">
+    <div class="mb-4">
+        <h1 class="text-center">{{ trans('messages.users') }}</h1>
     </div>
-    <h2 class="float-left mr-2">{{ trans('messages.users') }}</h2>
-    <button type="button" class="btn btn-success mb-4" data-toggle="modal" data-target="#createUser">
-        <i class="fa fa-plus"></i>
-    </button>
-    <div class="row">
-            <input style="width:100%;margin:1%;" type="text" name="search_user" placeholder="{{trans('messages.search_user')}}">
-        @forelse ($users as $user)
-        <div class="col-md-3 my-4">
-            <a href="">
-                <h3>
-                    <i class="fas fa-user"></i> {{ $user->name }}
-                </h3>
-            </a>
-            <p>
-                <i class="fas fa-envelope"></i> {{ $user->email }}
-            </p>
-            <p>
-                <i class="far fa-id-card"></i> {{ $user->usertype->type }}
-            </p>
-            <a class="btn btn-block btn-secondary" href={{ route('users.edit', $user->id) }}>
-                {{ trans('messages.edit_user') }}
-                <i class="fas fa-user-edit"></i>
-            </a>
-            <a class="btn btn-block btn-danger" href="{{ route('users.index') }}"
-                onclick="event.preventDefault();document.getElementById('delete-user-{{ $user->id }}').submit();">
-                {{ trans('messages.delete_user') }}
-                <i class="fas fa-user-times"></i>
-            </a>
-            <form action="{{ route('users.destroy', $user->id) }}" method="POST" id="delete-user-{{ $user->id }}">
-                @csrf
-                @method('DELETE')
-            </form>
-        </div>
-        @empty
-        {{trans('messages.no_users')}}
-        @endforelse
-    </div>
+    <table class="table table-hover table-striped">
+        <thead class="thead-dark">
+            <th scope="col">#</th>
+            <th scope="col">@lang('messages.name')</th>
+            <th scope="col">@lang('messages.email')</th>
+            <th scope="col">@lang('messages.user_type')</th>
+            <th scope="col">@lang('messages.actions')</th>
+            <th scope="col" style="text-align: end;">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createUser">
+                    <i class="fa fa-plus"></i>
+                </button>
+            </th>
+        </thead>
+        <tbody>
+            @forelse($users as $user)
+            <tr>
+                <th scope="row">{{ $user->id }}</th>
+                <td>{{ $user->name }}</td>
+                <td>{{ $user->email }}</td>
+                <td>{{ $user->usertype->type }}</td>
+                <td>
+                    <a class="btn btn-block btn-secondary" href={{ route('users.edit', $user->id) }}>
+                        {{ trans('messages.edit_user') }}
+                        <i class="fas fa-user-edit"></i>
+                    </a>
+                </td>
+                <td>
+                    <a class="btn btn-block btn-danger" href="{{ route('users.index') }}"
+                        onclick="event.preventDefault();document.getElementById('delete-user-{{ $user->id }}').submit();">
+                        {{ trans('messages.delete_user') }}
+                        <i class="fas fa-user-times"></i>
+                    </a>
+                    <form
+                        action="{{ route('users.destroy', $user->id) }}"
+                        method="POST"
+                        class="d-none"
+                        id="delete-user-{{ $user->id }}">
+                        @csrf
+                        @method('DELETE')
+                    </form>
+                </td>
+            </tr>
+            @empty
+            <tr>
+                <td colspan="3">@lang('messages.no_users')</td>
+            </tr>
+            @endforelse
+        </tbody>
+    </table>
 </div>
 
 <!-- Modal -->
@@ -149,4 +161,4 @@
         </div>
     </div>
 </div>
-@endsection
+@stop
