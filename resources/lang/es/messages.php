@@ -107,4 +107,6 @@ return [
     'desc' => 'Descripción',
     'location' => 'Ubicación',
     'houses_map' => 'Mapa de inmuebles',
+    'comment_recived' => 'Hemos recibido tu mensaje! Pronto nos pondremos en contacto contigo!',
+    'home' => 'Inicio'
 ];

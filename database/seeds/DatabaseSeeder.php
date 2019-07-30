@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ContractTableSeeder::class);
         $this->call(HousesTableSeeder::class);
         $this->call(PhotosTableSeeder::class);
+        $this->call(CommentsTableSeeder::class);
     }
 }

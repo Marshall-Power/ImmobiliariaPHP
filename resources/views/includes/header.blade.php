@@ -1,9 +1,9 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            <img src="https://es.freelogodesign.org/Content/img/logo-ex-2.png" style="width:150px;height:150px;"
-                class="css-class" alt="inmobiliaria">
+            <img src="https://es.freelogodesign.org/Content/img/logo-ex-2.png" style="height: 50px; width: 50px; object-fit: cover;" alt="inmobiliaria">
         </a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
@@ -13,10 +13,19 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('contact')}}">{{trans('messages.contact')}}</a>
+                    <a class="nav-link" href="{{ route('welcome') }}">
+                        @lang('messages.home')
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('about')}}">{{trans('messages.aboutUs')}}</a>
+                    <a class="nav-link" href="{{ route('contact') }}">
+                        @lang('messages.contact')
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('about') }}">
+                        @lang('messages.aboutUs')
+                    </a>
                 </li>
             </ul>
 
