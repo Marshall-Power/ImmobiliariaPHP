@@ -100,4 +100,8 @@ return [
     'province' => 'Provincia',
     'parking' => 'Parking',
     'furnished' => 'Amueblado',
+    'use_map' => 'Usar mapa',
+    'close' => 'Cerrar',
+    'move_me' => 'Muéveme!',
+    'choose_location' => 'Elige una ubicación!',
 ];

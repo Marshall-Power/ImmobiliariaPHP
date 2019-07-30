@@ -93,7 +93,7 @@
               var contentString = "<div class='card' style='width: 15rem; margin-top:0'>"+
                 "<img class='card-img-top' src='https://img3.idealista.com/blur/WEB_DETAIL_TOP-XL-L/0/id.pro.es.image.master/2c/33/75/693467457.jpg' alt='Card image cap'>"+
                 "<div class='card-body'>"+
-                  "<h5 class='card-title'>"+item.name+"</h5>"+
+                  "<h5 class='card-title'><u>"+item.name+"</u></h5>"+
                   "<h6 class='card-subtitle mb-2 text-muted'>"+item.address+"</h6>"+
                   "<p class='card-text'>"+parseInt(item.price)+" "+contr+"</p>"+
                   "<p class='card-text'>"+item.rooms+" "+'{{trans('messages.rooms')}}'+" </p>"+
