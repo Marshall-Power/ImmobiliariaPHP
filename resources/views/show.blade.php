@@ -1,15 +1,22 @@
 @extends('layouts.app')
-@section('estimapa')
-<style>
+@section('css')
+<style type="text/css">
     /* Set the size of the div element that contains the map */
     #map {
       height: 400px;  /* The height is 400 pixels */
       width: 100%;  /* The width is the width of the web page */
       background-color: grey;
      }
+     
   </style>
+@endsection 
+@section('javascrit')
+<script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_usw0PXe09QidUHvTnTYhQJWCIaj64CU&callback=initMap">
+    </script>
 @endsection
 @section('content')
+
 
 <div id="welcome" class="container">
     <div class="row">
@@ -28,13 +35,13 @@
                     <h4 class="card-text">{{ $house->zone->name }} </h4>
                     <div class="row">
                         <div class="col-lg-2">
-                            <p><i class="fas fa-home fa-2x"></i> {{ $house->size }} m²</p>
+                          <p><i class="fas fa-home fa-2x"></i> {{ $house->size }} m²</p>
                         </div>
                         <div class="col-lg-3">
-                        <p><i class="fas fa-bed fa-2x"></i>     {{ $house->rooms }}   {{trans('messages.rooms')}}</p>
+                          <p><i class="fas fa-bed fa-2x"></i>     {{ $house->rooms }}   {{trans('messages.rooms')}}</p>
                         </div>
                         <div class="col-lg-2 text-center">
-                        <p><i class="fas fa-toilet fa-2x"></i>     {{ $house->bathrooms }}    {{trans('messages.bathrooms')}}</p>
+                          <p><i class="fas fa-toilet fa-2x"></i>     {{ $house->bathrooms }}    {{trans('messages.bathrooms')}}</p>
                         </div>
                     </div>
                     <hr style="border-color: black; border-width: 2px;">
@@ -49,18 +56,17 @@
         </div>
     </div>
     <!-- Modal -->
-    <div class="modal fade" id="modalmap" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalmap" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">{{trans('messages.location')}}</h5>
+              <h5 class="modal-title" id="ModalLabel">{{trans('messages.location')}}</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
                 <div id="map"></div>
-                
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('messages.close')}}</button>
@@ -68,24 +74,24 @@
           </div>
         </div>
       </div>
-</div>
+      
 @endsection('content')
 @section('js')
+
 <script>
   // Initialize and add the map
   function initMap() {
     // The location of Girona
-    var pislat = parseFloat('{{$house->latitude}}');
-    var pislng = parseFloat('{{$house->longitude}}');
-    var pis = {lat: pislat, lng: pislng}
+    var pislat = parseFloat('{{$house->latitude}}'); console.log(pislat);
+    var pislng = parseFloat('{{$house->longitude}}');console.log(pislng);
+    var pis = {lat: pislat, lng: pislng}; console.log(pis);
     // The map, centered at Girona
     var map = new google.maps.Map(
-        document.getElementById('map'), {zoom: 14, center: pis});
+        document.getElementById('map'), {zoom: 14, center: pis}); console.log(map);
     // The marker, positioned at Girona
-    var marker = new google.maps.Marker({position: pis, map: map});
+      var marker = new google.maps.Marker({position: pis, map: map}); console.log(marker);
   }
       </script>
-      <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_usw0PXe09QidUHvTnTYhQJWCIaj64CU&callback=initMap">
-      </script>
+      
+    
 @endsection

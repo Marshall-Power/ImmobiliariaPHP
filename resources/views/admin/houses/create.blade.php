@@ -160,10 +160,7 @@
                               <div class="modal-body">
                                   <!--The div element for the map -->
                                   <div id="map"></div>
-                                  
-                                    </body>
-                                  </html>
-                                  </div>
+                              </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('messages.close')}}</button>
                                 <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="getposition()">{{trans('messages.send')}}</button>
