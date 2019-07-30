@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('css')
 <style>
@@ -15,16 +15,15 @@
     }
 
     .box:hover {
-        background-color: #666;
+        background-color: #555;
         text-decoration: none;
         color: whitesmoke;
     }
 </style>
 @endsection
 
-@section('content')
+@section('admin')
 <div class="container">
-    @include('includes.adminNav')
     @if ($message = Session::get('flash'))
     <div class="row">
         <div class="alert alert-danger">
@@ -32,6 +31,9 @@
         </div>
     </div>
     @endif
+    <div class="mb-4">
+        <h1 class="text-center">Dashboard</h1>
+    </div>
     <div class="row">
         <div class="col-md-4">
             <a class="box" href="{{ route('users.index') }}">

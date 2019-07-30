@@ -1,73 +1,66 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
-
-@section('content')
+@section('admin')
 
 <div class="container">
-    @include('includes.adminNav')
-
-    <div>
-        <h2>{{trans('messages.zones')}}
-            <button type="button" class="btn btn-success mb-4" data-toggle="modal" data-target="#createZone">
-                <i class="fa fa-plus"></i>
-            </button>
-        </h2>
+    <div class="mb-4">
+        <h1 class="text-center">{{ trans('messages.zones') }}</h2>
     </div>
-
-    <div class="row">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">{{trans('messages.name')}}</th>
-                    <th scope="col">{{trans('messages.cp')}}</th>
-                    <th scope="col">{{trans('messages.province')}}</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            @forelse ($zones as $zone)
-
+    <table class="table table-hover table-striped">
+        <thead class="thead-dark">
             <tr>
-                <td>
-                    {{$zone->name}}
-                </td>
-                <td>
-                    {{$zone->postal_code}}
-                </td>
-                <td>
-                    {{$zone->province->name}}
-                </td>
-                <td>
-                    <a class="btn btn-block btn-secondary" href="{{ route('zones.edit', $zone->id) }}">
-                        {{ trans('messages.edit_zone') }}
-                        <i class="fas fa-user-edit"></i>
-                    </a>
-                </td>
-                <td>
-                    <a class="btn btn-block btn-danger" href="{{ route('zones.index') }}"
-                        onclick="event.preventDefault();document.getElementById('delete-zone-{{ $zone->id }}').submit();">
-                        {{ trans('messages.delete_zone') }}
-                        <i class="fas fa-user-times"></i>
-                    </a>
-                    <form action="{{ route('zones.destroy', $zone->id) }}" method="POST"
-                        id="delete-zone-{{ $zone->id }}">
-                        @csrf
-                        @method('DELETE')
-                    </form>
-                </td>
+                <th scope="col">{{trans('messages.name')}}</th>
+                <th scope="col">{{trans('messages.cp')}}</th>
+                <th scope="col">{{trans('messages.province')}}</th>
+                <th scope="col">@lang('messages.actions')</th>
+                <th scope="col" style="text-align: end;">
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createZone">
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </th>
             </tr>
-            @empty
-            @endforelse
+        </thead>
+        @forelse ($zones as $zone)
 
-        </table>
+        <tr>
+            <td>
+                {{$zone->name}}
+            </td>
+            <td>
+                {{$zone->postal_code}}
+            </td>
+            <td>
+                {{$zone->province->name}}
+            </td>
+            <td>
+                <a class="btn btn-block btn-secondary" href="{{ route('zones.edit', $zone->id) }}">
+                    {{ trans('messages.edit_zone') }}
+                    <i class="fas fa-user-edit"></i>
+                </a>
+            </td>
+            <td>
+                <a class="btn btn-block btn-danger" href="{{ route('zones.index') }}"
+                    onclick="event.preventDefault();document.getElementById('delete-zone-{{ $zone->id }}').submit();">
+                    {{ trans('messages.delete_zone') }}
+                    <i class="fas fa-user-times"></i>
+                </a>
+                <form
+                    action="{{ route('zones.destroy', $zone) }}"
+                    method="POST"
+                    class="d-none"
+                    id="delete-zone-{{ $zone->id }}">
+                    @csrf
+                    @method('DELETE')
+                </form>
+            </td>
+        </tr>
+        @empty
+        <tr><td colspan="5">@lang('messages.empty.zones')</td></tr>
+        @endforelse
 
-    </div>
-
-
-
+    </table>
 
 </div>
-
 
 <!-- Modal -->
 <div class="modal fade" id="createZone" tabindex="-1" role="dialog" aria-labelledby="createZoneLabel"
