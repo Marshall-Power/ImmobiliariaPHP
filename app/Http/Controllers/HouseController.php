@@ -10,6 +10,7 @@ use App\Climate;
 use App\User;
 use App\HouseType;
 use App\Contract;
+use App\Photo;
 use Illuminate\Support\Facades\Validator;
 
 class HouseController extends Controller
@@ -79,6 +80,8 @@ class HouseController extends Controller
                     'house_id' => $house->id,
                     'path' => $path
                 ]);
+
+                if ($key == 3) break;
             }
         }
 

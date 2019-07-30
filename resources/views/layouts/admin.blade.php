@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-b:
 @section('header')
 @include('includes.header')
 @include('includes.adminNav')
