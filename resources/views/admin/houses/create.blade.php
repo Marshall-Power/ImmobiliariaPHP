@@ -1,4 +1,13 @@
 @extends('layouts.app')
+@section('css')
+<style>
+    /* Set the size of the div element that contains the map */
+   #map {
+     height: 400px;  /* The height is 400 pixels */
+     width: 100%;  /* The width is the width of the web page */
+    }
+ </style>
+@endsection
 
 @section('content')
 <div class="container">
@@ -103,6 +112,7 @@
                         </div>
 
                         <div class="form-group row">
+                            
                             {{-- Latitude --}}
                             <label for="latitude"
                                 class="col-lg-2 col-form-label">{{ trans('messages.latitude') }}</label>
@@ -125,14 +135,72 @@
                             <div class="col-lg-4">
                                 <input id="longitude" type="text"
                                     class="form-control @error('longitude') is-invalid @enderror"
-                                    value="{{ old('longitude') }}" name="longitude" required autocomplete="longitude">
+                                    value="{{ old('longitude') }}" name="longitude" required autocomplete="longitude"> 
 
                                 @error('longitude')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
+                            </div> 
+                        </div>
+
+                        <button class="btn btn-success" type="button" data-toggle="modal" data-target="#mapmodal"><i class="fas fa-map-pin"> </i> {{ trans('messages.use_map') }}</button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="mapmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">{{trans('messages.choose_location')}}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                  <!--The div element for the map -->
+                                  <div id="map"></div>
+                                  <script>
+                                  var marker = "";
+                                  // Initialize and add the map
+                                  function initMap() {
+                                    // The location of Girona
+                                    var girona = {lat: 41.983333, lng: 2.816667};
+                                    // The map, centered at Girona
+                                    var map = new google.maps.Map(
+                                        document.getElementById('map'), {zoom: 12, center: girona});
+                                    marker = new google.maps.Marker({
+                                      position: girona,
+                                      map: map,
+                                      draggable:true,
+                                      title: '{{trans('messages.move_me')}}'
+                                    });
+                                  }
+
+                                  function getposition(){
+                                    var lat = marker.getPosition().lat();
+                                    var long = marker.getPosition().lng();
+                                    $('#latitude').val(lat);
+                                    $('#longitude').val(long);
+                                  }
+                                  
+                                      </script>
+                                      <!--Load the API from the specified URL
+                                      * The async attribute allows the browser to render the page while the API loads
+                                      * The key parameter will contain your own API key (which is not needed for this tutorial)
+                                      * The callback parameter executes the initMap() function
+                                      -->
+                                      <script async defer
+                                      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_usw0PXe09QidUHvTnTYhQJWCIaj64CU&callback=initMap">
+                                      </script>
+                                    </body>
+                                  </html>
+                                  </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('messages.close')}}</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="getposition()">{{trans('messages.send')}}</button>
+                              </div>
                             </div>
+                          </div>
                         </div>
 
                         {{-- Description ES --}}
