@@ -1,26 +1,34 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
-@section('content')
+@section('admin')
 <div class="container">
-    @include('includes.adminNav')
-    <div class="row">
-        <h2>{{ trans('messages.houses') }}</h2>
-        <a class="btn btn-success mb-4 ml-4" href="{{ route('houses.create') }}"><i class="fa fa-plus"></i></a>
-
+    <div class="row justify-content-center">
+        <h1>{{ trans('messages.houses') }}</h1>
     </div>
 
+    <form class="row">
+        <div class="col-md-10 mb-2">
+            <input name="q" placeholder="{{ trans('messages.search_house') }}" type="text" class="form-control">
+        </div>
+        <div class="col">
+            <button class="btn btn-block btn-success" type="submit">Buscar</button>
+        </div>
+    </form>
+
     <div class="row">
-        <input style="width:100%;margin:1%;" type="text" name="search_house"
-            placeholder="{{ trans('messages.search_house') }}">
-        <table class="table">
-            <thead>
+        <table class="table table-striped table-hover">
+            <thead class="thead-dark">
                 <th scope="col">{{trans('messages.name')}}</th>
                 <th scope="col">{{trans('messages.address')}}</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
+                <th scope="col">@lang('messages.actions')</th>
+                <th scope="col" class="text-right">
+                    <a href="{{ route('houses.create') }}" class="btn btn-success text-white">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                </th>
             </thead>
             </tbody>
-            @foreach ($houses as $house)
+            @forelse ($houses as $house)
             <tr>
                 <td>
                     <a href="{{ route('houses.show', $house) }}">
@@ -37,19 +45,25 @@
                     </a>
                 </td>
                 <td>
-                    <a class="btn btn-block btn-danger" style="color:white;"
+                    <a class="btn btn-block btn-danger text-white"
                         onclick="event.preventDefault();document.getElementById('delete-house-{{ $house->id }}').submit();">
                         {{ trans('messages.delete_house') }}
                         <i class="fas fa-user-times"></i>
                     </a>
-                    <form method="POST" action="{{ route('houses.destroy', $house->id) }}" id="delete-house-{{ $house->id }}">
+                    <form method="POST" action="{{ route('houses.destroy', $house->id) }}" class="d-none"
+                        id="delete-house-{{ $house->id }}">
                         @csrf
                         @method('DELETE')
                     </form>
                 </td>
-                @endforeach
+            </tr>
+            @empty
+            <tr>
+                <td colspan="6">@lang('messages.empty.users')</td>
+            </tr>
+            @endforelse
 
-                </tbody>
+            </tbody>
         </table>
     </div>
 </div>
