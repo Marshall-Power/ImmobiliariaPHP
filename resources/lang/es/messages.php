@@ -104,4 +104,6 @@ return [
     'close' => 'Cerrar',
     'move_me' => 'Muéveme!',
     'choose_location' => 'Elige una ubicación!',
+    'desc' => 'Descripción',
+    'location' => 'Ubicación',
 ];
