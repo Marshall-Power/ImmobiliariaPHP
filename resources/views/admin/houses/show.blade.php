@@ -49,7 +49,7 @@
                     @forelse ($house->photos as $key => $image)
                     <div class="carousel-item @if($key == 0) active @endif">
                         <img class="d-block w-100"
-                            src="https://cdn.vox-cdn.com/thumbor/0__zWQZmmmwHA5OjBTAchz6_sBw=/0x0:3000x2000/1200x800/filters:focal(1260x760:1740x1240)/cdn.vox-cdn.com/uploads/chorus_image/image/62922957/4854_Alonzo_Ave__Encino_FInals_34.0.jpg"
+                            src="{{ url('/storage') . '/' . $image->path }}"
                             alt="{{ $image->name }}">
                     </div>
                     @empty

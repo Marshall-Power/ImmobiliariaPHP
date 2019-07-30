@@ -1,126 +1,78 @@
-@push('scripts')
-<script src="{{asset('js/jquery-3.4.1.min.js')}}"></script>
-<script src="{{asset('js/jquery-ui.js')}}"></script>
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css">
-<script>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h3 class="title">{{ trans('messages.filter') }}</h3>
+            <form id="filter_houses" action="{{ route('welcome') }}">
+                <input type="hidden" id="rooms_min" name="rooms_min">
+                <input type="hidden" id="rooms_max" name="rooms_max">
+                <input type="hidden" id="bathrooms_min" name="bathrooms_min">
+                <input type="hidden" id="bathrooms_max" name="bathrooms_max">
+                <input type="hidden" id="price_min" name="price_min">
+                <input type="hidden" id="price_max" name="price_max">
+                <input type="hidden" id="size_min" name="size_min">
+                <input type="hidden" id="size_max" name="size_max">
 
+                <div class="form-group">
+                    <label for="amount">Habitaciones</label>
+                    <input type="text" id="amount-rooms" class="mb-2" readonly
+                        style="border:0; color:#f6931f;font-weight:bold;width:100%;">
+                    <div id="slider-range-rooms"></div>
+                </div>
 
-    $( function() {
-      $( "#slider-range-rooms" ).slider({
-        range: true,
-        min: 1,
-        max: 8,
-        values: [ 1, 8 ],
-        slide: function( event, ui ) {
-          $( "#amount-rooms" ).val(ui.values[ 0 ] + " hab - " + ui.values[ 1 ] + " hab " );
-        }
-      });
-      $( "#amount-rooms" ).val( $( "#slider-range-rooms" ).slider( "values", 0 ) + " hab  -  " +
-      $( "#slider-range-rooms" ).slider( "values", 1 ) + " hab "  );
-    } );
+                <div class="form-group">
+                    <label for="amount-bathrooms">WC</label>
+                    <input type="text" id="amount-bathrooms" readonly class="mb-2 w-100"
+                        style="border:0; color:#f6931f; font-weight:bold;">
+                    <div id="slider-range-bathrooms"></div>
+                </div>
 
-    $( function() {
-    $( "#slider-range-bathroom" ).slider({
-      range: true,
-      min: 1,
-      max: 3,
-      step: 1,
-      values: [ 1, 3 ],
-      slide: function( event, ui ) {
-        $( "#amount-bathroom" ).val(ui.values[ 0 ] + " baños - " + ui.values[ 1 ] + " baños " );
-      }
-    });
-    $( "#amount-bathroom" ).val( $( "#slider-range-bathroom" ).slider( "values", 0 ) + " baños  -  " +
-    $( "#slider-range-bathroom" ).slider( "values", 1 ) + " baños "  );
-  } );
-</script>
-<script>
-    $( function() {
-      $( "#slider-range-size" ).slider({
-        range: true,
-        min: 0,
-        max: 600,
-        step: 5,
-        values: [ 0, 600 ],
-        slide: function( event, ui ) {
-          $( "#amount-size" ).val(ui.values[ 0 ] + " m2 - " + ui.values[ 1 ] + " m2 " );
-          if ( ui.values[0] >= 100 ) $("#slider-range-size").slider('option', 'step', 10);
-          if ( ui.values[0] < 100 ) $("#slider-range-size").slider('option', 'step', 5);
-        }
-      });
-      $( "#amount-size" ).val( $( "#slider-range-size" ).slider( "values", 0 ) + " m2  -  " +
-      $( "#slider-range-size" ).slider( "values", 1 ) + " m2 "  );
-    } );
-    </script>
-<script>
+                <div class="form-group">
+                    <label for="amount-price">Rango de precios:</label>
+                    <input type="text" id="amount-price" readonly class="mb-2 w-100"
+                        style="border:0; color:#f6931f; font-weight:bold;">
+                    <div id="slider-range-price"></div>
+                </div>
 
-    $( function() {
-        $( "#slider-range-price" ).slider({
-          range: true,
-          min: 100,
-          max: 1000000,
-          step: 100,
-          values: [ 0, 1000000 ],
-          slide: function( event, ui ) {
-            $( "#amount-price" ).val(ui.values[ 0 ] + " € - " + ui.values[ 1 ] + " € " );
-          }
-        });
-        $( "#amount-price" ).val( $( "#slider-range-price" ).slider( "values", 0 ) + " €  -  " +
-        $( "#slider-range-price" ).slider( "values", 1 ) + " € "  );
-      } );
-</script>
-<script>
+                <div class="form-group">
+                    <label for="amount-size">Metros cuadrados:</label>
+                    <input type="text" id="amount-size" readonly class="mb-2 w-100"
+                        style="border:0; color:#f6931f; font-weight:bold;">
+                    <div id="slider-range-size"></div>
+                </div>
 
+                <div class="row">
+                    <div class="col">
+                        <div class="form-check">
+                            <input id="elevator" name="elevator" class="form-check-input" type="checkbox">
+                            <label class="form-check-label ml-1" for="parking">@lang('messages.elevator')</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-check">
+                            <input id="parking" name="parking" class="form-check-input" type="checkbox">
+                            <label class="form-check-label ml-1" for="parking">@lang('messages.parking')</label>
+                        </div>
+                    </div>
+                </div>
 
-</script>
-
-
-@endpush
-
-
-
-
-
-<p>{{trans('messages.filter')}}</p>
-<hr>
-<input type="checkbox">Casa
-<br>
-<input type="checkbox">Comprar
-<br>
-<input type="checkbox">Parking
-
-<div id="slider_rooms_update_text" style="width:100%">
-    <p>
-        <label for="amount">Habitaciones:</label>
-        <input type="text" id="amount-rooms" readonly style="border:0; color:#f6931f; font-weight:bold;width:100%;">
-    </p>
-    <div id="slider-range-rooms" style="width:100%;"></div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-check">
+                            <input id="air_conditioner" name="air_conditioner" class="form-check-input" type="checkbox">
+                            <label class="form-check-label ml-1" for="parking">@lang('messages.air_conditioner')</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-check">
+                            <input id="parking" class="form-check-input" type="checkbox">
+                            <label class="form-check-label ml-1" for="furnished">@lang('messages.furnished')</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <input id="send_filters" type="submit" value="Filtrar" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
-
-<div id="slider_bathroom_update_text" style="width:100%">
-        <p>
-            <label for="amount-bathroom">WC:</label>
-            <input type="text" id="amount-bathroom" readonly style="border:0; color:#f6931f; font-weight:bold;width:100%;">
-        </p>
-        <div id="slider-range-bathroom" style="width:100%;"></div>
-</div>
-
-<div id="slider_price_update_text" style="width:100%">
-    <p>
-        <label for="amount-price">Rango de precios:</label>
-        <input type="text" id="amount-price" readonly style="border:0; color:#f6931f; font-weight:bold;width:100%;">
-    </p>
-    <div id="slider-range-price" style="width:100%;"></div>
-</div>
-
-
-<div id="slider_size_update_text" style="width:100%">
-        <p>
-            <label for="amount-size">Metros cuadrados:</label>
-            <input type="text" id="amount-size" readonly style="border:0; color:#f6931f; font-weight:bold;width:100%;">
-        </p>
-        <div id="slider-range-size" style="width:100%;"></div>
-</div>
-
-<input id="send_filters" type="button" value="Filtrar">
-
