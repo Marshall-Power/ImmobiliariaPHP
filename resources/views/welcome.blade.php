@@ -31,7 +31,7 @@
             <hr>
 
             <div class="map-wrapper hide">
-                <h3>Habitatges a Girona</h3> <!-- Esto con el sistema de traducción -->
+            <h3>{{trans('messages.houses_map')}}</h3> 
                 <div id="map"></div>
             </div>
             <!--The div element for the map -->
@@ -47,7 +47,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $house->name }}</h5>
                                 <p class="card-text">{{ str_limit($house->description_es, $limit = 150, $end = '...') }}</p>
-                                <a href="#" style="font-size: 1rem;" class="btn btn-primary btn-lg">Detalles</a>
+                            <a href="#" style="font-size: 1rem;" class="btn btn-primary btn-lg">{{trans('messages.details')}}</a>
                                 <a class="btn btn-primary" style="" href="tel:+34{{ $house->employee->phone }}"> <i
                                         class="fas fa-phone-square-alt fa-2x" style="vertical-align: bottom;"></i> </a>
                             </div>
