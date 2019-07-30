@@ -8,7 +8,7 @@ use App\Comment;
 class CommentController extends Controller
 {
   public function index(){
-    return view('contact');
+    return view('contact_landing');
 }
 
 public function create(){
@@ -24,7 +24,7 @@ public function storeComment(Request $request){
     'message' => $request->message,
   ];
   $comment = Comment::create($data);
-  return redirect()->route('contact');
+  return redirect()->route('contact_landing');
 
     
 

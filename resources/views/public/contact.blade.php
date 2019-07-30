@@ -13,7 +13,7 @@
         <div class="col-md-12 mb-md-0 mb-5">
 
             <form id="contact-form" name="contact-form" action="{{route('contactaction')}}" method="POST">
-                @csrf
+                @csrf {{ method_field('POST') }}
                 <div class="row">
 
                     <div class="col-md-8">
