@@ -444,7 +444,7 @@
       * The key parameter will contain your own API key (which is not needed for this tutorial)
       * The callback parameter executes the initMap() function
       -->
-      <script async defer
+      <script defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_usw0PXe09QidUHvTnTYhQJWCIaj64CU&callback=initMap">
       </script>
 @endsection

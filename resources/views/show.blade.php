@@ -25,7 +25,7 @@
             <div class="card mx-auto" style="max-height: 2000px;">
 
                 <div class="card-body">
-                    <h5 class="card-title font-weight-bold">{{ $house->prices }} €</h5>
+                    <h5 class="card-title font-weight-bold">{{ $house->price }} €</h5>
                     <h3>{{ $house->name }} <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalmap"><i class="fas fa-map-marker-alt"></i></button> </h3>
                     <h4 class="card-text">{{ $house->zone->name }} </h4>
                     <div class="row">
@@ -72,9 +72,9 @@
       
 @endsection('content')
 @section('js')
-<script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_usw0PXe09QidUHvTnTYhQJWCIaj64CU&callback=initMap">
-    </script>
+<script defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_usw0PXe09QidUHvTnTYhQJWCIaj64CU&callback=initMap">
+</script>
 <script>
   // Initialize and add the map
   function initMap() {
@@ -89,6 +89,7 @@
       var marker = new google.maps.Marker({position: pis, map: map}); console.log(marker);
   }
 </script>
+ 
       
     
 @endsection
