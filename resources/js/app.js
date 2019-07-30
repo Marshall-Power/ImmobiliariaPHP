@@ -34,8 +34,12 @@ const app = new Vue({
 import $ from 'jquery';
 window.$ = window.jQuery = $;
 
-import 'jquery-ui/ui/widgets/slider';
+// import 'jquery-ui/ui/widgets/slider';
 
-import 'jquery-ui/ui/widgets/selectmenu';
+// import 'jquery-ui/ui/widgets/selectmenu';
 
-
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+ });
