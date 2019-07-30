@@ -21,7 +21,7 @@
 
     <h1 class="my-2 text-center">{{ trans('messages.contact') }}</h1>
 
-    <h2 class="text-center mb-2">@lang('messages.text_contact')</h2>
+    <h2 class="text-center mb-2">@lang('messages.comment_recived')</h2>
 
     <div class="row">
 
