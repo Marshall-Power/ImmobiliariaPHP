@@ -10659,10 +10659,18 @@ a.text-dark:focus {
   height: 100%;
 }
 
+.icons a {
+  color: #f6931f;
+}
+
 #pagination {
   margin: 100px auto 0px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.details_show i {
+  vertical-align: bottom;
 }
 
