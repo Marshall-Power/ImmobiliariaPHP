@@ -60,24 +60,8 @@
             </div>
             <div class="modal-body">
                 <div id="map"></div>
-                <script>
-                // Initialize and add the map
-                function initMap() {
-                  // The location of Girona
-                  var pislat = parseFloat('{{$house->latitude}}');
-                  var pislng = parseFloat('{{$house->longitude}}');
-                  var pis = {lat: pislat, lng: pislng}
-                  // The map, centered at Girona
-                  var map = new google.maps.Map(
-                      document.getElementById('map'), {zoom: 14, center: pis});
-                  // The marker, positioned at Girona
-                  var marker = new google.maps.Marker({position: pis, map: map});
-                }
-                    </script>
-                    <script async defer
-                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_usw0PXe09QidUHvTnTYhQJWCIaj64CU&callback=initMap">
-                    </script>
-                </div>
+                
+            </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('messages.close')}}</button>
             </div>
@@ -86,3 +70,22 @@
       </div>
 </div>
 @endsection('content')
+@section('js')
+<script>
+  // Initialize and add the map
+  function initMap() {
+    // The location of Girona
+    var pislat = parseFloat('{{$house->latitude}}');
+    var pislng = parseFloat('{{$house->longitude}}');
+    var pis = {lat: pislat, lng: pislng}
+    // The map, centered at Girona
+    var map = new google.maps.Map(
+        document.getElementById('map'), {zoom: 14, center: pis});
+    // The marker, positioned at Girona
+    var marker = new google.maps.Marker({position: pis, map: map});
+  }
+      </script>
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_usw0PXe09QidUHvTnTYhQJWCIaj64CU&callback=initMap">
+      </script>
+@endsection

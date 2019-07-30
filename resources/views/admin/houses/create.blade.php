@@ -160,39 +160,7 @@
                               <div class="modal-body">
                                   <!--The div element for the map -->
                                   <div id="map"></div>
-                                  <script>
-                                  var marker = "";
-                                  // Initialize and add the map
-                                  function initMap() {
-                                    // The location of Girona
-                                    var girona = {lat: 41.983333, lng: 2.816667};
-                                    // The map, centered at Girona
-                                    var map = new google.maps.Map(
-                                        document.getElementById('map'), {zoom: 12, center: girona});
-                                    marker = new google.maps.Marker({
-                                      position: girona,
-                                      map: map,
-                                      draggable:true,
-                                      title: '{{trans('messages.move_me')}}'
-                                    });
-                                  }
-
-                                  function getposition(){
-                                    var lat = marker.getPosition().lat();
-                                    var long = marker.getPosition().lng();
-                                    $('#latitude').val(lat);
-                                    $('#longitude').val(long);
-                                  }
                                   
-                                      </script>
-                                      <!--Load the API from the specified URL
-                                      * The async attribute allows the browser to render the page while the API loads
-                                      * The key parameter will contain your own API key (which is not needed for this tutorial)
-                                      * The callback parameter executes the initMap() function
-                                      -->
-                                      <script async defer
-                                      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_usw0PXe09QidUHvTnTYhQJWCIaj64CU&callback=initMap">
-                                      </script>
                                     </body>
                                   </html>
                                   </div>
@@ -447,4 +415,39 @@
         </div>
     </div>
 </div>
+@endsection
+@section('js')
+<script>
+  var marker = "";
+  // Initialize and add the map
+  function initMap() {
+    // The location of Girona
+    var girona = {lat: 41.983333, lng: 2.816667};
+    // The map, centered at Girona
+    var map = new google.maps.Map(
+        document.getElementById('map'), {zoom: 12, center: girona});
+    marker = new google.maps.Marker({
+      position: girona,
+      map: map,
+      draggable:true,
+      title: '{{trans('messages.move_me')}}'
+    });
+  }
+
+  function getposition(){
+    var lat = marker.getPosition().lat();
+    var long = marker.getPosition().lng();
+    $('#latitude').val(lat);
+    $('#longitude').val(long);
+  }
+  
+      </script>
+      <!--Load the API from the specified URL
+      * The async attribute allows the browser to render the page while the API loads
+      * The key parameter will contain your own API key (which is not needed for this tutorial)
+      * The callback parameter executes the initMap() function
+      -->
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_usw0PXe09QidUHvTnTYhQJWCIaj64CU&callback=initMap">
+      </script>
 @endsection
