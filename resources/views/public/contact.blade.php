@@ -12,7 +12,7 @@
 <p class="text-center w-responsive mx-auto mb-5">{{trans('messages.text_contact')}}</p>
         <div class="col-md-12 mb-md-0 mb-5">
 
-            <form id="contact-form" name="contact-form" action="{{route('contact')}}" method="POST">
+            <form id="contact-form" name="contact-form" action="{{route('contactaction')}}" method="POST">
                 @csrf
                 <div class="row">
 
@@ -51,9 +51,9 @@
 
             </form>
 
-            <div class="text-center text-md-left">
-                <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">{{trans('messages.send')}}</a>
+            <div class="text-center text-md-left" style="margin-top:10px;">
             <a class="btn btn-secondary" href="{{ url('/') }}">{{trans('messages.back')}}</a>
+            <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">{{trans('messages.send')}}</a>
 
         <div class="text-center text-md-right">
         </div>

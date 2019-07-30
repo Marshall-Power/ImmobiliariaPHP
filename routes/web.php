@@ -19,6 +19,7 @@ Route::get('/show/{id}', 'HomeController@show')->name('show');
 
 Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::post('/contact', 'HomeController@contact')->name('contact');
+Route::post('/contactaction','CommentController@storeComment')->name('contactaction');
 Route::get('/about', 'HomeController@about')->name('about');
 
 Route::get('/admin', 'AdminController@index')->name('admin')->middleware('auth');
