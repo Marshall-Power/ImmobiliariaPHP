@@ -10,13 +10,8 @@
      
   </style>
 @endsection 
-@section('javascrit')
-<script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_usw0PXe09QidUHvTnTYhQJWCIaj64CU&callback=initMap">
-    </script>
-@endsection
-@section('content')
 
+@section('content')
 
 <div id="welcome" class="container">
     <div class="row">
@@ -30,7 +25,7 @@
             <div class="card mx-auto" style="max-height: 2000px;">
 
                 <div class="card-body">
-                    <h5 class="card-title font-weight-bold">{{ $house->price }} €</h5>
+                    <h5 class="card-title font-weight-bold">{{ $house->prices }} €</h5>
                     <h3>{{ $house->name }} <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalmap"><i class="fas fa-map-marker-alt"></i></button> </h3>
                     <h4 class="card-text">{{ $house->zone->name }} </h4>
                     <div class="row">
@@ -77,21 +72,23 @@
       
 @endsection('content')
 @section('js')
-
+<script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_usw0PXe09QidUHvTnTYhQJWCIaj64CU&callback=initMap">
+    </script>
 <script>
   // Initialize and add the map
   function initMap() {
-    // The location of Girona
+    // The location of the house
     var pislat = parseFloat('{{$house->latitude}}'); console.log(pislat);
     var pislng = parseFloat('{{$house->longitude}}');console.log(pislng);
     var pis = {lat: pislat, lng: pislng}; console.log(pis);
-    // The map, centered at Girona
+    // The map, centered at the house
     var map = new google.maps.Map(
         document.getElementById('map'), {zoom: 14, center: pis}); console.log(map);
-    // The marker, positioned at Girona
+    // The marker, positioned at the house
       var marker = new google.maps.Marker({position: pis, map: map}); console.log(marker);
   }
-      </script>
+</script>
       
     
 @endsection
