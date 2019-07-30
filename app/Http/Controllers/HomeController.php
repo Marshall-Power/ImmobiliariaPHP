@@ -84,12 +84,12 @@ class HomeController extends Controller
         return view('welcome', compact('houses', 'request'));
     }
 
-    public function show(Request $request)
+    public function show($id)
     {
 
-        $house = House::where('id', $request->input('id'))->get();
+        $house = House::find($id);
 
-        return view('show', compact($house));
+        return view('show', compact('house'));
     }
 
 
