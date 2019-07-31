@@ -80,6 +80,7 @@
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                   <a class="dropdown-item" href="{{url('idioma/es')}}">Español</a>
                   <a class="dropdown-item" href="{{url('idioma/ca')}}">Català</a>
+                  <a class="dropdown-item" href="{{url('idioma/en')}}">English</a>
                 </div>
             </div>
                 
