@@ -66,7 +66,7 @@ return [
     'employee' => 'Agente',
     'housetype' => 'Tipo de immueble',
     'contract' => 'Contrato',
-    'elevator' => 'Acensor',
+    'elevator' => 'Ascensor',
     'air_conditioner' => 'Aire acondicionado',
     'available' => 'Disponible',
     'add_province' => 'Agregar Provincia',
@@ -117,5 +117,6 @@ return [
     'more_about_us' => 'Más acerca de Immo Pro',
     'keep_in_contact' => 'Mantén el contacto con nosotros',
     'contact_info' => 'Información de contacto',
-    'not_found' => 'Lo sentimos, no se han encontrado inmuebles con estas características.'
+    'not_found' => 'Lo sentimos, no se han encontrado inmuebles con estas características.',
+    'price_range' => 'Rango de precios'
 ];

@@ -13,28 +13,28 @@
                 <input type="hidden" id="size_max" name="size_max">
 
                 <div class="form-group">
-                    <label for="amount">Habitaciones</label>
+                    <label for="amount">{{trans('messages.rooms')}}</label>
                     <input type="text" id="amount-rooms" class="mb-2" readonly
                         style="border:0; color:#f6931f;font-weight:bold;width:100%;">
                     <div id="slider-range-rooms"></div>
                 </div>
 
                 <div class="form-group">
-                    <label for="amount-bathrooms">WC</label>
+                    <label for="amount-bathrooms">{{trans('messages.bathrooms')}}</label>
                     <input type="text" id="amount-bathrooms" readonly class="mb-2 w-100"
                         style="border:0; color:#f6931f; font-weight:bold;">
                     <div id="slider-range-bathrooms"></div>
                 </div>
 
                 <div class="form-group">
-                    <label for="amount-price">Rango de precios:</label>
+                    <label for="amount-price">{{trans('messages.price_range')}}:</label>
                     <input type="text" id="amount-price" readonly class="mb-2 w-100"
                         style="border:0; color:#f6931f; font-weight:bold;">
                     <div id="slider-range-price"></div>
                 </div>
 
                 <div class="form-group">
-                    <label for="amount-size">Metros cuadrados:</label>
+                    <label for="amount-size">{{trans('messages.size')}}:</label>
                     <input type="text" id="amount-size" readonly class="mb-2 w-100"
                         style="border:0; color:#f6931f; font-weight:bold;">
                     <div id="slider-range-size"></div>
