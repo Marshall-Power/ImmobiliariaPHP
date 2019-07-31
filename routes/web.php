@@ -28,4 +28,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('zones', 'ZoneController');
     Route::resource('houses', 'HouseController');
     Route::resource('provinces', 'ProvinceController');
+    Route::resource('comments', 'CommentController');
 });
