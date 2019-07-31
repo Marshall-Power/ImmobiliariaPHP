@@ -9,7 +9,7 @@
                 <div class="card-header">{{trans('messages.register')}}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('users.store') }}">
+                    <form method="POST" action="{{ route('admin.users.store') }}">
                         @csrf
 
                         <div class="form-group row">

@@ -8,7 +8,7 @@
                 <h1 class="card-title">{{ $province->name }}</h1>
             </div>
             <div>
-                <a class="btn btn-primary mb-4" href="{{ route('provinces.index') }}">
+                <a class="btn btn-primary mb-4" href="{{ route('admin.provinces.index') }}">
                     {{ trans('messages.back') }}
                 </a>
             </div>

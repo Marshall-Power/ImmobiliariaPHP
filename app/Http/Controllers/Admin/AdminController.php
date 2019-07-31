@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\House;
 use App\User;
@@ -21,6 +22,10 @@ class AdminController extends Controller
         $comments = Comment::all();
 
         return view('admin.index',compact('houses', 'users', 'zones', 'provinces', 'photos','comments'));
+    }
+
+    public function calendar() {
+        return view('admin.events.calendar');
     }
 
 }

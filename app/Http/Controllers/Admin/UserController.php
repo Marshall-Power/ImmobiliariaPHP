@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
 use App\UserType;
@@ -53,7 +54,7 @@ class UserController extends Controller
             'phone' => $request->phone,
         ];
         $user = User::create($data);
-        return redirect()->route('users.index');
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -98,7 +99,7 @@ class UserController extends Controller
         ];
         $user = User::findOrFail($id);
         $user->update($data);
-        return redirect()->route('users.index');
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -111,6 +112,6 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $user->delete();
-        return redirect()->route('users.index');
+        return redirect()->route('admin.users.index');
     }
 }

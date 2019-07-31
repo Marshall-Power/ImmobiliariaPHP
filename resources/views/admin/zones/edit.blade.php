@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<form action="{{route('zones.update', $zone->id)}}" method="POST">
+<form action="{{route('admin.zones.update', $zone->id)}}" method="POST">
     @csrf
     @method('put')
     <div class="form-group row">

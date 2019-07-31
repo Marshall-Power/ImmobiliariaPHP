@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Province;
 use App\Zone;
 use Illuminate\Http\Request;
@@ -39,7 +40,7 @@ class ProvinceController extends Controller
     {
         $validated = $this->validate($request, Province::$rules);
         Province::create($validated);
-        return redirect()->route('provinces.index');
+        return redirect()->route('admin.provinces.index');
     }
 
     /**
@@ -74,7 +75,7 @@ class ProvinceController extends Controller
     public function update(Request $request, Province $province)
     {
         $province->update($this->validate($request, Province::$rules));
-        return redirect()->route('provinces.show', $province);
+        return redirect()->route('admin.provinces.show', $province);
     }
 
     /**
@@ -87,6 +88,6 @@ class ProvinceController extends Controller
     {
         Zone::where('province_id', $province->id)->delete();
         $province->delete();
-        return redirect()->route('provinces.index');
+        return redirect()->route('admin.provinces.index');
     }
 }

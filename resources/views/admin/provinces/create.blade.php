@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-6 offset-3">
             <h1>Nueva Provincia</h1>
-            <form action="{{ route('provinces.store') }}" method="POST">
+            <form action="{{ route('admin.provinces.store') }}" method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="name" class="form-label text-right">
@@ -16,7 +16,7 @@
 
                 <div class="form-group row">
                     <div class="col">
-                        <a class="btn btn-block btn-secondary" href="{{ route('provinces.index') }}">
+                        <a class="btn btn-block btn-secondary" href="{{ route('admin.provinces.index') }}">
                             {{ trans('messages.back') }}
                         </a>
                     </div>

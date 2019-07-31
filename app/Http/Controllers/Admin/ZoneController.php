@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Zone;
 use App\Province;
@@ -47,7 +48,7 @@ class ZoneController extends Controller
             'province_id' => $request->province,
                 ];
         $zone = Zone::create($data);
-        return redirect()->route('zones.index');
+        return redirect()->route('admin.zones.index');
     }
 
     /**
@@ -93,7 +94,7 @@ class ZoneController extends Controller
        ];
        $zone = Zone::findOrFail($id);
        $zone->update($data);
-       return redirect()->route('zones.index');
+       return redirect()->route('admin.zones.index');
     }
 
     /**
@@ -106,6 +107,6 @@ class ZoneController extends Controller
     {
        $zone = Zone::findOrFail($id);
        $zone->delete();
-       return redirect()->route('zones.index');
+       return redirect()->route('admin.zones.index');
     }
 }

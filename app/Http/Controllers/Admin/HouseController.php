@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\House;
@@ -85,7 +86,7 @@ class HouseController extends Controller
             }
         }
 
-        return redirect()->route('houses.index')->with('flash', trans('messages.new_house_added'));
+        return redirect()->route('admin.houses.index')->with('flash', trans('messages.new_house_added'));
     }
 
     /**
@@ -139,7 +140,7 @@ class HouseController extends Controller
         $house = House::findOrFail($id);
         $house->update($validator);
 
-        return redirect()->route('houses.show', $id)->with('flash', trans('messages.changes_saved'));
+        return redirect()->route('admin.houses.show', $id)->with('flash', trans('messages.changes_saved'));
 
     }
 
@@ -153,6 +154,6 @@ class HouseController extends Controller
     {
         $house = House::findOrFail($id);
         $house->delete();
-        return redirect()->route('houses.index')->with('flash', 'House deleted.');
+        return redirect()->route('admin.houses.index')->with('flash', 'House deleted.');
     }
 }
