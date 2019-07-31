@@ -22,7 +22,7 @@ Route::post('/contact', 'Admin\CommentController@storeComment')->name('contact')
 Route::get('/about', 'HomeController@about')->name('about');
 
 
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.'], function () {
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth', 'as' => 'admin.', 'middleware' => 'checkRole'], function () {
     Route::get('/', 'AdminController@index')->name('index');
     Route::get('calendar', 'AdminController@calendar')->name('calendar');
     Route::resource('users', 'UserController');
