@@ -46,17 +46,14 @@
                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner" style="height:600px;">
-                    @forelse ($house->photos as $key => $image)
+                    @foreach ($house->photos as $key => $image)
                     <div class="carousel-item @if($key == 0) active @endif">
-                        <img class="d-block w-100"
-                            src="{{ url('/storage') . '/' . $image->path }}"
+                        <img class="d-block w-100" height="600"
+                            style="object-fit:cover;"
+                            src="{{ url('/storage/' . $image->path) }}"
                             alt="{{ $image->name }}">
                     </div>
-                    @empty
-                    <div class="carousel-item active">
-                        <img src="" alt="{{ $image->name }}">
-                    </div>
-                    @endforelse
+                    @endforeach
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
