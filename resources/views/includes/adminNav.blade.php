@@ -15,6 +15,7 @@
                     </a>
                 </li>
 
+                @if(auth()->user()->usertype_id === 1)
                 <li class="nav-item @if(url()->current() == route('admin.users.index')) active @endif">
                     <a class="nav-link" href="{{ route('admin.users.index') }}">
                         {{ trans('messages.users') }}
@@ -23,6 +24,7 @@
                         @endif
                     </a>
                 </li>
+                @endif
 
                 <li class="nav-item @if(url()->current() == route('admin.zones.index')) active @endif">
                     <a class="nav-link" href="{{ route('admin.zones.index') }}">
