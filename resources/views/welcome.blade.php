@@ -48,21 +48,22 @@
             <div class="list-wrapper">
                 <div class="row">
                     @forelse ($houses as $house)
-
-                    <div class="col-md-6 py-2">
-                        <div class="card mx-auto" style="max-height: 500px;">
-                            <img class="card-img-top" style="max-height:200px;object-fit:cover;"
-                                src="{{ $house->photos()->first()->path }}" alt="{{ $house->name }}">
+                    <div class="col-md-6">
+                        <div class="card mb-4" style="min-height: 500px;">
+                            <img class="card-img-top" style="max-height:250px;object-fit:cover;"
+                                src="{{ url('storage/' . $house->photos()->first()->path) }}" alt="{{ $house->name }}">
                             <div class="card-body">
                                 <h5 class="font_house_title card-title">{{ $house->name }}</h5>
                                 <p class="card-text">
                                     {{ str_limit($house->description_es, $limit = 150, $end = '...') }}
                                 </p>
-                                <a href="{{ route('show', $house->id) }}" style="font-size: 1rem;" class="btn btn-primary btn-lg">
-                                    {{trans('messages.details')}}</a>
-                                <a class="btn btn-info text-white" href="tel:+34{{ $house->employee->phone }}">
-                                    <i class="fas fa-phone-square-alt fa-2x" style="vertical-align: bottom;"></i>
-                                </a>
+                                <div class="position-absolute p-4" style="bottom: 0; right: 0;">
+                                    <a href="{{ route('show', $house->id) }}" style="font-size: 1rem;" class="btn btn-primary btn-lg">
+                                        {{trans('messages.details')}}</a>
+                                    <a class="btn btn-info text-white" href="tel:+34{{ $house->employee->phone }}">
+                                        <i class="fas fa-phone-square-alt fa-2x" style="vertical-align: bottom;"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
