@@ -1,51 +1,6 @@
 import $ from 'jquery'
 // Filters
 $(function () {
-  $('#slider-range-rooms').slider({
-    range: true,
-    min: 1,
-    max: 8,
-    values: [1, 8],
-    slide: function (event, ui) {
-      $('#amount-rooms').val(
-        ui.values[0] + ' hab - ' + ui.values[1] + ' hab'
-      )
-      $('#rooms_min').val(ui.values[0])
-      $('#rooms_max').val(ui.values[1])
-    }
-  })
-
-  $('#amount-rooms').val(
-    $('#slider-range-rooms').slider('values', 0) +
-            ' hab  -  ' +
-            $('#slider-range-rooms').slider('values', 1) +
-            ' hab')
-
-  $('#rooms_min').val($('#slider-range-rooms').slider('values', 0))
-  $('#rooms_max').val($('#slider-range-rooms').slider('values', 1))
-
-  $('#slider-range-bathrooms').slider({
-    range: true,
-    min: 1,
-    max: 3,
-    step: 1,
-    values: [1, 3],
-    slide: function (event, ui) {
-      $('#amount-bathrooms').val(ui.values[0] + ' baños - ' + ui.values[1] + ' baños')
-      $('#bathrooms_min').val(ui.values[0])
-      $('#bathrooms_max').val(ui.values[1])
-    }
-  })
-
-  $('#amount-bathrooms').val(
-    $('#slider-range-bathrooms').slider('values', 0) +
-            ' baños  -  ' +
-            $('#slider-range-bathrooms').slider('values', 1) +
-            ' baños '
-  )
-
-  $('#bathrooms_min').val($('#slider-range-bathrooms').slider('values', 0))
-  $('#bathrooms_max').val($('#slider-range-bathrooms').slider('values', 1))
 
   $('#slider-range-size').slider({
     range: true,
@@ -103,3 +58,15 @@ $(function () {
   $('#price_min').val($('#slider-range-price').slider('values', 0))
   $('#price_max').val($('#slider-range-price').slider('values', 1))
 })
+
+$(function() {
+    var valMap = [0, 200,450,700,900,1200,1500,2000,3000, 5000, 10000, 20000, 40000, 80000, 150000, 200000, 400000, 1000000];
+    $("#price_range").slider({
+       // min: 0,
+        max: valMap.length - 1,
+        slide: function(event, ui) {
+          $("#val").text(ui.value);
+          $("#nlVal").text(valMap[ui.value]);
+        }
+    });
+   });
