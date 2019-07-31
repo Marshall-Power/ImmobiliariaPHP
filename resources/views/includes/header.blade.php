@@ -15,16 +15,19 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('welcome') }}">
+                            <i class="fas fa-home"></i>
                         @lang('messages.home')
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('contact') }}">
+                            <i class="far fa-envelope"></i>
                         @lang('messages.contact')
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('about') }}">
+                            <i class="far fa-address-card"></i>
                         @lang('messages.aboutUs')
                     </a>
                 </li>
