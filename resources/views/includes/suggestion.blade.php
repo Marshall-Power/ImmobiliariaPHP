@@ -4,7 +4,7 @@
     @foreach ($zones as $zone)
 
     <div class="card mt-3">
-        <img style="max-height:150px;" src="{{ $zone->photos->first()->path }}" alt="">
+        <img style="max-height:150px;" src="{{ url('storage/' . $zone->photos()->first()->path) }}" alt="">
         <h3>{{ $zone->name }}</h3>
         <h5>{{ $zone->zone->name }}</h5>
         <a href="{{ route('show', $house->id) }}" style="font-size: 1rem;" class="btn btn-primary btn-lg">
