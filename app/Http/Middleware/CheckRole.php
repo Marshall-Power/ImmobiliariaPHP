@@ -4,8 +4,6 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-use Illuminate\Support\Facades\Auth;
-
 class CheckRole
 {
     /**
@@ -17,23 +15,22 @@ class CheckRole
      */
     public function handle($request, Closure $next)
     {
-        $user = Auth::user();
+        $user = $request->user();
 
-        if($user != NULL)
-        {
-            if ($user->usertype_id == 1)
-            {
+        if ($user) {
+            if ($user->usertype_id == 1) {
                 return $next($request);
+            } elseif ($user->usertype_id == 2) {
+                if ($request->routeIs('admin.users.index')) {
+                    return redirect()->route('admin.index');
+                } else {
+                    return $next($request);
+                }
+            } else {
+                return redirect('/');
             }
-            else if($user->usertype_id == 2)
-            {
-                return redirect('/');//esto deberia llevar al admin del agente
-            }
-        }
-        else
-        {
+        } else {
             return redirect('/');
         }
-
     }
 }
