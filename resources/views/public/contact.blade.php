@@ -3,13 +3,13 @@
 
 <div class="container">
 
-    @if ($errors->any())
-    <div class="alert alert-danger">
-        @foreach ($errors as $error)
-            <p>$error</p>
-        @endforeach
-    </div>
-    @endif
+  @if ($errors->any())
+  <div class="alert alert-danger">
+      @foreach ($errors as $error)
+          <p>{{$error}}</p>
+      @endforeach
+  </div>
+  @endif
 
     @if (Session::has('message'))
     <div class="alert alert-info">
@@ -20,8 +20,6 @@
     @endif
 
     <h1 class="my-2 text-center">{{ trans('messages.contact') }}</h1>
-
-    <h2 class="text-center mb-2">@lang('messages.comment_recived')</h2>
 
     <div class="row">
 
@@ -48,16 +46,17 @@
                     <label for="message">{{trans('messages.message')}}</label>
                     <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea" required>{{ old('message') }}</textarea>
                 </div>
+                <div class="float-right mt-2">
+                  <a class="btn btn-secondary" href="{{ url('/') }}">
+                      @lang('messages.back')
+                  </a>
+                  <button type="submit" class="btn btn-primary">
+                      @lang('messages.send')
+                  </a>
+              </div>
             </form>
 
-            <div class="float-right mt-2">
-                <a class="btn btn-secondary" href="{{ url('/') }}">
-                    @lang('messages.back')
-                </a>
-                <button type="submit" class="btn btn-primary">
-                    @lang('messages.send')
-                </a>
-            </div>
+            
         </div>
     </div>
 </div>

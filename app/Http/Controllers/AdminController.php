@@ -8,6 +8,7 @@ use App\User;
 use App\Zone;
 use App\Province;
 use App\Photo;
+use App\Comment;
 
 class AdminController extends Controller
 {
@@ -17,8 +18,9 @@ class AdminController extends Controller
         $zones = Zone::all();
         $provinces = Province::all();
         $photos = Photo::all();
+        $comments = Comment::all();
 
-        return view('admin.index',compact('houses', 'users', 'zones', 'provinces', 'photos'));
+        return view('admin.index',compact('houses', 'users', 'zones', 'provinces', 'photos','comments'));
     }
 
 }

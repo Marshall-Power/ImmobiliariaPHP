@@ -8,7 +8,7 @@
 
                 <li class="nav-item @if(url()->current() == route('admin')) active @endif">
                     <a class="nav-link" href="{{ route('admin') }}">
-                        Dashboard
+                        {{trans('messages.dashboard')}}
                         @if(url()->current() == route('admin'))
                         <span class="sr-only">(current)</span>
                         @endif
@@ -51,6 +51,15 @@
                         @endif
                     </a>
                 </li>
+
+                <li class="nav-item @if(url()->current() == route('comments.index')) active @endif">
+                  <a class="nav-link" href="{{ route('comments.index') }}">
+                      {{ trans('messages.comments') }}
+                      @if(url()->current() == route('comments.index'))
+                      <span class="sr-only">(current)</span>
+                      @endif
+                  </a>
+              </li>
 
             </ul>
         </div>

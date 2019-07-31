@@ -32,7 +32,7 @@
     </div>
     @endif
     <div class="mb-4">
-        <h1 class="text-center">Dashboard</h1>
+        <h1 class="text-center">{{trans('messages.dashboard')}}</h1>
     </div>
     <div class="row">
         <div class="col-md-4">
@@ -62,6 +62,11 @@
                 {{ count($photos) }} {{ trans('messages.photos') }}
             </a>
         </div>
+        <div class="col-md-4">
+          <a class="box" href="{{ route('comments.index') }}">
+              {{ count($comments) }} {{ trans('messages.comments') }}
+          </a>
+      </div>
     </div>
 </div>
 @endsection
