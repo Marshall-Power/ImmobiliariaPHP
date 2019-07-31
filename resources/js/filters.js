@@ -64,7 +64,7 @@ $(function () {
         $('#slider-range-size').slider('option', 'step', 5)
       }
       $('#size_min').val(ui.values[0])
-      $('#size_max').val(ui.values[0])
+      $('#size_max').val(ui.values[1])
     }
   })
 
