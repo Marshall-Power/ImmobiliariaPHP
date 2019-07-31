@@ -30,3 +30,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('provinces', 'ProvinceController');
     Route::resource('comments', 'CommentController');
 });
+
+Route::group(['middleware' => 'web'], function () {
+  Route::get('idioma/{idioma}', function ($idioma) {    
+      session(['lang' => $idioma]);
+      return Redirect::back();
+  });
+});
