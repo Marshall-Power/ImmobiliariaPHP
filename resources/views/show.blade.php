@@ -32,8 +32,9 @@
                         <div class="carousel-inner">
                             @forelse ($house->photos as $key => $image)
                             <div class="carousel-item @if($key == 0) active @endif">
-                                <img class="d-block w-100"
-                                    src="{{ $image->path }}"
+                                <img class="d-block w-100" height="400"
+                                    style="object-fit:cover;"
+                                    src="{{ url('storage/' . $image->path) }}"
                                     alt="{{ $image->name }}">
                             </div>
                             @empty
