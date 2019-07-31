@@ -24,7 +24,7 @@ return [
     'register'=> 'Registrarse',
     'name' => 'Nombre',
     'email' => 'E-mail',
-    'phone' => 'Telefono',
+    'phone' => 'Teléfono',
     'message' => 'Mensaje',
     'text_contact' => '¿Tienes alguna duda?',
     'send' => 'Enviar',
@@ -107,6 +107,11 @@ return [
     'desc' => 'Descripción',
     'location' => 'Ubicación',
     'houses_map' => 'Mapa de inmuebles',
-    'comment_recived' => 'Hemos recibido tu mensaje! Pronto nos pondremos en contacto contigo!',
-    'home' => 'Inicio'
+    'comment_received' => 'Hemos recibido tu mensaje! Pronto nos pondremos en contacto contigo!',
+    'home' => 'Inicio',
+    'comments' => 'Comentarios',
+    'comment' => 'Comentario',
+    'dashboard' => 'Tablero',
+    'delete_comment' => 'Borrar mensaje!',
+    'message_saved' => 'Mensaje enviado!'
 ];
