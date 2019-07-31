@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<form  action={{route('users.update', $user->id)}} method="POST">
+<form  action={{route('admin.users.update', $user->id)}} method="POST">
   @csrf
   @method('put')
   <div class="form-group row">
@@ -60,9 +60,9 @@
       <div class="col-md-6">
           <select class="form-control" name='usertype'>
           @forelse ($usertypes as $usertype)
-          <option value={{$usertype->id}} <?php if($user->usertype_id == $usertype->id){echo 'selected';}?>>{{$usertype->type}}</option>    
+          <option value={{$usertype->id}} <?php if($user->usertype_id == $usertype->id){echo 'selected';}?>>{{$usertype->type}}</option>
           @empty
-          {{trans('no_user_type')}}    
+          {{trans('no_user_type')}}
           @endforelse
           </select>
       </div>

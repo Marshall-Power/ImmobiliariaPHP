@@ -27,7 +27,7 @@
                 <div class="card-header">{{trans('messages.edit_house')}}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('houses.store') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('admin.houses.store') }}" enctype="multipart/form-data">
                         @csrf
 
                         {{-- employee_id --}}
@@ -415,7 +415,7 @@
                                     {{ trans('messages.send') }}
                                 </button>
                                 <a class="btn btn-secondary"
-                                    href="{{ route('houses.index') }}">{{ trans('messages.back') }}</a>
+                                    href="{{ route('admin.houses.index') }}">{{ trans('messages.back') }}</a>
                             </div>
                         </div>
                     </form>

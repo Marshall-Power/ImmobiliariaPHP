@@ -23,13 +23,13 @@
             @forelse ($provinces as $province)
             <tr>
                 <td>
-                    <a href="{{ route('provinces.show', $province) }}">
+                    <a href="{{ route('admin.provinces.show', $province) }}">
                         {{ $province->name }}
                     </a>
                 </td>
                 <td>
 
-                    <a class="btn btn-block btn-secondary" href="{{ route('provinces.edit', $province) }}">
+                    <a class="btn btn-block btn-secondary" href="{{ route('admin.provinces.edit', $province) }}">
                         {{ trans('messages.edit_province') }}
                         <i class="fas fa-user-edit"></i>
                     </a>
@@ -41,7 +41,7 @@
                         <i class="fas fa-user-times"></i>
                     </a>
                     <form method="POST"
-                        action="{{ route('provinces.destroy', $province) }}"
+                        action="{{ route('admin.provinces.destroy', $province) }}"
                         class="d-none"
                         id="delete-province-{{ $province->id }}">
                         @csrf
@@ -74,7 +74,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ route('provinces.store') }}">
+                <form method="POST" action="{{ route('admin.provinces.store') }}">
                     @csrf
 
                     <div class="form-group row">

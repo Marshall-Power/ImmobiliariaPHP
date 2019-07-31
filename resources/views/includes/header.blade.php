@@ -51,7 +51,7 @@
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-                        @if(auth()->user()->usertype_id < 3) <a href="{{ route('admin') }}" class="dropdown-item">
+                        @if(auth()->user()->usertype_id < 3) <a href="{{ route('admin.index') }}" class="dropdown-item">
                             {{trans('messages.dashboard')}}</a>
                             @endif
 

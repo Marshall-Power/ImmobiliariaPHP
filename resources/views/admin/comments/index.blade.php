@@ -28,13 +28,13 @@
               <i class="fas fa-reply"></i>
             </a>
 
-            <a class="btn btn-block btn-danger" href="{{ route('comments.index') }}"
+            <a class="btn btn-block btn-danger" href="{{ route('admin.comments.index') }}"
                 onclick="event.preventDefault();document.getElementById('delete-comment-{{ $comment->id }}').submit();">
                 <i class="fas fa-comment-slash"></i>
             </a>
-          
+
             <form
-                action="{{ route('comments.destroy', $comment->id) }}"
+                action="{{ route('admin.comments.destroy', $comment->id) }}"
                 method="POST"
                 class="d-none"
                 id="delete-comment-{{ $comment->id }}">
