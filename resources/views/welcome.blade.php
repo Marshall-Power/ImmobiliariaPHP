@@ -12,6 +12,12 @@
     .hide {
         display: none;
     }
+
+    .font_house_title
+    {
+        font-family: 'Ubuntu', sans-serif;
+    }
+
 </style>
 @endsection
 @section('content')
@@ -34,7 +40,7 @@
             <hr>
 
             <div class="map-wrapper hide">
-                <h3>@lang('messages.houses_map')</h3>
+            <h3>{{trans('messages.houses_map')}}</h3>
                 <div id="map"></div>
             </div>
             <!--The div element for the map -->
@@ -42,12 +48,13 @@
             <div class="list-wrapper">
                 <div class="row">
                     @forelse ($houses as $house)
-                    <div class="col-md-6">
-                        <div class="card mb-4" style="min-height: 400px;">
-                            <img class="card-img-top" style="max-height:300px;object-fit:cover;"
+
+                    <div class="col-md-6 py-2">
+                        <div class="card mx-auto" style="max-height: 500px;">
+                            <img class="card-img-top" style="max-height:200px;object-fit:cover;"
                                 src="{{ $house->photos()->first()->path }}" alt="{{ $house->name }}">
                             <div class="card-body">
-                                <h5 class="card-title">{{ $house->name }}</h5>
+                                <h5 class="font_house_title card-title">{{ $house->name }}</h5>
                                 <p class="card-text">
                                     {{ str_limit($house->description_es, $limit = 150, $end = '...') }}
                                 </p>

@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            <img src="https://es.freelogodesign.org/Content/img/logo-ex-2.png" style="height: 50px; width: 50px; object-fit: cover;" alt="inmobiliaria">
+            <img src="{{ asset('img/logo_300.png') }}" style="width:250px;height:90px;"
+                class="css-class" alt="inmobiliaria">
         </a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"

@@ -88,8 +88,10 @@ class HomeController extends Controller
     {
 
         $house = House::find($id);
+        $zones = House::where('zone_id', $house->zone->id)->paginate(3);
 
-        return view('show', compact('house'));
+
+        return view('show', compact('house','zones'));
     }
 
 

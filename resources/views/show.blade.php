@@ -17,9 +17,10 @@
     <div class="row">
         <div class="col-lg-3">
             @include('includes.filter')
+            @include('includes.suggestion')
         </div>
 
-        <div class="col-lg-8 ml-3 card" style="max-height: 2000px;padding:0;">
+        <div class="col-lg-8 ml-3 card" style="max-height: 1000px;padding:0;">
 
 
 
@@ -53,7 +54,7 @@
                     </div>
 
 
-            <div class="card mx-auto" style="max-height: 2000px;">
+            <div class="card mx-auto" style="max-height: 1000px;">
 
                 <div class="card-body details_show">
                     <h5 class="card-title font-weight-bold">{{ $house->price }} €</h5>
