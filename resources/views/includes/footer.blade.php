@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-4 d-flex justify-content-center align-items-center">
                 <div>
-                    <h3>Mas acerca de immo pro</h3>
+                    <h3>{{trans('messages.more_about_us')}}</h3>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum nisi, architecto ipsum quo
                         laboriosam tempora laudantium! Perspiciatis aperiam blanditiis sapiente sint in sunt nisi
                         voluptatum
@@ -14,7 +14,7 @@
             </div>
             <div class="col-md-4">
                 <div class="p-4 text-center">
-                    <h2>Manten el contacto con nosotros</h2>
+                <h2>{{trans('messages.keep_in_contact')}}</h2>
                     <div class="icons px-4">
                         <a target="_blank" href="#">
                             <i class="fab fa-facebook-square fa-3x"></i>
@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <h2>Informacion de contacto</h2>
+            <h2>{{trans('messages.contact_info')}}</h2>
                 <br>
                 <p>Cambra de comerç de Girona</p>
                 <p>Av. Jaume I, 46</p>
@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="col">
-            <p>Copyrighted</p>
+            <p> <i class="far fa-copyright"></i> Copyright</p>
         </div>
     </div>
 </div>

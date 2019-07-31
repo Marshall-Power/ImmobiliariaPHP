@@ -113,5 +113,8 @@ return [
     'comment' => 'Comentario',
     'dashboard' => 'Tablero',
     'delete_comment' => 'Borrar mensaje!',
-    'message_saved' => 'Mensaje enviado!'
+    'message_saved' => 'Mensaje enviado!',
+    'more_about_us' => 'Más acerca de Immo Pro',
+    'keep_in_contact' => 'Mantén el contacto con nosotros',
+    'contact_info' => 'Información de contacto',
 ];
