@@ -8,7 +8,7 @@
 
                 <li class="nav-item @if(url()->current() == route('admin')) active @endif">
                     <a class="nav-link" href="{{ route('admin') }}">
-                        Dashboard
+                        {{trans('messages.dashboard')}}
                         @if(url()->current() == route('admin'))
                         <span class="sr-only">(current)</span>
                         @endif
