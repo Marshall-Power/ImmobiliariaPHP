@@ -87,7 +87,7 @@ class HomeController extends Controller
     public function show($id)
     {
 
-        $house = House::find($id);
+        $house = House::findOrFail($id);
         $zones = House::where('zone_id', $house->zone->id)->paginate(3);
 
 
