@@ -5,7 +5,7 @@
   <div class="mb-4">
       <h1 class="text-center">{{ trans('messages.comments') }}</h1>
   </div>
-</div>
+
 <table class="table table-hover table-striped">
   <thead class="thead-dark">
       <th scope="col">#</th>
@@ -24,11 +24,15 @@
         <td>{{ $comment->phone }}</td>
         <td>{{ $comment->message }}</td>
         <td>
+        <a class="btn btn-block btn-primary" href="mailto:{{$comment->email}}">
+              <i class="fas fa-reply"></i>
+            </a>
+
             <a class="btn btn-block btn-danger" href="{{ route('comments.index') }}"
                 onclick="event.preventDefault();document.getElementById('delete-comment-{{ $comment->id }}').submit();">
-                
                 <i class="fas fa-comment-slash"></i>
             </a>
+          
             <form
                 action="{{ route('comments.destroy', $comment->id) }}"
                 method="POST"
