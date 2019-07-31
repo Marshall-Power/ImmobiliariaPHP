@@ -35,8 +35,7 @@
         <h1 class="text-center">{{trans('messages.dashboard')}}</h1>
     </div>
     <div class="row">
-        @auth
-        @if (auth()->user()->usetype_id === 1)
+        @if (auth()->user()->usertype_id == 1)
         <div class="col-md-4">
             <a class="box" href="{{ route('admin.users.index') }}">
                 {{ count($users) }} {{ trans('messages.users') }}
@@ -49,7 +48,6 @@
             </a>
         </div>
         @endif
-        @endauth
         <div class="col-md-4">
             <a class="box" href="{{ route('admin.houses.index') }}">
                 {{ count($houses) }} {{ trans('messages.houses') }}

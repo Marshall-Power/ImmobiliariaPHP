@@ -21,7 +21,9 @@ class CheckRole
             if ($user->usertype_id == 1) {
                 return $next($request);
             } elseif ($user->usertype_id == 2) {
-                if ($request->routeIs('admin.users.index')) {
+                $usersRoute = route('admin.users.index');
+                $requestRoute = $request->url();
+                if (starts_with($requestRoute, $usersRoute)) {
                     return redirect()->route('admin.index');
                 } else {
                     return $next($request);
