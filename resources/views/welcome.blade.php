@@ -12,6 +12,12 @@
     .hide {
         display: none;
     }
+
+    .font_house_title
+    {
+        font-family: 'Ubuntu', sans-serif;
+    }
+
 </style>
 @endsection
 @section('content')
@@ -34,7 +40,7 @@
             <hr>
 
             <div class="map-wrapper hide">
-                <h3>@lang('messages.houses_map')</h3>
+            <h3>{{trans('messages.houses_map')}}</h3>
                 <div id="map"></div>
             </div>
             <!--The div element for the map -->
@@ -47,7 +53,7 @@
                             <img class="card-img-top" style="max-height:250px;object-fit:cover;"
                                 src="{{ url('storage/' . $house->photos()->first()->path) }}" alt="{{ $house->name }}">
                             <div class="card-body">
-                                <h5 class="card-title">{{ $house->name }}</h5>
+                                <h5 class="font_house_title card-title">{{ $house->name }}</h5>
                                 <p class="card-text">
                                     {{ str_limit($house->description_es, $limit = 150, $end = '...') }}
                                 </p>
