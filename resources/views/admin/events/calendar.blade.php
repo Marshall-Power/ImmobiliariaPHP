@@ -18,6 +18,27 @@
         </div>
     </div>
 </div>
+
+{{-- Modal --}}
+<div id="eventModal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Modal body text goes here.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 @stop
 
 @section('js')
@@ -38,20 +59,25 @@
         @endforeach
     ];
 
-
-    console.log(events);
-
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
-          plugins: [ 'timeGrid' ],
+          plugins: [ 'timeGrid', 'bootstrap', 'interaction' ],
           locale: locale,
+          slotDuration: '01:00:00',
+          height: 400,
+          minTime: '10:00:00',
+          maxTime: '20:00:00',
+          scrollTime: moment(),
+          dateClick: function (info) {
+              console.log(info);
+          }
         });
 
         for (event of events) {
-            console.log(event)
             calendar.addEvent(event);
         }
+
 
         calendar.render();
       });
