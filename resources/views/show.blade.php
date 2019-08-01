@@ -170,7 +170,7 @@
     var pis = {lat: pislat, lng: pislng};
     // The map, centered at the house
     var map = new google.maps.Map(
-        document.getElementById('map'), {zoom: 14, center: pis});
+        document.getElementById('map'), {zoom: 16, center: pis});
     // The marker, positioned at the house
       var marker = new google.maps.Marker({position: pis, map: map});
   }
