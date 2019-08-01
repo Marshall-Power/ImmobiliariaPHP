@@ -106,5 +106,10 @@ class PhotosTableSeeder extends Seeder
             'path' => "images/" . $faker->image(storage_path('app' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'images'), 640, 480, "abstract", false, true, 'house'),
             'house_id' => '7'
         ]);
+
+        Photo::create([
+            'path' => "images/" . storage_path('app' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'images'. DIRECTORY_SEPARATOR .'interior_1.jpg'),
+            'house_id' => '1'
+        ]);
     }
 }
