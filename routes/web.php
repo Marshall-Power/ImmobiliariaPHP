@@ -18,12 +18,13 @@ Route::get('/', 'HomeController@index')->name('welcome');
 Route::get('/show/{id}', 'HomeController@show')->name('show');
 
 Route::get('/contact', 'HomeController@contact')->name('contact');
-Route::post('/contact', 'CommentController@storeComment')->name('contact');
+Route::post('/contact', 'Admin\CommentController@storeComment')->name('contact');
 Route::get('/about', 'HomeController@about')->name('about');
 
-Route::get('/admin', 'AdminController@index')->name('admin')->middleware('auth');
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'checkRole'], 'as' => 'admin.'], function () {
+    Route::get('/', 'AdminController@index')->name('index');
+    Route::get('calendar', 'EventController@show')->name('calendar');
     Route::resource('users', 'UserController');
     Route::resource('zones', 'ZoneController');
     Route::resource('houses', 'HouseController');

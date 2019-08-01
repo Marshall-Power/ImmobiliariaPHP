@@ -33,19 +33,19 @@
                 {{$zone->province->name}}
             </td>
             <td>
-                <a class="btn btn-block btn-secondary" href="{{ route('zones.edit', $zone->id) }}">
+                <a class="btn btn-block btn-secondary" href="{{ route('admin.zones.edit', $zone->id) }}">
                     {{ trans('messages.edit_zone') }}
                     <i class="fas fa-user-edit"></i>
                 </a>
             </td>
             <td>
-                <a class="btn btn-block btn-danger" href="{{ route('zones.index') }}"
+                <a class="btn btn-block btn-danger" href="{{ route('admin.zones.index') }}"
                     onclick="event.preventDefault();document.getElementById('delete-zone-{{ $zone->id }}').submit();">
                     {{ trans('messages.delete_zone') }}
                     <i class="fas fa-user-times"></i>
                 </a>
                 <form
-                    action="{{ route('zones.destroy', $zone) }}"
+                    action="{{ route('admin.zones.destroy', $zone) }}"
                     method="POST"
                     class="d-none"
                     id="delete-zone-{{ $zone->id }}">
@@ -74,7 +74,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="">
+                <form method="POST" action="{{ route('admin.zones.store') }}">
                     @csrf
 
                     <div class="form-group row">
@@ -132,7 +132,7 @@
                             <button type="submit" class="btn btn-primary">
                                 {{ trans('messages.add_zone') }}
                             </button>
-                            <a class="btn btn-secondary" href="{{ route('zones.index') }}">
+                            <a class="btn btn-secondary" href="{{ route('admin.zones.index') }}">
                                 {{ trans('messages.back') }}
                             </a>
                         </div>

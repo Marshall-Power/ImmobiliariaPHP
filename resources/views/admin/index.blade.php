@@ -35,25 +35,33 @@
         <h1 class="text-center">{{trans('messages.dashboard')}}</h1>
     </div>
     <div class="row">
+        @if (auth()->user()->usertype_id == 1)
         <div class="col-md-4">
-            <a class="box" href="{{ route('users.index') }}">
+            <a class="box" href="{{ route('admin.users.index') }}">
                 {{ count($users) }} {{ trans('messages.users') }}
             </a>
         </div>
+        @else
         <div class="col-md-4">
-            <a class="box" href="{{ route('houses.index') }}">
+            <a class="box" href="{{ route('admin.calendar') }}">
+                {{ count([]) }} {{ trans('messages.events') }}
+            </a>
+        </div>
+        @endif
+        <div class="col-md-4">
+            <a class="box" href="{{ route('admin.houses.index') }}">
                 {{ count($houses) }} {{ trans('messages.houses') }}
             </a>
         </div>
         <div class="col-md-4">
-            <a class="box" href="{{ route('zones.index') }}">
+            <a class="box" href="{{ route('admin.zones.index') }}">
                 {{ count($zones) }} {{ trans('messages.zones') }}
             </a>
         </div>
     </div>
     <div class="row my-4">
         <div class="col-md-4">
-            <a class="box" href="{{ route('provinces.index') }}">
+            <a class="box" href="{{ route('admin.provinces.index') }}">
                 {{ count($provinces) }} {{ trans('messages.provinces') }}
             </a>
         </div>
@@ -63,7 +71,7 @@
             </a>
         </div>
         <div class="col-md-4">
-          <a class="box" href="{{ route('comments.index') }}">
+          <a class="box" href="{{ route('admin.comments.index') }}">
               {{ count($comments) }} {{ trans('messages.comments') }}
           </a>
       </div>

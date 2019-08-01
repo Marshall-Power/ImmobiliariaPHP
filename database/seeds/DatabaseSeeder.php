@@ -23,5 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(HousesTableSeeder::class);
         $this->call(PhotosTableSeeder::class);
         $this->call(CommentsTableSeeder::class);
+
+        $this->call(EventTableSeeder::class);
     }
 }

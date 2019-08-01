@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Comment;
-use Illuminate\Support\Facades\Session;
 
 class CommentController extends Controller
 {
@@ -31,10 +31,11 @@ class CommentController extends Controller
 
       return redirect()->route('contact');
   }
+
   public function destroy($id)
     {
         $comment = Comment::findOrFail($id);
         $comment->delete();
-        return redirect()->route('comments.index');
+        return redirect()->route('admin.comments.index');
     }
 }

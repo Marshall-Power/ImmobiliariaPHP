@@ -1,5 +1,5 @@
 {{ $house->name }}
-<a href="{{ route('houses.edit', $house->id) }}">{{ trans('messages.edit_house') }}</a>
+<a href="{{ route('admin.houses.edit', $house->id) }}">{{ trans('messages.edit_house') }}</a>
 @extends('layouts.app')
 
 @section('css')
@@ -36,7 +36,7 @@
     <div class="card">
         <div class="card-body">
             <h1 class="title d-inline">{{ $house->name }}</h1>
-            <a href="{{ route('houses.index') }}" class="btn btn-secondary float-right">{{ trans('messages.back') }}</a>
+            <a href="{{ route('admin.houses.index') }}" class="btn btn-secondary float-right">{{ trans('messages.back') }}</a>
             <div class="clearfix"></div>
             <hr>
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">

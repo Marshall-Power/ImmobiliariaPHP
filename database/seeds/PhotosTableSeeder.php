@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Photo;
 use Faker\Generator as Faker;
+use Illuminate\Support\Facades\File;
 
 class PhotosTableSeeder extends Seeder
 {
@@ -15,6 +16,9 @@ class PhotosTableSeeder extends Seeder
     {
 
         if (!file_exists(storage_path('app' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'images'))) {
+            mkdir(storage_path('app' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'images'));
+        } else {
+            File::deleteDirectory(storage_path('app' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'images'));
             mkdir(storage_path('app' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'images'));
         }
 
@@ -89,6 +93,18 @@ class PhotosTableSeeder extends Seeder
         Photo::create([
             'path' => "images/" . $faker->image(storage_path('app' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'images'), 640, 480, "abstract", false, true, 'house'),
             'house_id' => '6'
+        ]);
+        Photo::create([
+            'path' => "images/" . $faker->image(storage_path('app' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'images'), 640, 480, "abstract", false, true, 'house'),
+            'house_id' => '7'
+        ]);
+        Photo::create([
+            'path' => "images/" . $faker->image(storage_path('app' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'images'), 640, 480, "abstract", false, true, 'house'),
+            'house_id' => '7'
+        ]);
+        Photo::create([
+            'path' => "images/" . $faker->image(storage_path('app' . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'images'), 640, 480, "abstract", false, true, 'house'),
+            'house_id' => '7'
         ]);
     }
 }

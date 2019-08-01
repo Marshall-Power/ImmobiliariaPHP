@@ -27,19 +27,19 @@
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->usertype->type }}</td>
                 <td>
-                    <a class="btn btn-block btn-secondary" href={{ route('users.edit', $user->id) }}>
+                    <a class="btn btn-block btn-secondary" href={{ route('admin.users.edit', $user->id) }}>
                         {{ trans('messages.edit_user') }}
                         <i class="fas fa-user-edit"></i>
                     </a>
                 </td>
                 <td>
-                    <a class="btn btn-block btn-danger" href="{{ route('users.index') }}"
+                    <a class="btn btn-block btn-danger" href="{{ route('admin.users.index') }}"
                         onclick="event.preventDefault();document.getElementById('delete-user-{{ $user->id }}').submit();">
                         {{ trans('messages.delete_user') }}
                         <i class="fas fa-user-times"></i>
                     </a>
                     <form
-                        action="{{ route('users.destroy', $user->id) }}"
+                        action="{{ route('admin.users.destroy', $user->id) }}"
                         method="POST"
                         class="d-none"
                         id="delete-user-{{ $user->id }}">
@@ -69,7 +69,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="{{ route('users.store') }}">
+                <form method="POST" action="{{ route('admin.users.store') }}">
                     @csrf
 
                     <div class="form-group row">
@@ -151,7 +151,7 @@
                             <button type="submit" class="btn btn-primary">
                                 {{ trans('messages.register') }}
                             </button>
-                            <a class="btn btn-secondary" href="{{ route('users.index') }}">
+                            <a class="btn btn-secondary" href="{{ route('admin.users.index') }}">
                                 {{ trans('messages.back') }}
                             </a>
                         </div>

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Symfony\Contracts\EventDispatcher\Event;
 
 class House extends Model
 {
@@ -75,5 +76,8 @@ class House extends Model
     }
     public function photos() {
         return $this->hasMany(Photo::class);
+    }
+    public function events() {
+        return $this->hasMany(Event::class);
     }
 }

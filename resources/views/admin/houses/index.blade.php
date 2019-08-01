@@ -22,7 +22,7 @@
                 <th scope="col">{{trans('messages.address')}}</th>
                 <th scope="col">@lang('messages.actions')</th>
                 <th scope="col" class="text-right">
-                    <a href="{{ route('houses.create') }}" class="btn btn-success text-white">
+                    <a href="{{ route('admin.houses.create') }}" class="btn btn-success text-white">
                         <i class="fa fa-plus"></i>
                     </a>
                 </th>
@@ -31,7 +31,7 @@
             @forelse ($houses as $house)
             <tr>
                 <td>
-                    <a href="{{ route('houses.show', $house) }}">
+                    <a href="{{ route('admin.houses.show', $house) }}">
                         {{ $house->name }}
                     </a>
                 </td>
@@ -39,7 +39,7 @@
                     {{$house->address}}
                 </td>
                 <td>
-                    <a class="btn btn-block btn-secondary" href="{{ route('houses.edit', $house->id) }}">
+                    <a class="btn btn-block btn-secondary" href="{{ route('admin.houses.edit', $house->id) }}">
                         {{ trans('messages.edit_house') }}
                         <i class="fas fa-user-edit"></i>
                     </a>
@@ -50,7 +50,7 @@
                         {{ trans('messages.delete_house') }}
                         <i class="fas fa-user-times"></i>
                     </a>
-                    <form method="POST" action="{{ route('houses.destroy', $house->id) }}" class="d-none"
+                    <form method="POST" action="{{ route('admin.houses.destroy', $house->id) }}" class="d-none"
                         id="delete-house-{{ $house->id }}">
                         @csrf
                         @method('DELETE')
