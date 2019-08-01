@@ -6,6 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
+    protected $fillable = [
+        'house_id',
+        'employee_id',
+        'client_id',
+        'start_date',
+        'end_date'
+    ];
+
+    protected $dates = [
+        'start_date',
+        'end_date'
+    ];
+
     public function client() {
         return $this->belongsTo(User::class, 'client_id');
     }

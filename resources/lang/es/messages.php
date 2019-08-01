@@ -123,7 +123,15 @@ return [
     'no' => 'No',
     'calendar' => 'Calendario',
     'images' => 'Imagenes',
+    'booking' => 'Reservar Visita',
+    'select_day' => 'Seleccione un día.',
+    'avail_hours' => 'Horas disponibles:',
+    'event_added' => 'Visita Reservada!',
+    'new_event_added' => 'Visita reservada para el',
+    'to' => 'hasta',
     'rent' => 'Alquilar',
     'buy' => 'Comprar',
     'no_zones_avaiable' => 'No hay zonas disponibles',
+    'not_found' => 'No hay resultados...'
+
 ];

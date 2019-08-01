@@ -54,18 +54,24 @@
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-                        @if(auth()->user()->usertype_id < 3) <a href="{{ route('admin.index') }}" class="dropdown-item">
-                            {{trans('messages.dashboard')}}</a>
-                            @endif
+                        @if(auth()->user()->usertype_id < 3)
+                        <a href="{{ route('admin.index') }}" class="dropdown-item">
+                            @lang('messages.dashboard')
+                        </a>
 
-                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
+                        <a href="{{ route('admin.calendar') }}" class="dropdown-item">
+                            @lang('messages.calendar')
+                        </a>
+                        @endif
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
+                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </div>
                 </li>
 
