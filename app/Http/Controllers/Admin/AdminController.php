@@ -15,12 +15,26 @@ use App\Event;
 class AdminController extends Controller
 {
     public function index(Request $request) {
-        $houses = House::all();
-        $users = User::all();
-        $zones = Zone::all();
-        $provinces = Province::all();
-        $photos = Photo::all();
+
+        $user = $request->user();
+
+        if ($user->usertype_id == 1) {
+            $houses = House::all();
+            $users = User::all();
+            $photos = count(Photo::all());
+        } else {
+            $users  = [];
+            $houses = $user->houses;
+            $photos = 0;
+
+            foreach ($houses as $house) {
+                $photos += count($house->photos);
+            }
+        }
+
         $comments = Comment::all();
+        $provinces = Province::all();
+        $zones = Zone::all();
 
         if ($request->user()->usertype_id == 1) {
             $events = Event::all();

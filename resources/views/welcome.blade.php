@@ -50,8 +50,8 @@
             <button class="btn btn-primary" onclick="toggleMap();">
                 <i class="fas fa-map-marker-alt"></i> @lang('messages.map')
             </button>
-            
-              </li> 
+
+              </li>
             <hr>
 
             <div class="map-wrapper hide">
@@ -106,7 +106,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
     function initMap(){
-      
+
                 // The location of Girona
                 var girona = {lat: 41.983333, lng: 2.816667};
                 // The map, centered at Girona
@@ -125,15 +125,15 @@
                   rooms: '{{ $house->rooms }}',
                   size: '{{ $house->size }}',
                   contract_id: '{{ $house->contract_id}}',
-                }  
+                }
                 result.push(obj);
                 @endforeach
-                
+
                 result.forEach(function(item, index) {
                     var casa = {
                         lat: parseFloat(item.latitude),
                         lng: parseFloat(item.longitude)
-                    }; 
+                    };
 
                     if(item.contract_id==1){
                         var contr = "€/"+'{{trans('messages.month')}}';
@@ -168,8 +168,8 @@
                 });
 
       }
-        
-    
+
+
 
     function toggleList() {
         $('.list-wrapper').fadeIn()

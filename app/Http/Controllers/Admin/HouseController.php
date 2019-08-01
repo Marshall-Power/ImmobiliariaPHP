@@ -13,6 +13,7 @@ use App\HouseType;
 use App\Contract;
 use App\Photo;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Database\Schema\Builder;
 
 class HouseController extends Controller
 {
@@ -21,11 +22,23 @@ class HouseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $houses = House::all();
+        $houses = House::where(function($query) use ($request) {
+            $user = $request->user();
 
-        return view('admin.houses.index', compact('houses'));
+            if (!$user->usertype_id == 1) {
+                $query->where('employee_id', $user->id);
+            }
+
+            if ($request->has('q')) {
+                $query->where('name', 'like', '%' . $request->input('q') . '%');
+            }
+
+        })->get();
+
+        $q = $request->input('q');
+        return view('admin.houses.index', compact('houses', 'q'));
     }
 
     /**

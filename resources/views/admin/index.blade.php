@@ -67,7 +67,7 @@
         </div>
         <div class="col-md-4">
             <a class="box" href="#">
-                {{ count($photos) }} {{ trans('messages.photos') }}
+                {{ $photos }} {{ trans('messages.photos') }}
             </a>
         </div>
         <div class="col-md-4">
