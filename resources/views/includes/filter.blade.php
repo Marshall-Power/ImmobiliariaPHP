@@ -11,7 +11,7 @@
                 <div class="form-group">
                     <h5>{{trans('messages.rooms')}}</h5>
                     <select class="form-control" name="rooms" id="rooms">
-                        <option  value="1">1</option>
+                        <option name="1" value="1">1</option>
                         <option name="2" value="2">2</option>
                         <option name="3" value="3">3</option>
                         <option name="4" value="4">4</option>

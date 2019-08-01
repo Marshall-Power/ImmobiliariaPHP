@@ -8,20 +8,19 @@
 @import '~bootstrap/scss/bootstrap';
 
 //JQuery UI
-// @import 'jquery-ui';
-// @import 'jquery-ui.structure';
-@import '~jquery-ui/themes/base/all.css';
+@import 'jquery-ui';
+@import 'jquery-ui.structure';
 
 @import 'footer';
 
 @import 'home';
 
 .ui-slider-range {
-    background: #ffcc00 !important;
+    background: #ffcc00;
 }
 
 .ui-slider {
-    background: #ffcc00 !important;
+    background: #ffcc00;
 }
 
 .cookie-consent {

@@ -36,7 +36,7 @@
                             <label for="employee_id"
                                 class="col-lg-2 col-form-label">{{ trans('messages.employee') }}</label>
 
-                            <div class="col-lg-10">
+                            <div class="col-lg-4">
 
                                 <select name="employee_id" id="employee_id" class="form-control">
                                     @forelse ($employees as $employee)
@@ -63,7 +63,7 @@
                         <div class="form-group row">
                             <label for="name" class="col-lg-2 col-form-label">{{trans('messages.name')}}</label>
 
-                            <div class="col-lg-10">
+                            <div class="col-lg-4">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
                                     name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
@@ -79,7 +79,7 @@
                         <div class="form-group row">
                             <label for="address" class="col-lg-2 col-form-label">{{trans('messages.address')}}</label>
 
-                            <div class="col-lg-10">
+                            <div class="col-lg-8">
                                 <input id="address" type="text"
                                     class="form-control @error('address') is-invalid @enderror" name="address"
                                     value="{{ old('address') }}" required autocomplete="address">
@@ -96,14 +96,14 @@
                         <div class="form-group row">
                             <label for="zone_id" class="col-lg-2 col-form-label">{{trans('messages.zone')}}</label>
 
-                            <div class="col-lg-10">
+                            <div class="col-lg-4">
                                 <select name="zone_id" id="zone_id" class="form-control">
                                     @forelse ($zones as $zone)
                                     <option value="{{ $zone->id }}" @if(old('zone_id')==$zone->id) selected @endif>
                                         {{ $zone->name }}
                                     </option>
                                     @empty
-                                    <option value="">No Zones avaliable</option>
+                                  <option value="">{{trans('messages.no_zones_avaible')}}</option>
                                     @endforelse
                                 </select>
                                 @error('zone_id')
@@ -278,7 +278,7 @@
                             <label for="climate_id"
                                 class="col-lg-3 col-form-label text-lg-right">{{ trans('messages.climate') }}</label>
 
-                            <div class="col-lg-9">
+                            <div class="col-lg-4">
 
                                 <select name="climate_id" id="climate_id" class="form-control">
                                     @forelse ($climates as $climate)
@@ -305,7 +305,7 @@
                             <label for="housetype_id"
                                 class="col-lg-3 col-form-label text-lg-right">{{ trans('messages.housetype') }}</label>
 
-                            <div class="col-lg-9">
+                            <div class="col-lg-4">
 
                                 <select name="housetype_id" id="housetype_id" class="form-control">
                                     @forelse ($housetypes as $housetype)
@@ -331,7 +331,7 @@
                             <label for="contract_id"
                                 class="col-lg-3 col-form-label text-lg-right">{{ trans('messages.contract') }}</label>
 
-                            <div class="col-lg-9">
+                            <div class="col-lg-4">
 
                                 <select name="contract_id" id="contract_id" class="form-control">
                                     @forelse ($contracts as $contract)
@@ -411,11 +411,12 @@
 
                         <div class="form-group mb-0">
                             <div class="float-right">
+                                <a class="btn btn-secondary"
+                                href="{{ route('admin.houses.index') }}">{{ trans('messages.back') }}</a>
                                 <button type="submit" class="btn btn-primary">
                                     {{ trans('messages.send') }}
                                 </button>
-                                <a class="btn btn-secondary"
-                                    href="{{ route('admin.houses.index') }}">{{ trans('messages.back') }}</a>
+                                
                             </div>
                         </div>
                     </form>
@@ -439,6 +440,7 @@
         position: girona,
         map: map,
         draggable:true,
+        animation: google.maps.Animation.DROP,
         title: '{{trans('messages.move_me')}}'
         });
     }

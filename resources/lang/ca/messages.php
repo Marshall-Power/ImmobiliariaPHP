@@ -129,4 +129,7 @@ return [
     'event_added' => 'Visita Reservada!',
     'new_event_added' => 'Visita reservada per el',
     'to' => 'fins les',
+    'rent' => 'Alquilar',
+    'buy' => 'Comprar',
+    'no_zones_avaiable' => 'No hi ha zones disponibles',
 ];

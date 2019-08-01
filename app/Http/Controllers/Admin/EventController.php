@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Event;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
@@ -38,16 +38,7 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        $event = Event::create([
-            'house_id' => $request->house_id,
-            'employee_id' => $request->employee_id,
-            'client_id' => $request->user()->id,
-            'start_date' => Carbon::create($request->start_date),
-            'end_date' => Carbon::create($request->end_date)
-        ]);
-
-
-        return response()->json(["msg" => "Event added", "event" => $event]);
+        //
     }
 
     /**
@@ -64,6 +55,7 @@ class EventController extends Controller
         } else {
             $events = Event::where('employee_id', $user->id)->get();
         }
+
         return view('admin.events.calendar', compact('user', 'events'));
     }
 
