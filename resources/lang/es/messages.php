@@ -120,4 +120,6 @@ return [
     'languages' => 'Idiomas',
     'yes' => 'Sí',
     'no' => 'No',
+    'calendar' => 'Calendario',
+    'images' => 'Imagenes',
 ];

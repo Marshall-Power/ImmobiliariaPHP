@@ -119,4 +119,6 @@ return [
     'languages' => 'Languages',
     'yes' => 'Yes',
     'no' => 'No',
+    'calendar' => 'calendar',
+    'images' => 'Images',
 ];

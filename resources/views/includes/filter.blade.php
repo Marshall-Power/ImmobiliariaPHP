@@ -9,7 +9,7 @@
                 <input type="hidden" id="size_max" name="size_max">
                 <br>
                 <div class="form-group">
-                    <h5>Numero de habitaciones</h5>
+                    <h5>{{trans('messages.rooms')}}</h5>
                     <select class="form-control" name="rooms" id="rooms">
                         <option  value="1">1</option>
                         <option name="2" value="2">2</option>
@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="form-group">
-                    <h5>Numero de baños</h5>
+                    <h5>{{trans('messages.bathrooms')}}</h5>
                     <select class="form-control" name="bathrooms" id="bathrooms">
                         <option value="1">1</option>
                         <option value="2">2</option>
