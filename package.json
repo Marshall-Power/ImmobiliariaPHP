@@ -12,14 +12,12 @@
         "lint:fix": "eslint resources/js/*.js --fix"
     },
     "devDependencies": {
-        "air-datepicker": "^2.2.3",
         "axios": "^0.19",
         "babel-eslint": "^10.0.2",
         "bootstrap": "^4.1.0",
         "cross-env": "^5.1",
         "eslint": "^6.1.0",
         "jquery": "^3.4.1",
-        "jquery-ui-bundle": "^1.12.1-migrate",
         "laravel-mix": "^4.0.7",
         "lodash": "^4.17.13",
         "popper.js": "^1.12",

@@ -136,26 +136,12 @@
 
                         </div>
                     </div>
-                    @auth
-                    <div class="row">
-                        <div class="col">
-                            <div class="d-flex mt-2 justify-content-end">
-                                <button type="button" class="btn btn-warning" data-toggle="modal"
-                                data-target="#eventModal">@lang('messages.booking')</button>
-                            </div>
-                        </div>
-                    </div>
-                    @endauth
                 </div>
             </div>
 
                 @include('includes.suggestion')
         </div>
-<<<<<<< HEAD
-
-=======
     </div>
->>>>>>> b472570ccafae0d2c8320449b0a0c73247c74921
         <!-- Modal -->
         <div class="modal fade" id="modalmap" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
             aria-hidden="true">
@@ -172,143 +158,15 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary"
-<<<<<<< HEAD
-                            data-dismiss="modal">@lang('messages.close')</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        {{-- Modal --}}
-        <div id="eventModal" class="modal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">@lang('messages.add_event')</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body d-flex flex-column align-items-center">
-                        <h3>@lang('messages.select_day')</h3>
-                        <div id="datepicker"></div>
-                        <div id="hoursWrapper">
-                            <div class="row justify-content-center mt-2">
-                                <div class="col-12 text-center">
-                                    <h3>@lang('messages.avail_hours')</h3>
-                                </div>
-                                <div class="col-12">
-                                    <div id="availHours" class="d-flex flex-wrap justify-content-center">
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-=======
                             data-dismiss="modal">{{trans('messages.close')}}</button>
->>>>>>> b472570ccafae0d2c8320449b0a0c73247c74921
                     </div>
                 </div>
             </div>
         </div>
 
-<<<<<<< HEAD
-        <div id="eventDialog" title="@lang('messages.event_added')">
-        </div>
         @endsection
 
         @section('js')
-
-        <script>
-            $( function() {
-            $('#eventDialog').dialog({
-                autoOpen: false,
-            });
-            $('#hoursWrapper').fadeOut();
-            $( "#datepicker" ).datepicker({
-                onSelect: function (date, obj) {
-                    businessHours = _.range(10, 20);
-                    axios.get('{{ url('/api/events') . '/' . $house->employee->id }}', {
-                        params: {
-                            start_date: moment(date).format('YYYY-MM-DD')
-                        }
-                    }).then(data => {
-                        for (let event of data.data) {
-                            var index = businessHours.indexOf(moment(event.start_date).hour());
-                            if (index >= 0) {
-                                businessHours.splice(index, 1)
-                            }
-                        }
-                        var  html = "";
-                        if (businessHours.length > 0) {
-                            businessHours.forEach(hour => {
-                                html += `
-                                    <a data-hour="${hour}" data-date="${moment(date).format('YYYY-MM-DD')}" href="javascript:void(0);" class="btn btn-primary m-2 btn-hour">
-                                    ${hour}
-                                    </a>
-                                `
-                            });
-                        } else {
-                            html += `<p>@lang('messages.empty.hours')</p>`;
-                        }
-
-                        $('#availHours').html(html);
-                        $('#hoursWrapper').fadeIn();
-                        $('#eventModal').modal();
-
-                    })
-                    .catch(e => console.log(e));
-
-                }
-            });
-
-            $(document).on('click', '.btn-hour', function() {
-                let hour = $(this).attr('data-hour');
-                let date = $(this).attr('data-date');
-
-                // let formData = new FormData();
-
-                // formData.append('house_id', '{{ $house->id }}');
-                // formData.append('employee_id', '{{ $house->employee->id }}');
-                // formData.append('client_id', '{{ auth()->user()->id }}');
-                // formData.append('start_date', moment(date).hour(hour));
-                // formData.append('end_date', moment(date).hour(hour).add(1, 'hours'));
-
-                let event = {
-                    "house_id": '{{ $house->id }}',
-                    "employee_id": '{{ $house->employee->id }}',
-                    "client_id": '{{ auth()->user()->id }}',
-                    "start_date": moment(date).hour(hour).format(),
-                    "end_date": moment(date).hour(hour).add(1, 'hours').format(),
-                }
-
-                $.ajax({
-                    url: '{{ route('events.store') }}',
-                    method: 'POST',
-                    data: {
-                        ...event
-                    },
-                    success: function(data) {
-                        $('#hoursWrapper').fadeOut();
-                        $('#eventModal').modal('toggle');
-                        $('#eventDialog').html(`<p> @lang('messages.new_event_added') ${data.event.start_date} @lang('messages.to') ${data.event.end_date}`);
-                        $('#eventDialog').dialog("open");
-
-                    },
-                    error: function(err) {
-                        console.log(err);
-                    }
-                })
-            });
-        });
-        </script>
-
-=======
-        @endsection
-
-        @section('js')
->>>>>>> b472570ccafae0d2c8320449b0a0c73247c74921
         <script>
             // Initialize and add the map
   function initMap() {
@@ -321,7 +179,7 @@
         document.getElementById('map'), {zoom: 16, center: pis});
     // The marker, positioned at the house
       var marker = new google.maps.Marker({
-        position: pis,
+        position: pis, 
         map: map,
         animation: google.maps.Animation.BOUNCE,
         });
