@@ -94,42 +94,42 @@
                     <hr style="border-color: black; border-width: 2px;">
                     <div class="row">
                         <div class="col-md-3">
-                            <h4 class="font-weight-bold">Caracteristicas</h4>
+                            <h4 class="font-weight-bold">{{trans('messages.details')}}</h4>
                         </div>
                         <div class="col-md-3">
-                            <p> {{ $house->rooms }} Habitaciones</p>
-                            <p>Superficie {{ $house->size }} m2</p>
-                            <p> {{ $house->bathrooms }} Baños</p>
+                            <p> {{ $house->rooms }} {{trans('messages.rooms')}}</p>
+                            <p>{{{trans('messages.size')}}} {{ $house->size }} m²</p>
+                            <p> {{ $house->bathrooms }} {{trans('messages.bathrooms')}}</p>
                         </div>
                         <div class="col-md-3">
                             @if ($house->furnished == true)
-                            <p>Amueblado: Si</p>
+                            <p>{{trans('messages.furnished')}}: {{trans('messages.yes')}}</p>
                             @else
-                            <p>Amueblado: No</p>
+                            <p>{{trans('messages.furnished')}}: {{trans('messages.no')}}</p>
                             @endif
 
                             @if ($house->elevator == true)
-                            <p>Ascensor: Si</p>
+                            <p>{{trans('messages.elevator')}}: {{trans('messages.yes')}}</p>
                             @else
-                            <p>Ascensor: No</p>
+                            <p>{{trans('messages.elevator')}}: {{trans('messages.no')}}</p>
                             @endif
 
 
                             @if ($house->parking == true)
-                            <p>Parking: Si</p>
+                            <p>Parking: {{trans('messages.yes')}}</p>
                             @else
-                            <p>Parking: No</p>
+                            <p>Parking: {{trans('messages.no')}}</p>
                             @endif
 
                     </div>
                     <div class="col-md-3">
                             @if ($house->air_conditioner == true)
-                            <p>Aire acondicionado: Si</p>
+                            <p>{{trans('messages.air_conditioner')}}: {{trans('messages.yes')}}</p>
                             @else
-                            <p>Aire acondicionado: No</p>
+                            <p>{{trans('messages.air_conditioner')}}: {{trans('messages.no')}}</p>
                             @endif
 
-                            <p>Calefaccion: {{ $house->climate->name }}</p>
+                            <p>{{trans('messages.climate')}}: {{ $house->climate->name }}</p>
 
                             <p> {{ $house->housetype->name }}</p>
 
