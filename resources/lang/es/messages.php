@@ -125,4 +125,5 @@ return [
     'images' => 'Imagenes',
     'rent' => 'Alquilar',
     'buy' => 'Comprar',
+    'no_zones_avaiable' => 'No hay zonas disponibles',
 ];
