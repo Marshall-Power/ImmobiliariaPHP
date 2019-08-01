@@ -258,14 +258,6 @@
                 let hour = $(this).attr('data-hour');
                 let date = $(this).attr('data-date');
 
-                // let formData = new FormData();
-
-                // formData.append('house_id', '{{ $house->id }}');
-                // formData.append('employee_id', '{{ $house->employee->id }}');
-                // formData.append('client_id', '{{ auth()->user()->id }}');
-                // formData.append('start_date', moment(date).hour(hour));
-                // formData.append('end_date', moment(date).hour(hour).add(1, 'hours'));
-
                 let event = {
                     "house_id": '{{ $house->id }}',
                     "employee_id": '{{ $house->employee->id }}',

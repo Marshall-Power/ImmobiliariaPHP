@@ -6,6 +6,7 @@ use App\Event;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Carbon;
 
 class EventController extends Controller
 {
@@ -38,7 +39,15 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $event = Event::create([
+            'house_id' => $request->house_id,
+            'employee_id' => $request->employee_id,
+            'client_id' => $request->client_id,
+            'start_date' => Carbon::create($request->start_date),
+            'end_date' => Carbon::create($request->end_date)
+        ]);
+
+        return response()->json(["msg" => "Event added", "event" => $event]);
     }
 
     /**
