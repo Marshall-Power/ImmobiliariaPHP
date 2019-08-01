@@ -59,7 +59,7 @@
             </tr>
             @empty
             <tr>
-                <td colspan="6">@lang('messages.empty.users')</td>
+                <td colspan="6">@lang('messages.empty.houses')</td>
             </tr>
             @endforelse
 

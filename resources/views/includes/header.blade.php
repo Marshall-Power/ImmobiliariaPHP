@@ -68,22 +68,22 @@
                             </form>
                     </div>
                 </li>
-                
+
                 @endguest
             </ul>
-            
-            <div class="dropdown show">
+
+            <div class="nav-item dropdown">
                 <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  {{trans('messages.languages')}}
+                    @lang('messages.languages')
                 </a>
-              
+
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                  <a class="dropdown-item" href="{{url('idioma/es')}}">Español</a>
-                  <a class="dropdown-item" href="{{url('idioma/ca')}}">Català</a>
-                  <a class="dropdown-item" href="{{url('idioma/en')}}">English</a>
+                  <a class="dropdown-item @if(app()->getLocale() == "es") active @endif" href="{{ url('idioma/es') }}">Español</a>
+                  <a class="dropdown-item @if(app()->getLocale() == "ca") active @endif" href="{{ url('idioma/ca') }}">Català</a>
+                  <a class="dropdown-item @if(app()->getLocale() == "en") active @endif" href="{{ url('idioma/en') }}">English</a>
                 </div>
             </div>
-                
+
         </div>
     </div>
 </nav>

@@ -81,6 +81,7 @@ return [
         'contracts' => 'No hay contratos disponibles.',
         'employees' => 'No hay empleados disponibles.',
         'users' => 'No hay usuarios disponibles.',
+        'houses' => 'No hay inmuebles disponibles.'
     ],
     'photos' => 'Imagenes',
     'add_zone' => 'Agregar Zona',
