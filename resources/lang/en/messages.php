@@ -123,4 +123,5 @@ return [
     'images' => 'Images',
     'rent' => 'Rent',
     'buy' => 'Buy',
+    'no_zones_avaiable' => 'No zones avaiable',
 ];
