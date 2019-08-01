@@ -106,22 +106,34 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
     function initMap(){
-        $.ajax({
-            url:'{{url('/api/houses')}}',
-            method:"POST",
-            dataType:"JSON",
-            success: function(result){
+      
                 // The location of Girona
                 var girona = {lat: 41.983333, lng: 2.816667};
                 // The map, centered at Girona
                 var map = new google.maps.Map(
                     document.getElementById('map'), {zoom: 12, center: girona});
+                var result = [];
 
+                @foreach($houses as $house)
+                var obj = {
+                  id: '{{ $house->id }}',
+                  name: '{{ $house->name }}',
+                  address: '{{ $house->address }}',
+                  latitude: '{{ $house->latitude }}',
+                  longitude: '{{ $house->longitude }}',
+                  price: '{{ $house->price }}',
+                  rooms: '{{ $house->rooms }}',
+                  size: '{{ $house->size }}',
+                  contract_id: '{{ $house->contract_id}}',
+                }  
+                result.push(obj);
+                @endforeach
+                
                 result.forEach(function(item, index) {
                     var casa = {
                         lat: parseFloat(item.latitude),
                         lng: parseFloat(item.longitude)
-                    };
+                    }; 
 
                     if(item.contract_id==1){
                         var contr = "€/"+'{{trans('messages.month')}}';
@@ -155,9 +167,9 @@
                     marker.setMap(map);
                 });
 
-            }
-        });
-    }
+      }
+        
+    
 
     function toggleList() {
         $('.list-wrapper').fadeIn()
