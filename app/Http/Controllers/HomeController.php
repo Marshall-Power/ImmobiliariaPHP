@@ -25,20 +25,20 @@ class HomeController extends Controller
     {
         $houses = House::select('*');
 
-        if ($request->has('rooms_min') && $request->has('rooms_max')) {
-            $houses = $houses->whereBetween('rooms', [$request->rooms_min, $request->rooms_max]);
+        if ($request->has('rooms')) {
+            $houses = $houses->where('rooms', '>=', $request->rooms);
         }
 
-        if ($request->has('price_min') && $request->has('price_max')) {
-            $houses = $houses->whereBetween('price', [$request->price_min, $request->price_max]);
+        if ($request->has('bathrooms')) {
+            $houses = $houses->where('bathrooms', '>=', $request->bathrooms);
+        }
+
+        if ($request->has('price') && $request->price !== null) {
+            $houses = $houses->where('price', '<', $request->price);
         }
 
         if ($request->has('size_min') && $request->has('size_max')) {
             $houses = $houses->whereBetween('size', [$request->size_min, $request->size_max]);
-        }
-
-        if ($request->has('bathrooms_min') && $request->has('bathrooms_max')) {
-            $houses = $houses->whereBetween('bathrooms', [$request->bathrooms_min, $request->bathrooms_max]);
         }
 
         if($request->has('contract'))
@@ -76,10 +76,21 @@ class HomeController extends Controller
             $houses = $houses->where('air_conditioner', $request->air);
         }
 
-        $houses = $houses->paginate(4)->appends(Array(
-            'rooms_min' => $request->rooms_min,
-            'rooms_max' => $request->rooms_max
-        ));
+        $houses = $houses->paginate(4)->appends([
+            'rooms' => $request->rooms,
+            'bathrooms' => $request->bathrooms,
+            'price' => $request->price,
+            'size_min' => $request->size_min,
+            'size_max' => $request->size_max,
+            'size_min' => $request->size_min,
+            'furnished' => $request->furnished,
+            'air_conditioner' => $request->elevator,
+            'parking' => $request->parking,
+            'zone' => $request->zone,
+            'housetype' => $request->housetype,
+            'contract' => $request->contract,
+            'available' => $request->available
+        ]);
 
         return view('welcome', compact('houses', 'request'));
     }
