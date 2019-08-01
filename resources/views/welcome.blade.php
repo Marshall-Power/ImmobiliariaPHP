@@ -128,7 +128,7 @@
                 }  
                 result.push(obj);
                 @endforeach
-                console.log(result);
+                
                 result.forEach(function(item, index) {
                     var casa = {
                         lat: parseFloat(item.latitude),
