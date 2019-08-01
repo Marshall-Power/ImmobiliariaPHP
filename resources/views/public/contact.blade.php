@@ -23,7 +23,18 @@
 
     <div class="row">
 
-        <div class="col-md-6 offset-md-3">
+        <div class="col-md-3" style="background-color: black; color: white; padding: 60px;">
+                <h2>{{trans('messages.contact_info')}}</h2>
+                <br>
+                <p>Cambra de comerç de Girona</p>
+                <p>Av. Jaume I, 46</p>
+                <p>17001, Girona</p>
+                <a href="tel:+34972600729" style="text-decoration:none;color:white; "><i class="fa fa-phone"></i>
+                    972600729
+                </a>
+        </div>
+
+        <div class="col-md-6 offset-md-1">
 
             <form id="contact-form" name="contact-form" action="{{ route('contact') }}" method="POST">
                 @csrf
@@ -56,7 +67,7 @@
               </div>
             </form>
 
-            
+
         </div>
     </div>
 </div>
