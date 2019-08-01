@@ -136,17 +136,16 @@
 
                         </div>
                     </div>
+                    @auth
                     <div class="row">
-                        <div class="col-12">
-                            <h3>Reservar Casa</h3>
-                        </div>
                         <div class="col">
-                            <div class="d-flex mt-2">
-                                <button type="button" class="btn btn-info" data-toggle="modal"
-                                    data-target="#eventModal">Reservar</button>
+                            <div class="d-flex mt-2 justify-content-end">
+                                <button type="button" class="btn btn-warning" data-toggle="modal"
+                                data-target="#eventModal">@lang('messages.booking')</button>
                             </div>
                         </div>
                     </div>
+                    @endauth
                 </div>
             </div>
         </div>
@@ -178,18 +177,18 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Add Event</h5>
+                        <h5 class="modal-title">@lang('messages.add_event')</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body d-flex flex-column align-items-center">
-                        <h3>Seleciona un dia</h3>
+                        <h3>@lang('messages.select_day')</h3>
                         <div id="datepicker"></div>
                         <div id="hoursWrapper">
                             <div class="row justify-content-center mt-2">
                                 <div class="col-12 text-center">
-                                    <h3>Horas disponibles</h3>
+                                    <h3>@lang('messages.avail_hours')</h3>
                                 </div>
                                 <div class="col-12">
                                     <div id="availHours" class="d-flex flex-wrap justify-content-center">
@@ -200,16 +199,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    </div>
                 </div>
             </div>
         </div>
 
-        <div id="eventDialog" title="New Event Created">
-            <p>New Event Created</p>
+        <div id="eventDialog" title="@lang('messages.event_added')">
         </div>
         @endsection
 
@@ -245,7 +239,7 @@
                                 `
                             });
                         } else {
-                            html += `<p>No hours available</p>`;
+                            html += `<p>@lang('messages.empty.hours')</p>`;
                         }
 
                         $('#availHours').html(html);
@@ -287,7 +281,7 @@
                     success: function(data) {
                         $('#hoursWrapper').fadeOut();
                         $('#eventModal').modal('toggle');
-                        $('#eventDialog').html(`<p> new event on ${data.event.start_date} to ${data.event.end_date}`);
+                        $('#eventDialog').html(`<p> @lang('messages.new_event_added') ${data.event.start_date} @lang('messages.to') ${data.event.end_date}`);
                         $('#eventDialog').dialog("open");
 
                     },
