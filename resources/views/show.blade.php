@@ -3,12 +3,13 @@
 <style type="text/css">
     /* Set the size of the div element that contains the map */
     #map {
-      height: 400px;  /* The height is 400 pixels */
-      width: 100%;  /* The width is the width of the web page */
-      background-color: grey;
-     }
-
-  </style>
+        height: 400px;
+        /* The height is 400 pixels */
+        width: 100%;
+        /* The width is the width of the web page */
+        background-color: grey;
+    }
+</style>
 @endsection
 
 @section('content')
@@ -25,34 +26,32 @@
 
 
             <div id="carouselShow" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselShow" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselShow" data-slide-to="1"></li>
-                            <li data-target="#carouselShow" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            @forelse ($house->photos as $key => $image)
-                            <div class="carousel-item @if($key == 0) active @endif">
-                                <img class="d-block w-100" height="400"
-                                    style="object-fit:cover;"
-                                    src="{{ url('storage/' . $image->path) }}"
-                                    alt="{{ $image->name }}">
-                            </div>
-                            @empty
-                            <div class="carousel-item active">
-                                <img src="" alt="{{ $image->name }}">
-                            </div>
-                            @endforelse
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselShow" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselShow" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselShow" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselShow" data-slide-to="1"></li>
+                    <li data-target="#carouselShow" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    @forelse ($house->photos as $key => $image)
+                    <div class="carousel-item @if($key == 0) active @endif">
+                        <img class="d-block w-100" height="400" style="object-fit:cover;"
+                            src="{{ url('storage/' . $image->path) }}" alt="{{ $image->name }}">
                     </div>
+                    @empty
+                    <div class="carousel-item active">
+                        <img src="" alt="{{ $image->name }}">
+                    </div>
+                    @endforelse
+                </div>
+                <a class="carousel-control-prev" href="#carouselShow" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselShow" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
 
 
             <div class="card mx-auto" style="max-height: 1000px;">
@@ -61,7 +60,8 @@
                     <h5 class="card-title font-weight-bold">{{ floor($house->price) }} €</h5>
                     <div>
                         <h3 class="d-inline">{{ $house->name }}</h3>
-                        <button type="button" class="btn btn-success d-inline-flex p-2 ml-2 mb-1" data-toggle="modal" data-target="#modalmap">
+                        <button type="button" class="btn btn-success d-inline-flex p-2 ml-2 mb-1" data-toggle="modal"
+                            data-target="#modalmap">
                             <i style="vertical-align: middle;" class="fas fa-map-marker-alt"></i>
                         </button>
                     </div>
@@ -71,10 +71,11 @@
                             <p><i class="fas fa-home fa-2x"></i> {{ $house->size }} m²</p>
                         </div>
                         <div class="col-lg-3">
-                            <p><i class="fas fa-bed fa-2x"></i>     {{ $house->rooms }}   {{trans('messages.rooms')}}</p>
+                            <p><i class="fas fa-bed fa-2x"></i> {{ $house->rooms }} {{trans('messages.rooms')}}</p>
                         </div>
                         <div class="col-lg-2 text-center">
-                            <p><i class="fas fa-toilet fa-2x"></i>     {{ $house->bathrooms }}    {{trans('messages.bathrooms')}}</p>
+                            <p><i class="fas fa-toilet fa-2x"></i> {{ $house->bathrooms }}
+                                {{trans('messages.bathrooms')}}</p>
                         </div>
                     </div>
                     <hr style="border-color: black; border-width: 2px;">
@@ -121,8 +122,8 @@
                             <p>Parking: {{trans('messages.no')}}</p>
                             @endif
 
-                    </div>
-                    <div class="col-md-3">
+                        </div>
+                        <div class="col-md-3">
                             @if ($house->air_conditioner == true)
                             <p>{{trans('messages.air_conditioner')}}: {{trans('messages.yes')}}</p>
                             @else
@@ -133,36 +134,173 @@
 
                             <p> {{ $house->housetype->name }}</p>
 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h3>Reservar Casa</h3>
+                        </div>
+                        <div class="col">
+                            <div class="d-flex mt-2">
+                                <button type="button" class="btn btn-info" data-toggle="modal"
+                                    data-target="#eventModal">Reservar</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Modal -->
-    <div class="modal fade" id="modalmap" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="ModalLabel">{{trans('messages.location')}}</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modalmap" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ModalLabel">{{trans('messages.location')}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="map"></div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                            data-dismiss="modal">@lang('messages.close')</button>
+                    </div>
+                </div>
             </div>
-            <div class="modal-body">
-                <div id="map"></div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">{{trans('messages.close')}}</button>
-            </div>
-          </div>
         </div>
-      </div>
 
-@endsection
+        {{-- Modal --}}
+        <div id="eventModal" class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Event</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body d-flex flex-column align-items-center">
+                        <h3>Seleciona un dia</h3>
+                        <div id="datepicker"></div>
+                        <div id="hoursWrapper">
+                            <div class="row justify-content-center mt-2">
+                                <div class="col-12 text-center">
+                                    <h3>Horas disponibles</h3>
+                                </div>
+                                <div class="col-12">
+                                    <div id="availHours" class="d-flex flex-wrap justify-content-center">
 
-@section('js')
-<script>
-  // Initialize and add the map
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="eventDialog" title="New Event Created">
+            <p>New Event Created</p>
+        </div>
+        @endsection
+
+        @section('js')
+
+        <script>
+            $( function() {
+            $('#eventDialog').dialog({
+                autoOpen: false,
+            });
+            $('#hoursWrapper').fadeOut();
+            $( "#datepicker" ).datepicker({
+                onSelect: function (date, obj) {
+                    businessHours = _.range(10, 20);
+                    axios.get('{{ url('/api/events') . '/' . $house->employee->id }}', {
+                        params: {
+                            start_date: moment(date).format('YYYY-MM-DD')
+                        }
+                    }).then(data => {
+                        for (let event of data.data) {
+                            var index = businessHours.indexOf(moment(event.start_date).hour());
+                            if (index >= 0) {
+                                businessHours.splice(index, 1)
+                            }
+                        }
+                        var  html = "";
+                        if (businessHours.length > 0) {
+                            businessHours.forEach(hour => {
+                                html += `
+                                    <a data-hour="${hour}" data-date="${moment(date).format('YYYY-MM-DD')}" href="javascript:void(0);" class="btn btn-primary m-2 btn-hour">
+                                    ${hour}
+                                    </a>
+                                `
+                            });
+                        } else {
+                            html += `<p>No hours available</p>`;
+                        }
+
+                        $('#availHours').html(html);
+                        $('#hoursWrapper').fadeIn();
+                        $('#eventModal').modal();
+
+                    })
+                    .catch(e => console.log(e));
+
+                }
+            });
+
+            $(document).on('click', '.btn-hour', function() {
+                let hour = $(this).attr('data-hour');
+                let date = $(this).attr('data-date');
+
+                // let formData = new FormData();
+
+                // formData.append('house_id', '{{ $house->id }}');
+                // formData.append('employee_id', '{{ $house->employee->id }}');
+                // formData.append('client_id', '{{ auth()->user()->id }}');
+                // formData.append('start_date', moment(date).hour(hour));
+                // formData.append('end_date', moment(date).hour(hour).add(1, 'hours'));
+
+                let event = {
+                    "house_id": '{{ $house->id }}',
+                    "employee_id": '{{ $house->employee->id }}',
+                    "client_id": '{{ auth()->user()->id }}',
+                    "start_date": moment(date).hour(hour).format(),
+                    "end_date": moment(date).hour(hour).add(1, 'hours').format(),
+                }
+
+                $.ajax({
+                    url: '{{ route('events.store') }}',
+                    method: 'POST',
+                    data: {
+                        ...event
+                    },
+                    success: function(data) {
+                        $('#hoursWrapper').fadeOut();
+                        $('#eventModal').modal('toggle');
+                        $('#eventDialog').html(`<p> new event on ${data.event.start_date} to ${data.event.end_date}`);
+                        $('#eventDialog').dialog("open");
+
+                    },
+                    error: function(err) {
+                        console.log(err);
+                    }
+                })
+            });
+        });
+        </script>
+
+        <script>
+            // Initialize and add the map
   function initMap() {
     // The location of the house
     var pislat = parseFloat('{{$house->latitude}}');
@@ -174,5 +312,5 @@
     // The marker, positioned at the house
       var marker = new google.maps.Marker({position: pis, map: map});
   }
-</script>
-@endsection
+        </script>
+        @endsection

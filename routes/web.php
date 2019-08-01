@@ -21,6 +21,7 @@ Route::get('/contact', 'HomeController@contact')->name('contact');
 Route::post('/contact', 'Admin\CommentController@storeComment')->name('contact');
 Route::get('/about', 'HomeController@about')->name('about');
 
+Route::post('/events', 'Admin\EventController@store')->name('events.store');
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'checkRole'], 'as' => 'admin.'], function () {
     Route::get('/', 'AdminController@index')->name('index');
@@ -33,7 +34,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
 });
 
 Route::group(['middleware' => 'web'], function () {
-  Route::get('idioma/{idioma}', function ($idioma) {    
+  Route::get('idioma/{idioma}', function ($idioma) {
       session(['lang' => $idioma]);
       return Redirect::back();
   });

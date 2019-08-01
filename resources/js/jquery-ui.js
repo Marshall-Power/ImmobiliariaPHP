@@ -1,5 +1,5 @@
 /* eslint-disable */
-import jQuery from 'jquery'
+import {$, jQuery} from 'jquery'
 
 /*! jQuery UI - v1.12.1 - 2019-07-30
  * http://jqueryui.com
