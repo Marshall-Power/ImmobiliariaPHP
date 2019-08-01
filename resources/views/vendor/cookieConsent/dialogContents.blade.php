@@ -4,7 +4,7 @@
     text-align: center;
     position: sticky;
     top: 0;
-    z-index: 2;
+    z-index: 3;
   }
   .cookietxt{
     color: white;
