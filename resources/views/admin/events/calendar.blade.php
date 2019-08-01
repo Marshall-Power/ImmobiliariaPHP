@@ -25,8 +25,10 @@
     var locale = "";
     @if(app()->getLocale() == "es")
         locale = "es";
-    @else
+    @elseif(app()->getLocale() == "ca")
         locale = "ca";
+    @else
+        locale = "en";
     @endif
 
     var events = [
@@ -44,8 +46,12 @@
     document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
-          plugins: [ 'timeGrid' ],
+          plugins: [ 'timeGrid', 'bootstrap', 'interaction' ],
           locale: locale,
+          slotDuration: '01:00:00',
+          minTime: '10:00:00',
+          maxTime: '22:00:00',
+          height: 500
         });
 
         for (event of events) {
