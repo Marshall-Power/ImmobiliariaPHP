@@ -24,7 +24,7 @@ Route::get('/about', 'HomeController@about')->name('about');
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'checkRole'], 'as' => 'admin.'], function () {
     Route::get('/', 'AdminController@index')->name('index');
-    Route::get('calendar', 'AdminController@calendar')->name('calendar');
+    Route::get('calendar', 'EventController@show')->name('calendar');
     Route::resource('users', 'UserController');
     Route::resource('zones', 'ZoneController');
     Route::resource('houses', 'HouseController');

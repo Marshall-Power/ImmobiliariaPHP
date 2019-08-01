@@ -47,4 +47,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(House::class, 'employee_id');
     }
+
+    public function events() {
+        return $this->hasMany(Event::class, 'employee_id');
+    }
 }
