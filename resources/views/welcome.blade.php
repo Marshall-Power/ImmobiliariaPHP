@@ -50,7 +50,8 @@
             <button class="btn btn-primary" onclick="toggleMap();">
                 <i class="fas fa-map-marker-alt"></i> @lang('messages.map')
             </button>
-
+            
+              </li> 
             <hr>
 
             <div class="map-wrapper hide">

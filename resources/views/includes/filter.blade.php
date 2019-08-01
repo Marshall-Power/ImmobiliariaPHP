@@ -28,6 +28,7 @@
                         <option value="4">4</option>
                         <option value="5">5</option>
                     </select>
+
                 </div>
 
 
@@ -37,7 +38,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="amount-size">Metros cuadrados:</label>
+                    <label for="amount-size">{{trans('messages.size')}}:</label>
                     <input type="text" id="amount-size" readonly class="mb-2 w-100"
                         style="border:0; color:#f6931f; font-weight:bold;">
                     <div id="slider-range-size"></div>

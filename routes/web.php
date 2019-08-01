@@ -31,3 +31,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
     Route::resource('provinces', 'ProvinceController');
     Route::resource('comments', 'CommentController');
 });
+
+Route::group(['middleware' => 'web'], function () {
+  Route::get('idioma/{idioma}', function ($idioma) {    
+      session(['lang' => $idioma]);
+      return Redirect::back();
+  });
+});
