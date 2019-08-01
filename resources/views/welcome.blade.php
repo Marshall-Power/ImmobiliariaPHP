@@ -13,11 +13,9 @@
         display: none;
     }
 
-    .font_house_title
-    {
+    .font_house_title {
         font-family: 'Ubuntu', sans-serif;
     }
-
 </style>
 @endsection
 @section('content')
@@ -40,7 +38,7 @@
             <hr>
 
             <div class="map-wrapper hide">
-            <h3>{{trans('messages.houses_map')}}</h3>
+                <h3>{{trans('messages.houses_map')}}</h3>
                 <div id="map"></div>
             </div>
             <!--The div element for the map -->
@@ -55,10 +53,15 @@
                             <div class="card-body">
                                 <h5 class="font_house_title card-title">{{ $house->name }}</h5>
                                 <p class="card-text">
+                                    @if(app()->getLocale() == "es")
                                     {{ str_limit($house->description_es, $limit = 150, $end = '...') }}
+                                    @else
+                                    {{ str_limit($house->description_ca, $limit = 150, $end = '...') }}
+                                    @endif
                                 </p>
                                 <div class="position-absolute p-4" style="bottom: 0; right: 0;">
-                                    <a href="{{ route('show', $house->id) }}" style="font-size: 1rem;" class="btn btn-primary btn-lg">
+                                    <a href="{{ route('show', $house->id) }}" style="font-size: 1rem;"
+                                        class="btn btn-primary btn-lg">
                                         {{trans('messages.details')}}</a>
                                     <a class="btn btn-info text-white" href="tel:+34{{ $house->employee->phone }}">
                                         <i class="fas fa-phone-square-alt fa-2x" style="vertical-align: bottom;"></i>
