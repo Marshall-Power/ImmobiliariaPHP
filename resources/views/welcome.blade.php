@@ -10,6 +10,24 @@
         /* The width is the width of the web page */
     }
 
+    #legend {
+        font-family: Arial, sans-serif;
+        background: #fff;
+        padding: 10px;
+        margin: 10px;
+        border: 3px solid #000;
+        
+      }
+      #legend h3 {
+        margin-top: 0;
+      }
+      #legend img {
+        vertical-align: middle;
+      }
+
+      .markerimg{
+        width:30%;
+      }
     .hide {
         display: none;
     }
@@ -57,6 +75,7 @@
             <div class="map-wrapper hide">
                 <h3>{{trans('messages.houses_map')}}</h3>
                 <div id="map"></div>
+                <div id='legend'></div>
             </div>
             <!--The div element for the map -->
 
@@ -142,7 +161,7 @@
                     }
 
                     var contentString = `
-                    <div class='container text-center'>
+                    <div class='container text-align-left'>
                         <h5><u>${item.name}</u></h5>
                         <h6 class='text-muted'>${item.address}</h6>
                         <p class="mb-1">${parseInt(item.price)} ${contr} ${item.size} m²</p>
@@ -154,18 +173,50 @@
                         content: contentString
                     });
 
-                    var marker = new google.maps.Marker({
+                    var icon1 = {
+                        url: "http://maps.google.com/mapfiles/kml/paddle/red-circle.png", // url
+                        scaledSize: new google.maps.Size(40, 40), // scaled size
+                        origin: new google.maps.Point(0,0), // origin
+                        anchor: new google.maps.Point(0, 0) // anchor
+                    };
+
+                    var icon2 = {
+                        url: "http://maps.google.com/mapfiles/kml/paddle/blu-circle.png", // url
+                        scaledSize: new google.maps.Size(40, 40), // scaled size
+                        origin: new google.maps.Point(0,0), // origin
+                        anchor: new google.maps.Point(0, 0) // anchor
+                    };
+                    var icon = "";
+                    if (item.contract_id == 1){
+                      var marker = new google.maps.Marker({
                         position: casa,
                         map: map,
+                        icon: icon1,
                         title: item.name
                     });
+                    }else{
+                      var marker = new google.maps.Marker({
+                        position: casa,
+                        map: map,
+                        icon: icon2,
+                        title: item.name
+                    });
+                    }
 
                     marker.addListener('click', function() {
                         infowindow.open(map, marker);
                     });
 
                     marker.setMap(map);
+                    
+                    
+                    var legend = document.getElementById('legend');
+                    legend.innerHTML = "<img class='markerimg' src='http://maps.google.com/mapfiles/kml/paddle/red-circle.png'> "  + '{{trans('messages.rent')}}' + "<br>";
+                    legend.innerHTML += "<img class='markerimg' src='http://maps.google.com/mapfiles/kml/paddle/blu-circle.png'> "  + '{{trans('messages.buy')}}' ;
+                    map.controls[google.maps.ControlPosition.TOP_CENTER].push(legend);
+                    
                 });
+                
 
       }
 

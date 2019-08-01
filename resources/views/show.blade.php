@@ -172,7 +172,11 @@
     var map = new google.maps.Map(
         document.getElementById('map'), {zoom: 16, center: pis});
     // The marker, positioned at the house
-      var marker = new google.maps.Marker({position: pis, map: map});
+      var marker = new google.maps.Marker({
+        position: pis, 
+        map: map,
+        animation: google.maps.Animation.BOUNCE,
+        });
   }
 </script>
 @endsection
