@@ -99,7 +99,7 @@ return [
     ],
     'province' => 'Província',
     'parking' => 'Parking',
-    'furnished' => 'moblat',
+    'furnished' => 'Moblat',
     'use_map' => 'Usar mapa',
     'close' => 'Tancar',
     'move_me' => 'Mou-me!',
@@ -118,4 +118,6 @@ return [
     'keep_in_contact' => 'Manté el contacte amb nosaltres',
     'contact_info' => 'Informació de contacte',
     'languages' => 'Idiomes',
+    'yes' => 'Sí',
+    'no' => 'No',
 ];

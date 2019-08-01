@@ -16,16 +16,16 @@
                 <div class="p-4 text-center">
                 <h2>{{trans('messages.keep_in_contact')}}</h2>
                     <div class="icons px-4">
-                        <a target="_blank" href="#">
+                        <a target="_blank" href="https://ca-es.facebook.com/">
                             <i class="fab fa-facebook-square fa-3x"></i>
                         </a>
-                        <a target="_blank" href="#">
+                        <a target="_blank" href="https://twitter.com/">
                             <i class="fab fa-twitter-square fa-3x"></i>
                         </a>
-                        <a target="_blank" href="#">
-                            <i class="fab fa-google-plus-square fa-3x"></i>
+                        <a target="_blank" href="https://www.instagram.com/">
+                            <i class="fab fa-instagram fa-3x"></i>
                         </a>
-                        <a target="_blank" href="#">
+                        <a target="_blank" href="https://www.linkedin.com/">
                             <i class="fab fa-linkedin fa-3x"></i>
                         </a>
                     </div>

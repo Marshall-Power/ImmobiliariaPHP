@@ -118,4 +118,6 @@ return [
     'keep_in_contact' => 'Mantén el contacto con nosotros',
     'contact_info' => 'Información de contacto',
     'languages' => 'Idiomas',
+    'yes' => 'Sí',
+    'no' => 'No',
 ];

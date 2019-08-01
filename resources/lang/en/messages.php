@@ -117,4 +117,6 @@ return [
     'keep_in_contact' => 'Keep in contact with us',
     'contact_info' => 'Contact information',
     'languages' => 'Languages',
+    'yes' => 'Yes',
+    'no' => 'No',
 ];
