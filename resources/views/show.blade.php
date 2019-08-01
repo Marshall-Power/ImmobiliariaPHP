@@ -58,7 +58,7 @@
             <div class="card mx-auto" style="max-height: 1000px;">
 
                 <div class="card-body details_show">
-                    <h5 class="card-title font-weight-bold">{{ $house->price }} €</h5>
+                    <h5 class="card-title font-weight-bold">{{ floor($house->price) }} €</h5>
                     <div>
                         <h3 class="d-inline">{{ $house->name }}</h3>
                         <button type="button" class="btn btn-success d-inline-flex p-2 ml-2 mb-1" data-toggle="modal" data-target="#modalmap">
