@@ -11,4 +11,8 @@ class ApiController extends Controller
       $houses = House::get();
       return $houses;
     }
+
+    public function events($id) {
+        $events = Event::where('employee_id', $id)->get();
+    }
 }
