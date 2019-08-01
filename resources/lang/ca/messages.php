@@ -123,4 +123,10 @@ return [
     'no' => 'No',
     'calendar' => 'Calendari',
     'images' => 'Imatges',
+    'booking' => 'Reservar una Visita',
+    'select_day' => 'Selecciona un día.',
+    'avail_hours' => 'Horas disponibles:',
+    'event_added' => 'Visita Reservada!',
+    'new_event_added' => 'Visita reservada per el',
+    'to' => 'fins les',
 ];

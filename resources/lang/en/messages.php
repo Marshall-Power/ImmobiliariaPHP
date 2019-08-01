@@ -121,4 +121,10 @@ return [
     'no' => 'No',
     'calendar' => 'calendar',
     'images' => 'Images',
+    'booking' => 'Book a visit',
+    'select_day' => 'Select a day.',
+    'avail_hours' => 'Available Hours:',
+    'event_added' => 'Booked visit!',
+    'new_event_added' => 'Visit booked for',
+    'to' => 'to',
 ];
