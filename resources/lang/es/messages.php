@@ -123,6 +123,6 @@ return [
     'no' => 'No',
     'calendar' => 'Calendario',
     'images' => 'Imagenes',
-    'rent' => 'Alguilar',
+    'rent' => 'Alquilar',
     'buy' => 'Comprar',
 ];
