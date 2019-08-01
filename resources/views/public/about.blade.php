@@ -2,22 +2,63 @@
 @section('content')
 
 <div class="container">
-  <div class="row">
-    <div class="col-lg-4 col-md-4 col-sm-4">
-      <h1>{{trans('messages.aboutUs')}}</h1> 
+    <div class="row">
+        <div class="col-lg-4 offset-lg-5 col-md-4 col-sm-4">
+            <h1>{{trans('messages.aboutUs')}}</h1>
+        </div>
     </div>
-    
-  </div>
-  <div class="row">
-    <div class="col-lg-4 col-md-4 col-sm-12">
-      <img src="http://www.refincel.com/images/sobre-nosotros-icon-max.png">
-    </div>
-    <div class="col-lg-8 col-md-8 col-sm-12">
-        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit nunc ultrices, bibendum blandit consequat ullamcorper nam dictum placerat purus, posuere inceptos dictumst feugiat vivamus elementum non ante. Mi urna ad faucibus sodales ornare sociis mauris, tellus integer hendrerit pretium felis at, semper dui porta magna id gravida. A non etiam iaculis posuere interdum donec eleifend magna varius tincidunt, blandit molestie class nisi nullam enim sodales vulputate.
+    <div class="row">
 
-        Potenti fringilla eget mattis purus aliquam iaculis accumsan ultricies litora feugiat posuere magna ornare, nullam nostra dis sapien curae nisl quam ac ad nisi urna. Dui metus primis euismod habitant cubilia curabitur eu dapibus lectus, laoreet quam turpis duis proin ad convallis eleifend, lacinia tincidunt tempus et cras ut pellentesque lobortis. Nisi ante mus odio lacus congue sociosqu netus eu ornare, dictum convallis per nullam luctus ultricies diam tempus, erat litora quam fringilla vulputate consequat elementum pharetra.</p>
+        <div class="col-lg-8 offset-lg-2 col-md-8 col-sm-12">
+            <h2>INMO PRO es la proposta per a una plataforma lliure en transparencia de dades.
+            </h2>
+            <h4 class="mt-4">Coneix als desenvolupadors que creen INMO PRO.</h4>
+
+            <div class="row">
+                <div class="col-lg-6 mt-5 mb-4" style="max-width: 50%;">
+                    <div class="card">
+                        <img class="card-img-top" src="{{  asset('images/gerard.jpg') }}"
+                            style="width:100%;object-fit:cover; max-height: 450px;" alt="gerard">
+                        <div class="card-body">
+                            <h2 class="mt-5 mb-4 card-title">Gerard Guillen</h2>
+                            <h4 class="card-text text_center">BACKEND</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-5 mb-4">
+                    <div class="card">
+                        <img src="{{  asset('images/marcel.jpg') }}" style="width: 100%;object-fit:cover;" alt="marcel">
+                        <div class="card-body">
+                            <h2 class="mt-5 mb-4">Marcel Planas</h2>
+                            <h4 class="text_center">BACKEND</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 mt-5 mb-4">
+                    <div class="card">
+                        <img src="{{  asset('images/kevin.jpg') }}" style="width: 100%;object-fit:cover; height: 500px;"
+                            alt="kevin">
+                        <div class="card-body">
+                            <h2 class="mt-5 mb-4">Kevin Curtet</h2>
+                            <h4 class="text_center">PROJECT MANAGER</h4>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-6 mt-5 mb-4">
+                    <div class="card">
+                        <img src="{{  asset('images/ruben.jpg') }}" style="width: 100%;object-fit:cover; height: 500px;"
+                            alt="kevin">
+                        <div class="card-body">
+                            <h2 class="mt-5 mb-4">Ruben Idigora</h2>
+                            <h4 class="text_center">FRONTEND</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  
+
 </div>
 @endsection

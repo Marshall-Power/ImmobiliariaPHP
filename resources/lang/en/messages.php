@@ -127,4 +127,7 @@ return [
     'event_added' => 'Booked visit!',
     'new_event_added' => 'Visit booked for',
     'to' => 'to',
+    'rent' => 'Rent',
+    'buy' => 'Buy',
+    'no_zones_avaiable' => 'No zones avaiable',
 ];

@@ -1,4 +1,12 @@
 import $ from 'jquery'
+// Formating
+function thousands_separators(num)
+  {
+    var num_parts = num.toString().split(".");
+    num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    return num_parts.join(".");
+  }
+
 
 // Filters
 $(function () {
@@ -59,8 +67,8 @@ $(function () {
     max: valMap.length - 1,
     slide: function (event, ui) {
       //   $('#val').text(ui.value)
-      $('#price-val').text(valMap[ui.value])
-      $('#price').val(valMap[ui.value])
+      $('#price-val').text(thousands_separators(valMap[ui.value]));
+      $('#price').val(thousands_separators(valMap[ui.value]));
     }
   })
 

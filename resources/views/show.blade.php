@@ -18,10 +18,10 @@
     <div class="row">
         <div class="col-lg-3">
             @include('includes.filter')
-            @include('includes.suggestion')
+
         </div>
 
-        <div class="col-lg-8 ml-3 card" style="max-height: 1000px;padding:0;">
+        <div class="col-lg-8 ml-3 card" style="padding:0;">
 
 
 
@@ -57,7 +57,7 @@
             <div class="card mx-auto" style="max-height: 1000px;">
 
                 <div class="card-body details_show">
-                    <h5 class="card-title font-weight-bold">{{ floor($house->price) }} €</h5>
+                    <h5 class="card-title font-weight-bold">{{ number_format($house->price,0, ',','.') }} €</h5>
                     <div>
                         <h3 class="d-inline">{{ $house->name }}</h3>
                         <button type="button" class="btn btn-success d-inline-flex p-2 ml-2 mb-1" data-toggle="modal"
@@ -148,8 +148,14 @@
                     @endauth
                 </div>
             </div>
-        </div>
 
+                @include('includes.suggestion')
+        </div>
+<<<<<<< HEAD
+
+=======
+    </div>
+>>>>>>> b472570ccafae0d2c8320449b0a0c73247c74921
         <!-- Modal -->
         <div class="modal fade" id="modalmap" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
             aria-hidden="true">
@@ -166,6 +172,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary"
+<<<<<<< HEAD
                             data-dismiss="modal">@lang('messages.close')</button>
                     </div>
                 </div>
@@ -198,11 +205,15 @@
 
                             </div>
                         </div>
+=======
+                            data-dismiss="modal">{{trans('messages.close')}}</button>
+>>>>>>> b472570ccafae0d2c8320449b0a0c73247c74921
                     </div>
                 </div>
             </div>
         </div>
 
+<<<<<<< HEAD
         <div id="eventDialog" title="@lang('messages.event_added')">
         </div>
         @endsection
@@ -293,6 +304,11 @@
         });
         </script>
 
+=======
+        @endsection
+
+        @section('js')
+>>>>>>> b472570ccafae0d2c8320449b0a0c73247c74921
         <script>
             // Initialize and add the map
   function initMap() {
@@ -304,7 +320,11 @@
     var map = new google.maps.Map(
         document.getElementById('map'), {zoom: 16, center: pis});
     // The marker, positioned at the house
-      var marker = new google.maps.Marker({position: pis, map: map});
+      var marker = new google.maps.Marker({
+        position: pis,
+        map: map,
+        animation: google.maps.Animation.BOUNCE,
+        });
   }
         </script>
         @endsection
