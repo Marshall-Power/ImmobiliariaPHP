@@ -155,5 +155,33 @@ class HousesTableSeeder extends Seeder
         'parking' => true,
         'created_at' => now(),
       ]);
+
+      DB::table('houses')->insert([
+        'name' => 'Pis a emili grahit. Ammoblat',
+        'address' => 'c/ Emili Grahit, nº31',
+        'description_ca' => 'Pis al carrer emblemàtic de Emili Grahit 125 m². Consta de 4 habitacions (3 dobles i 1 individual), amb armaris encastats, 2 banys complets, cuina independent, sala menjador amb llar de foc i gran terrassa de 45 m². Terres de gres i parquet, tancaments d’alumini i de fusta, doble vidre i calefacció. Totalment moblada i equipada, a punt per entra-hi a viure. A 15 minuts de la RENFE. Amb pàrquing.',
+        'description_es' => 'Semi-reformada cada adosada de 125 m². Consta de 4 habitaciones (3 dobles y 1 individuales), con armarios empotrados, 2 baños completos, cocina independiente, sala de comedor con chimenea de fuego y gran terraza de 45 m². Suelos de gres y parqué, cierres de aluminio y de madera, doble vidio y calefacción. Totalmente amueblada y equipada, a punto para entrar a viviar. A 15 minutos de la RENFE. Con párking',
+        'latitude' => 42.3735542,
+        'longitude' => 2.9183898,
+        'zone_id' => 1,
+        'price' => 1100,
+        'size' => 125,
+        'rooms' => 4,
+        'bathrooms' => 2,
+        'furnished' => true,
+        'air_conditioner' => true,
+        'climate_id' => 3,
+        'elevator' => 0,
+        'employee_id' => 2,
+        'housetype_id' => 1,
+        'contract_id' => 1,
+        'date_published' => now(),
+        'available' => true,
+        'parking' => true,
+        'created_at' => now(),
+      ]);
+
+
+
     }
 }

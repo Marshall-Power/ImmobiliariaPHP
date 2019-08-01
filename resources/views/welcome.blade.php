@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('css')
+
 <style>
     /* Set the size of the div element that contains the map */
     #map {
@@ -16,7 +17,22 @@
     .font_house_title {
         font-family: 'Ubuntu', sans-serif;
     }
+
+    .card #detailsPhone
+    {
+        opacity: 0;
+        transition: opacity 200ms;
+
+    }
+
+    .card:hover #detailsPhone
+    {
+        opacity: 1;
+    }
+
+
 </style>
+
 @endsection
 @section('content')
 <div class="container">
@@ -50,7 +66,7 @@
                         <div class="card mb-4" style="min-height: 500px;">
                             <img class="card-img-top" style="max-height:250px;object-fit:cover;"
                                 src="{{ url('storage/' . $house->photos()->first()->path) }}" alt="{{ $house->name }}">
-                            <div class="card-body">
+                            <div class="card-body" id="card-body">
                                 <h5 class="font_house_title card-title">{{ $house->name }}</h5>
                                 <p class="card-text">
                                     @if(app()->getLocale() == "es")
@@ -59,9 +75,8 @@
                                     {{ str_limit($house->description_ca, $limit = 150, $end = '...') }}
                                     @endif
                                 </p>
-                                <div class="position-absolute p-4" style="bottom: 0; right: 0;">
-                                    <a href="{{ route('show', $house->id) }}" style="font-size: 1rem;"
-                                        class="btn btn-primary btn-lg">
+                                <div id="detailsPhone" class="position-absolute p-4" style="bottom: 0; right: 0;">
+                                    <a href="{{ route('show', $house->id) }}" style="font-size: 1rem;" class="btn btn-primary btn-lg">
                                         {{trans('messages.details')}}</a>
                                     <a class="btn btn-info text-white" href="tel:+34{{ $house->employee->phone }}">
                                         <i class="fas fa-phone-square-alt fa-2x" style="vertical-align: bottom;"></i>
@@ -87,6 +102,7 @@
 @endsection
 
 @section('js')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
     function initMap(){
         $.ajax({
@@ -154,5 +170,19 @@
     $(function() {
         toggleList();
     })
+
+$(document).ready(function(){
+    $("#card-body").mouseenter(function(){
+
+        $("#detailsPhone").addClass("show");
+
+    });
+    $("#card-body").mouseleave(function(){
+
+        $("#detailsPhone").removeClass("show");
+    });
+});
+
+
 </script>
 @endsection
