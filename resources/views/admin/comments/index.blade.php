@@ -1,4 +1,27 @@
 @extends('layouts.admin')
+@section('css')
+<style>
+  .hide{
+    display:none;
+  }
+  .show{
+    display:block;
+  }
+</style>
+@endsection
+@section('js')
+  <script>
+    function expand(min, max){
+      $('#' + min).hide();
+      $('#' + max).show();
+    }
+
+    function contract(min, max){
+      $('#' + min).show();
+      $('#' + max).hide();
+    }
+  </script>
+@endsection
 
 @section('admin')
 <div class="container">
@@ -22,7 +45,7 @@
         <td>{{ $comment->name }}</td>
         <td>{{ $comment->email }}</td>
         <td>{{ $comment->phone }}</td>
-        <td>{{ $comment->message }}</td>
+        <td><p class="show" id="minComment{{$loop->index}}">{{ str_limit($comment->message, $limit = 200, $end = '...') }}<button class="btn btn-link" onclick="expand('minComment{{$loop->index}}','maxComment{{$loop->index}}')"><i class="fas fa-angle-double-right"></i></button></p><p class="hide" id="maxComment{{$loop->index}}">{{$comment->message}} <button class="btn btn-link" onclick="contract('minComment{{$loop->index}}','maxComment{{$loop->index}}')"><i class="fas fa-angle-double-left"></i></button></p></td>
         <td>
         <a class="btn btn-block btn-primary" href="mailto:{{$comment->email}}">
               <i class="fas fa-reply"></i>
