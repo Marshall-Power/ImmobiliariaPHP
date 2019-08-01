@@ -8,7 +8,7 @@
 
     <form class="row">
         <div class="col-md-10 mb-2">
-            <input name="q" placeholder="{{ trans('messages.search_house') }}" type="text" class="form-control">
+            <input name="q" placeholder="{{ trans('messages.search_house') }}" type="text" class="form-control" value="{{ $q }}">
         </div>
         <div class="col">
             <button class="btn btn-block btn-success" type="submit">Buscar</button>
