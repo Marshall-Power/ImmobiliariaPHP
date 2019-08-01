@@ -439,6 +439,7 @@
         position: girona,
         map: map,
         draggable:true,
+        animation: google.maps.Animation.DROP,
         title: '{{trans('messages.move_me')}}'
         });
     }
