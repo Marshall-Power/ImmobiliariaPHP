@@ -97,7 +97,8 @@ return [
     'reset_password'=> 'Restableix la contrasenya',
     'description' => [
         'es' => 'Descripción ES',
-        'ca' => 'Descripció CA'
+        'ca' => 'Descripció CA',
+        'title' => "Detalls de la casa"
     ],
     'province' => 'Província',
     'parking' => 'Parking',
@@ -136,9 +137,6 @@ return [
     'not_found' => 'No em trobat resultats...',
     'no_comments' => 'No hi ha commentaris disponibles.',
     'about_us_comment' => "Empresa jove i treballadora que s'inicia en el món del desenvolupament web, creant una immobiliaria per trobar la casa dels teus somnis. Format per un equip de joves en busca de feina on poder apendre al máxim sobre aquest món en constant evolució. L'equip el formen en Kevin Curtet, Ruben Idigora, Marcel Planas i Gerard Guillen.",
-    'description' => [
-        'title' => "Detalls de la casa",
-    ],
     'features' => "Caracteristicas",
     'add_events' => "Agregar evento"
 ];
