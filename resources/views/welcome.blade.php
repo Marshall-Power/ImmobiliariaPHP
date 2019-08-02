@@ -84,8 +84,10 @@
                     @forelse ($houses as $house)
                     <div class="col-md-6">
                         <div class="card mb-4" style="min-height: 500px;">
-                            <img class="card-img-top" style="max-height:250px;object-fit:cover;"
-                                src="{{ $house->photos()->first()->path }}" alt="{{ $house->name }}">
+                            <a class="card-link" href="{{ route('show', $house->id) }}">
+                                <img class="card-img-top" style="max-height:250px;object-fit:cover;"
+                                    src="{{ $house->photos()->first()->path }}" alt="{{ $house->name }}">
+                            </a>
                             <div class="card-body" id="card-body">
                                 <h5 class="font_house_title card-title">{{ $house->name }}</h5>
                                 <p class="card-text">
