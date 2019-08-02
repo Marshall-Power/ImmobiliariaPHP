@@ -4,12 +4,7 @@
             <div class="col-md-4 d-flex justify-content-center align-items-center">
                 <div>
                     <h3>{{trans('messages.more_about_us')}}</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum nisi, architecto ipsum quo
-                        laboriosam tempora laudantium! Perspiciatis aperiam blanditiis sapiente sint in sunt nisi
-                        voluptatum
-                        quod! Repudiandae dolore sequi nemo. Sapiente doloremque numquam laborum perspiciatis libero
-                        dolorem
-                        nihil quia, itaque ullam, unde est quae. Eius?</p>
+                <p>{{trans('messages.about_us_comment')}}</p>
                 </div>
             </div>
             <div class="col-md-4">

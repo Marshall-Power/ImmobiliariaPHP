@@ -7,7 +7,7 @@
 <div class="container">
     <div class="card h-50">
         <div class="card-header bg-primary">
-            Calendario
+            {{trans('messages.calendar')}}
         </div>
         <div class="card-body">
             <div class="row">

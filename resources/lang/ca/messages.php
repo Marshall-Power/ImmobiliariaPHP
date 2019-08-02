@@ -134,5 +134,6 @@ return [
     'buy' => 'Comprar',
     'no_zones_avaiable' => 'No hi ha zones disponibles.',
     'not_found' => 'No em trobat resultats...',
-    'no_comments' => 'No hi ha commentaris disponibles.'
+    'no_comments' => 'No hi ha commentaris disponibles.',
+    'about_us_comment' => "Empresa jove i treballadora que s'inicia en el món del desenvolupament web, creant una immobiliaria per trobar la casa dels teus somnis. Format per un equip de joves en busca de feina on poder apendre al máxim sobre aquest món en constant evolució. L'equip el formen en Kevin Curtet, Ruben Idigora, Marcel Planas i Gerard Guillen."
 ];
