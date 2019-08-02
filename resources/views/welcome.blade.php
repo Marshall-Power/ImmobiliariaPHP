@@ -164,7 +164,7 @@
                     <div class='container text-align-left'>
                         <h5><u>${item.name}</u></h5>
                         <h6 class='text-muted'>${item.address}</h6>
-                        <p class="mb-1">${parseInt(item.price)} ${contr} ${item.size} m²</p>
+                        <p class="mb-1"><b style="color:red">${parseInt(item.price)}</b> ${contr} ${item.size} m²</p>
                         <p class="mb-1">${item.rooms} {{ trans('messages.rooms') }}</p>
                         <a href='/show/${item.id}' class='btn btn-primary'>{{ trans('messages.details') }}</a>
                     </div>`
