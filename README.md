@@ -10,12 +10,13 @@ Projecte PHP per el curs de la Fundació Esplai
 
 ## Instalar las dependencias
 
-```bash
-composer install
-php artisan key:generate
-php artisan migrate[:fresh] # Crear nuevas tablas | Borrar y crear
-php artisan db:seed # Agregar Fake Data
-```
+    ```bash
+    composer install
+    php artisan key:generate
+    php artisan migrate[:fresh] # Crear nuevas tablas | Borrar y crear
+    php artisan db:seed # agregar datos necesarios a la db
+    php artisan db:seed -class FakeDatabaseSeeder # Agregar Fake Data
+    ```
 
 ## Default Users
 
