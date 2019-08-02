@@ -34,8 +34,13 @@ class CreateHousesTable extends Migration
             $table->bigInteger('contract_id')->unsigned();
             $table->date('date_published')->default(now());
             $table->timestamps();
+
+            $table->foreign('zone_id')->references('id')->on('zones')->onDelete('CASCADE');
+            $table->foreign('employee_id')->references('id')->on('users')->onDelete('CASCADE');
         });
     }
+
+
 
     /**
      * Reverse the migrations.

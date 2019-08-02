@@ -22,9 +22,9 @@ class CreateEventsTable extends Migration
             $table->dateTime('end_date');
             $table->timestamps();
 
-            $table->foreign('house_id')->references('id')->on('houses');
-            $table->foreign('employee_id')->references('id')->on('users');
-            $table->foreign('client_id')->references('id')->on('users');
+            $table->foreign('house_id')->references('id')->on('houses')->onDelete('CASCADE');
+            $table->foreign('employee_id')->references('id')->on('users')->onDelete('CASCADE');
+            $table->foreign('client_id')->references('id')->on('users')->onDelete('CASCADE');
         });
     }
 
