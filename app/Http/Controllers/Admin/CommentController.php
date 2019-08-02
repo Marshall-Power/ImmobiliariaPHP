@@ -21,7 +21,7 @@ class CommentController extends Controller
       $data = [
           'name' => $request->name,
           'email' => $request->email,
-          'phone' => $request->phone,
+          'phone' => $request->phone ? $request->phone : '000000000',
           'message' => $request->message,
       ];
 
