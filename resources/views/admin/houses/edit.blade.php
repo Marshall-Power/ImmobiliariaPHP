@@ -364,6 +364,22 @@
 
                         </div>
 
+                        {{-- Name --}}
+                        <div class="form-group row">
+                                <label for="path" class="col-lg-2 col-form-label">{{trans('messages.path')}}</label>
+
+                                <div class="col-lg-10">
+                                    <input id="path" type="text" class="form-control @error('path') is-invalid @enderror"
+                                        path="path" value="{{ $house->photos()->first()->path }}" required autocomplete="path" autofocus>
+
+                                    @error('path')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
                         <div class="form-group mb-0">
                             <div class="float-right">
                                 <button type="submit" class="btn btn-primary">

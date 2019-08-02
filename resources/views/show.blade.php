@@ -27,15 +27,16 @@
 
             <div id="carouselShow" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
-                    <li data-target="#carouselShow" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselShow" data-slide-to="1"></li>
-                    <li data-target="#carouselShow" data-slide-to="2"></li>
+
+                    @foreach ($house->photos as $key => $image)
+                    <li data-target="#carouselShow" data-slide-to="{{ $key }}" @if($key == 0) class="active" @endif></li>
+                    @endforeach
                 </ol>
                 <div class="carousel-inner">
                     @forelse ($house->photos as $key => $image)
                     <div class="carousel-item @if($key == 0) active @endif">
                         <img class="d-block w-100" height="400" style="object-fit:cover;"
-                            src="{{ url('storage/' . $image->path) }}" alt="{{ $image->name }}">
+                            src="{{ $image->path }}" alt="{{ $image->name }}">
                     </div>
                     @empty
                     <div class="carousel-item active">
@@ -261,7 +262,7 @@
                 let event = {
                     "house_id": '{{ $house->id }}',
                     "employee_id": '{{ $house->employee->id }}',
-                    "client_id": '{{ auth()->user()->id }}',
+                    "client_id":  '',
                     "start_date": moment(date).hour(hour).format(),
                     "end_date": moment(date).hour(hour).add(1, 'hours').format(),
                 }

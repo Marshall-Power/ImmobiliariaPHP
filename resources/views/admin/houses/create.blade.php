@@ -405,8 +405,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="images" class="mr-2">@lang('messages.images')</label>
-                            <input type="file" name="images[]" multiple>
+                            <label for="path" class="mr-2">@lang('messages.images')</label>
+                            <input type="input" name="path">
                         </div>
 
                         <div class="form-group mb-0">
@@ -416,7 +416,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ trans('messages.send') }}
                                 </button>
-                                
+
                             </div>
                         </div>
                     </form>

@@ -83,20 +83,11 @@ class HouseController extends Controller
         $data["furnished"] = $request->filled('furnished');
 
         $house = House::create($data);
-
-        if($request->hasFile('images')) {
-            foreach($request->file('images') as $key => $image) {
-                $path = $image->store('images', [
-                    'disk' => 'public'
-                ]);
-
-                Photo::create([
-                    'house_id' => $house->id,
-                    'path' => $path
-                ]);
-
-                if ($key == 3) break;
-            }
+        if ($request->has('path')) {
+            Photo::create([
+                'house_id' => $house->id,
+                'path' => $request->path
+            ]);
         }
 
         return redirect()->route('admin.houses.index')->with('flash', trans('messages.new_house_added'));
@@ -152,6 +143,15 @@ class HouseController extends Controller
         $validator["furnished"] = $request->furnished ? true : false;
         $house = House::findOrFail($id);
         $house->update($validator);
+
+        if ($request->has('path')) {
+            $images = Photo::where('house_id')->update([
+                'path' => $request->path
+            ]);
+            // $image->update([
+            //     'path' => $request->path
+            // ]);
+        }
 
         return redirect()->route('admin.houses.show', $id)->with('flash', trans('messages.changes_saved'));
 

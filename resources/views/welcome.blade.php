@@ -16,7 +16,7 @@
         padding: 10px;
         margin: 10px;
         border: 3px solid #000;
-        
+
       }
       #legend h3 {
         margin-top: 0;
@@ -85,7 +85,7 @@
                     <div class="col-md-6">
                         <div class="card mb-4" style="min-height: 500px;">
                             <img class="card-img-top" style="max-height:250px;object-fit:cover;"
-                                src="{{ url('storage/' . $house->photos()->first()->path) }}" alt="{{ $house->name }}">
+                                src="{{ $house->photos()->first()->path }}" alt="{{ $house->name }}">
                             <div class="card-body" id="card-body">
                                 <h5 class="font_house_title card-title">{{ $house->name }}</h5>
                                 <p class="card-text">
@@ -208,15 +208,15 @@
                     });
 
                     marker.setMap(map);
-                    
-                    
+
+
                     var legend = document.getElementById('legend');
                     legend.innerHTML = "<img class='markerimg' src='http://maps.google.com/mapfiles/kml/paddle/red-circle.png'> "  + '{{trans('messages.rent')}}' + "<br>";
                     legend.innerHTML += "<img class='markerimg' src='http://maps.google.com/mapfiles/kml/paddle/blu-circle.png'> "  + '{{trans('messages.buy')}}' ;
                     map.controls[google.maps.ControlPosition.TOP_CENTER].push(legend);
-                    
+
                 });
-                
+
 
       }
 
