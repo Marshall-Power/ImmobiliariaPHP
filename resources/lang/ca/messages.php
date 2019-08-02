@@ -140,4 +140,5 @@ return [
         'title' => "Detalls de la casa",
     ],
     'features' => "Caracteristicas",
+    'add_events' => "Agregar evento"
 ];

@@ -137,5 +137,6 @@ return [
     'description' => [
         'title' => "House Details",
     ],
+    'add_event' => "Add New Reserve",
     'features' => "Features",
 ];

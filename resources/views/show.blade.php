@@ -262,7 +262,7 @@
                 let event = {
                     "house_id": '{{ $house->id }}',
                     "employee_id": '{{ $house->employee->id }}',
-                    "client_id":  '',
+                    "client_id":  '3',
                     "start_date": moment(date).hour(hour).format(),
                     "end_date": moment(date).hour(hour).add(1, 'hours').format(),
                 }

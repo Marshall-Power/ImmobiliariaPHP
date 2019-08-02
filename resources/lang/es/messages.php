@@ -141,5 +141,6 @@ return [
         'title' => "Detalles de la casa",
     ],
     'features' => "Caracteristicas",
+    'add_event' => "Pedir una Cita"
 
 ];
