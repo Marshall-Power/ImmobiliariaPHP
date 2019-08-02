@@ -14,10 +14,15 @@ class ProvinceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $provinces = Province::get();
-        return view('admin.provinces.index', compact('provinces'));
+        $provinces = Province::where(function ($query) use ($request) {
+            if($request->has('q')) {
+                $query->where('name', 'like', $request->q . '%');
+            }
+        })->get();
+        $q = $request->q;
+        return view('admin.provinces.index', compact('provinces', 'q'));
     }
 
     /**
