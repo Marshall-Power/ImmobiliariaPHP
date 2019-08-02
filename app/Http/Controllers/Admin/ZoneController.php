@@ -18,7 +18,7 @@ class ZoneController extends Controller
     {
         $zones = Zone::where(function ($query) use ($request) {
             if ($request->has('q')) {
-                $query->where('name', 'like', $request->q);
+                $query->where('name', 'like', $request->q . '%');
             }
         });
         $provinces = Province::get();
