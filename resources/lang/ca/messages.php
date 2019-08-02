@@ -67,7 +67,7 @@ return [
     'housetype' => "Tipus d'immoble",
     'contract' => 'Contracte',
     'elevator' => 'Ascensor',
-    'air_conditioner' => 'Aire acondiciont',
+    'air_conditioner' => 'Aire acondicionat',
     'available' => 'Disponible',
     'add_province' => 'Afegir Provincia',
     'edit_province' => 'Editar Provincia',
