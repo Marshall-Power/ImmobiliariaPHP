@@ -44,7 +44,7 @@
         @else
         <div class="col-md-4">
             <a class="box" href="{{ route('admin.calendar') }}">
-                {{ count([]) }} {{ trans('messages.events') }}
+                {{ count([]) }} {{ trans('messages.calendar') }}
             </a>
         </div>
         @endif
