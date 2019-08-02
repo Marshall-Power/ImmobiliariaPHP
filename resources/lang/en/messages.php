@@ -126,11 +126,12 @@ return [
     'booking' => 'Book a visit',
     'select_day' => 'Select a day.',
     'avail_hours' => 'Available Hours:',
-    'event_added' => 'Booked visit!',
+    'event_added' => 'Visit booked!',
     'new_event_added' => 'Visit booked for',
     'to' => 'to',
     'rent' => 'Rent',
     'buy' => 'Buy',
     'no_zones_avaiable' => 'No zones available',
-    'not_found' => 'No results available...'
-];
+    'not_found' => 'No results available...',
+    'about_us_comment' => "Young startup with working people that starts it's journey in the world of web developement by creating a website to look for the home of your dreams. The team is a young group of studends looking for a job where to learn the most about this world in constant evolution. The team consists of Kevin Curtet, Ruben Idigora, Marcel Planas and Gerard Guillen."
+];                        
