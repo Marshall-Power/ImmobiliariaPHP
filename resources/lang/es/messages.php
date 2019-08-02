@@ -136,6 +136,6 @@ return [
     'no_zones_avaiable' => 'No hay zonas disponibles',
     'not_found' => 'No hay resultados...',
     'no_comments' => 'No hay commentarios.',
-    'about_us_comment' => "Empresa joven y trabajadora que se inicia en el mundo del desarrollo web, creando una immobiliaria para encontrar el hogar de tus sueños. Formado por un equipo de jovenes en busca de trabajo on poder aprender el máximo sobre este mundo en constante evolución. El equipo está formado por Kevin Curtet, Ruben Idigora, Marcel Planas i Gerard Guillen."
-
+    'about_us_comment' => "Empresa joven y trabajadora que se inicia en el mundo del desarrollo web, creando una immobiliaria para encontrar el hogar de tus sueños. Formado por un equipo de jovenes en busca de trabajo on poder aprender el máximo sobre este mundo en constante evolución. El equipo está formado por Kevin Curtet, Ruben Idigora, Marcel Planas i Gerard Guillen.",
+    'description_title' => "Detalles de la casa",
 ];
