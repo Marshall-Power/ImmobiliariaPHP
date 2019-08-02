@@ -50,7 +50,7 @@
                     <div class="carousel-item @if($key == 0) active @endif">
                         <img class="d-block w-100" height="600"
                             style="object-fit:cover;"
-                            src="{{ url('/storage/' . $image->path) }}"
+                            src="{{ $image->path }}"
                             alt="{{ $image->name }}">
                     </div>
                     @endforeach
