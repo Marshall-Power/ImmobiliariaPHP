@@ -18,11 +18,16 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::get();
+
+        $users = User::where(function ($query) use ($request) {
+            $query->where('name', 'like', $request->input('q') . '%');
+        })->get();
+        $q = $request->q;
         $usertypes = UserType::get();
-        return view('admin.users.index', compact('users', 'usertypes'));
+
+        return view('admin.users.index', compact('users', 'q', 'usertypes'));
     }
 
     /**

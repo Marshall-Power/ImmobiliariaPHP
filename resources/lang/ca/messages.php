@@ -81,7 +81,8 @@ return [
         'contracts' => 'No hi ha contractes disponibles.',
         'employees' => 'No hi ha empleats disponibles.',
         'users' => 'No hi ha usuaris disponibles.',
-        'houses' => 'No hi ha inmobles disponibles'
+        'houses' => 'No hi ha inmobles disponibles',
+        'provinces' => 'No hi ha provincies disponibles'
     ],
     'photos' => 'Imatges',
     'add_zone' => 'Afegir Zona',
@@ -131,7 +132,7 @@ return [
     'to' => 'fins les',
     'rent' => 'Alquilar',
     'buy' => 'Comprar',
-    'no_zones_avaiable' => 'No hi ha zones disponibles',
-    'not_found' => 'No em trobat resultats...
-    '
+    'no_zones_avaiable' => 'No hi ha zones disponibles.',
+    'not_found' => 'No em trobat resultats...',
+    'no_comments' => 'No hi ha commentaris disponibles.'
 ];

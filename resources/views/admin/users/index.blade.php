@@ -6,6 +6,14 @@
     <div class="mb-4">
         <h1 class="text-center">{{ trans('messages.users') }}</h1>
     </div>
+    <form class="row">
+        <div class="col-md-10 mb-2">
+            <input name="q" placeholder="{{ trans('messages.search_house') }}" type="text" class="form-control" value="{{ $q }}">
+        </div>
+        <div class="col">
+            <button class="btn btn-block btn-success" type="submit">Buscar</button>
+        </div>
+    </form>
     <table class="table table-hover table-striped">
         <thead class="thead-dark">
             <th scope="col">#</th>
@@ -50,7 +58,7 @@
             </tr>
             @empty
             <tr>
-                <td colspan="3">@lang('messages.no_users')</td>
+                <td colspan="6">@lang('messages.empty.users')</td>
             </tr>
             @endforelse
         </tbody>

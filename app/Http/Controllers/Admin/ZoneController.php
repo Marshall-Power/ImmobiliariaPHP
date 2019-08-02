@@ -14,12 +14,17 @@ class ZoneController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $zones = Zone::get();
+        $zones = Zone::where(function ($query) use ($request) {
+            if ($request->has('q')) {
+                $query->where('name', 'like', $request->q);
+            }
+        });
         $provinces = Province::get();
+        $q = $request->q;
 
-        return view('admin.zones.index', compact('zones','provinces'));
+        return view('admin.zones.index', compact('zones','provinces', 'q'));
     }
 
     /**

@@ -7,6 +7,14 @@
             {{ trans('messages.provinces_title') }}
         </h1>
     </div>
+    <form class="row">
+        <div class="col-md-10 mb-2">
+            <input name="q" placeholder="{{ trans('messages.search_house') }}" type="text" class="form-control" value="{{ $q }}">
+        </div>
+        <div class="col">
+            <button class="btn btn-block btn-success" type="submit">Buscar</button>
+        </div>
+    </form>
     <table class="table table-hover table-striped">
         <thead class="thead-dark">
             <tr>
@@ -51,7 +59,7 @@
             </tr>
             @empty
             <tr>
-                <td>
+                <td colspan="4">
                     {{ trans('messages.empty.provinces') }}
                 </td>
             </tr>

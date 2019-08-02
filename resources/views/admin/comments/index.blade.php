@@ -68,7 +68,7 @@
     </tr>
     @empty
     <tr>
-        <td colspan="3">@lang('messages.no_comments')</td>
+        <td colspan="6">@lang('messages.no_comments')</td>
     </tr>
     @endforelse
 </tbody>

@@ -81,7 +81,9 @@ return [
         'contracts' => 'No hay contratos disponibles.',
         'employees' => 'No hay empleados disponibles.',
         'users' => 'No hay usuarios disponibles.',
-        'houses' => 'No hay inmuebles disponibles.'
+        'houses' => 'No hay inmuebles disponibles.',
+        'provinces' => 'No hay provincias disponibles'
+
     ],
     'photos' => 'Imagenes',
     'add_zone' => 'Agregar Zona',
@@ -132,6 +134,7 @@ return [
     'rent' => 'Alquilar',
     'buy' => 'Comprar',
     'no_zones_avaiable' => 'No hay zonas disponibles',
-    'not_found' => 'No hay resultados...'
+    'not_found' => 'No hay resultados...',
+    'no_comments' => 'No hay commentarios.'
 
 ];

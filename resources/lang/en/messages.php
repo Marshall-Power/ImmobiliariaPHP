@@ -80,6 +80,8 @@ return [
         'contracts' => 'No contract available.',
         'employees' => 'No agents available.',
         'users' => 'No users available.',
+        'houses' => 'No houses available',
+        'provinces' => 'No provincies available'
     ],
     'photos' => 'Pictures',
     'add_zone' => 'Add Zone',
