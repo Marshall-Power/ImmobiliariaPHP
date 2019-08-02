@@ -20,7 +20,7 @@ class ZoneController extends Controller
             if ($request->has('q')) {
                 $query->where('name', 'like', $request->q . '%');
             }
-        });
+        })->get();
         $provinces = Province::get();
         $q = $request->q;
 
@@ -47,12 +47,11 @@ class ZoneController extends Controller
      */
     public function store(Request $request)
     {
-        $data = [
+        $zone = Zone::create([
             'name' => $request->name,
             'postal_code' => $request->postal_code,
             'province_id' => $request->province,
-                ];
-        $zone = Zone::create($data);
+        ]);
         return redirect()->route('admin.zones.index');
     }
 
