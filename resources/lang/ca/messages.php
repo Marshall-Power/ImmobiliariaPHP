@@ -138,5 +138,6 @@ return [
     'no_comments' => 'No hi ha commentaris disponibles.',
     'about_us_comment' => "Empresa jove i treballadora que s'inicia en el món del desenvolupament web, creant una immobiliaria per trobar la casa dels teus somnis. Format per un equip de joves en busca de feina on poder apendre al máxim sobre aquest món en constant evolució. L'equip el formen en Kevin Curtet, Ruben Idigora, Marcel Planas i Gerard Guillen.",
     'features' => "Caracteristicas",
-    'add_events' => "Agregar evento"
+    'add_events' => "Agregar evento",
+    'image' => 'Url de la imatge:',
 ];
