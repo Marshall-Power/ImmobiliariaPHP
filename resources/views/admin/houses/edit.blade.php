@@ -366,7 +366,7 @@
 
                         {{-- Name --}}
                         <div class="form-group row">
-                                <label for="path" class="col-lg-2 col-form-label">{{trans('messages.path')}}</label>
+                                <label for="path" class="col-lg-2 col-form-label">{{trans('messages.image')}}</label>
 
                                 <div class="col-lg-10">
                                     <input id="path" type="text" class="form-control @error('path') is-invalid @enderror"
@@ -382,11 +382,11 @@
 
                         <div class="form-group mb-0">
                             <div class="float-right">
+                                <a class="btn btn-secondary"
+                                    href="{{ route('admin.houses.index') }}">{{ trans('messages.back') }}</a>
                                 <button type="submit" class="btn btn-primary">
                                     {{ trans('messages.send') }}
                                 </button>
-                                <a class="btn btn-secondary"
-                                    href="{{ route('admin.houses.index') }}">{{ trans('messages.back') }}</a>
                             </div>
                         </div>
                     </form>

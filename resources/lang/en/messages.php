@@ -134,5 +134,8 @@ return [
     'no_zones_avaiable' => 'No zones available',
     'not_found' => 'No results available...',
     'about_us_comment' => "Young startup with working people that starts it's journey in the world of web developement by creating a website to look for the home of your dreams. The team is a young group of studends looking for a job where to learn the most about this world in constant evolution. The team consists of Kevin Curtet, Ruben Idigora, Marcel Planas and Gerard Guillen.",
-    'description_title' => "House Details",
+    'description' => [
+        'title' => "House Details",
+    ],
+    'features' => "Features",
 ];
