@@ -15,17 +15,17 @@
             <h4 class="mt-4">Coneix als desenvolupadors que creen INMO PRO.</h4>
 
             <div class="row">
-                <div class="col-lg-6 mt-5 mb-4" style="max-width: 50%;">
+                <div class="col-md-6 mt-5 mb-4">
                     <div class="card">
                         <img class="card-img-top" src="{{  asset('images/gerard.jpg') }}"
-                            style="width:100%;object-fit:cover; max-height: 450px;" alt="gerard">
+                            style="width:100%;object-fit:cover;" alt="gerard">
                         <div class="card-body">
                             <h2 class="mt-5 mb-4 card-title">Gerard Guillen</h2>
                             <h4 class="card-text text_center">BACKEND</h4>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 mt-5 mb-4">
+                <div class="col-md-6 mt-5 mb-4">
                     <div class="card">
                         <img src="{{  asset('images/marcel.jpg') }}" style="width: 100%;object-fit:cover;" alt="marcel">
                         <div class="card-body">
@@ -34,7 +34,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 mt-5 mb-4">
+                <div class="col-md-6 mt-5 mb-4">
                     <div class="card">
                         <img src="{{  asset('images/kevin.jpg') }}" style="width: 100%;object-fit:cover; height: 500px;"
                             alt="kevin">
@@ -46,7 +46,7 @@
                 </div>
 
 
-                <div class="col-lg-6 mt-5 mb-4">
+                <div class="col-md-6 mt-5 mb-4">
                     <div class="card">
                         <img src="{{  asset('images/ruben.jpg') }}" style="width: 100%;object-fit:cover; height: 500px;"
                             alt="kevin">
